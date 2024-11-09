@@ -6,6 +6,10 @@ module.exports = {
 			colors: {
 				primary: "#7047EB",
 			},
+			fontFamily: {
+				courgette: ["Courgette", "cursive"],
+				quicksand: ["Quicksand", "sans-serif"],
+			},
 		},
 	},
 	plugins: [],

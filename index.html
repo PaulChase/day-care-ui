@@ -5,12 +5,93 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Home Page</title>
 		<link rel="stylesheet" href="./dist/app.css" />
+
+		<!-- fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+
+		<style>
+			body {
+				font-family: "SF Pro Display", sans-serif;
+			}
+		</style>
 	</head>
-	<body>
-		<div class="bg-lime-500">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eligendi blanditiis deleniti culpa perspiciatis
-			voluptatum reprehenderit minima. Cumque dolor dolore perspiciatis architecto, accusamus, voluptas perferendis
-			impedit corrupti at voluptates repellendus.
-		</div>
+
+	<body class="pt-6">
+		<!-- navbar -->
+		<nav
+			class="max-w-5xl mx-auto flex items-center justify-between border-4 border-gray-200 border-double rounded-xl p-4"
+		>
+			<img src="/images/Logo.png" alt="" />
+
+			<ul class="flex items-center gap-4 text-sm">
+				<li>
+					<a href="#">About</a>
+				</li>
+				<li>
+					<a href="#">Features</a>
+				</li>
+				<li>
+					<a href="#">Pricing</a>
+				</li>
+				<li>
+					<a href="#">FAQ's</a>
+				</li>
+				<li>
+					<a href="#">Contact</a>
+				</li>
+			</ul>
+
+			<div class="flex items-center gap-x-2">
+				<a href="">
+					<button type="button" class="primary-btn bg-gray-100 text-black border-gray-300">Login</button>
+				</a>
+				<a href="#">
+					<button type="button" class="primary-btn">Get Started</button>
+				</a>
+			</div>
+		</nav>
+		<!-- navbar end -->
+
+		<!-- hero section -->
+		<header class="max-w-7xl mx-auto mt-10">
+			<div class="relative">
+				<img src="/images/Element 5.png" alt="" class="absolute left-16 top-1" />
+				<img src="/images/Element 7.png" alt="" class="absolute right-8 top-10" />
+				<img src="/images/Element 6.png" alt="" class="absolute left-8 -bottom-10" />
+				<img src="/images/spiral.png" alt="" class="absolute right-56 top-40" />
+				<img src="/images/Element 8.png" alt="" class="absolute right-24 -bottom-20" />
+				<div class="relative z-10">
+					<h2 class="text-7xl font-bold max-w-2xl text-center mx-auto font-quicksand leading-[5rem]">
+						Managing your <span class="font-courgette text-[#704FE6] underline">Daycare</span> has never been this
+						<span class="text-[#FFB802] font-courgette underline">Easy</span>
+					</h2>
+
+					<p class="text-gray-600 max-w-xl mx-auto text-center text-lg mt-8">
+						Streamline your daycare’s daily operations, keep parents connected, and focus more on what matters—caring
+						for the kids.
+					</p>
+
+					<div class="flex items-center gap-x-4 mt-12 mx-auto w-fit">
+						<a href="">
+							<button type="button" class="sec-btn py-3 text-base">Book a Demo</button>
+						</a>
+						<a href="#">
+							<button type="button" class="primary-btn py-3 text-base">Start a Free trial</button>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="mt-16 mx-auto relative z-10 w-fit">
+				<img src="/images/dashboard.png" alt="" class="" />
+				<img src="/images/Element 4.png" alt="" class="absolute -right-20 -bottom-24" />
+			</div>
+		</header>
 	</body>
 </html>
