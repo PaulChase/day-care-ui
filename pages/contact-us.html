@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contact Us Page</title>
+		<link rel="stylesheet" href="../dist/app.css" />
+		<!-- fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+
+		<!-- font awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+			integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<!-- swiper js -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+		<style>
+			body {
+				font-family: "SF Pro Display", sans-serif;
+			}
+		</style>
+
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+	</head>
+
+	<body class="pt-6">
+		<!-- navbar -->
+		<nav
+			class="max-w-5xl mx-auto flex items-center justify-between border-4 border-gray-200 border-double rounded-xl p-4"
+		>
+			<img src="/images/Logo.png" alt="" />
+
+			<ul class="flex items-center gap-4 text-base">
+				<li>
+					<a href="#">About</a>
+				</li>
+				<li>
+					<a href="#">Features</a>
+				</li>
+				<li>
+					<a href="#">Pricing</a>
+				</li>
+				<li>
+					<a href="#">FAQ's</a>
+				</li>
+				<li>
+					<a href="#">Contact</a>
+				</li>
+			</ul>
+
+			<div class="flex items-center gap-x-2">
+				<a href="">
+					<button type="button" class="primary-btn bg-gray-100 text-black border-gray-300">Login</button>
+				</a>
+				<a href="#">
+					<button type="button" class="primary-btn">Get Started</button>
+				</a>
+			</div>
+		</nav>
+		<!-- navbar end -->
+
+		<!-- 1st section -->
+		<section class="mx-auto py-20 relative mb-60">
+			<img src="/images/Contact us/bg.png" alt="" class="absolute top-36 left-0" />
+
+			<div class="relative z-20">
+				<div class="text-center">
+					<h4 class="text-primary uppercase text-lg font-medium">Contact Us</h4>
+
+					<h2 class="text-5xl font-bold font-quicksand leading-[3.5rem] mt-2">
+						Please use the Form <br />
+						Below to
+						<span class="font-courgette text-[#704FE6]">Reach Us</span>
+					</h2>
+				</div>
+
+				<div class="bg-white max-w-xl mx-auto p-4 rounded-xl border-4 border-double border-gray-300 mt-12">
+					<form action="" class="space-y-4">
+						<div>
+							<label for="name" class="input-label">Name</label>
+							<input type="text" id="name" placeholder="John Doe" class="input-field" />
+						</div>
+						<div>
+							<label for="email" class="input-label">Email</label>
+							<input type="email" id="email" placeholder="john@test.com" class="input-field" />
+						</div>
+						<div>
+							<label for="phone" class="input-label">Phone</label>
+							<input type="tel" id="phone" placeholder="+234 123 456 7890" class="input-field" />
+						</div>
+						<div>
+							<label for="message" class="input-label">Message</label>
+							<textarea
+								name="message"
+								id="message"
+								rows="4"
+								placeholder="Type your message here..."
+								class="input-field"
+							></textarea>
+						</div>
+
+						<button type="submit" class="primary-btn text-base w-full">Send Message</button>
+					</form>
+				</div>
+			</div>
+		</section>
+
+		<!-- end 1st section -->
+
+		<!-- 2nd section -->
+		<section class="py-20">
+			<div class="text-center">
+				<h2 class="text-5xl font-bold font-quicksand leading-[3.5rem] mt-2">
+					We Welcome Your <br />
+					Questions and Feedback
+				</h2>
+
+				<p class="max-w-lg mx-auto text-gray-600 mt-4">
+					We’d love to hear from you! If you have any questions, feedback, or need assistance, please reach out.
+				</p>
+			</div>
+
+			<div class="space-y-6 mt-16 mx-auto max-w-lg text-center">
+				<div class="bg-white p-4 border-4 border-double border-gray-200 rounded-xl max-w-lg">
+					<span class="fa fa-envelope text-primary text-2xl"></span>
+
+					<h3 class="text-lg font-semibold mt-1">Email</h3>
+
+					<p class="text-gray-600 mt-2">support@test.com</p>
+				</div>
+
+				<div class="bg-white p-4 border-4 border-double border-gray-200 rounded-xl max-w-lg">
+					<span class="fa fa-location text-primary text-2xl"></span>
+
+					<h3 class="text-lg font-semibold mt-1">Address</h3>
+
+					<p class="text-gray-600 mt-2">We continuously evolve to meet the changing needs of the childcare industry.</p>
+				</div>
+
+				<div class="bg-white p-4 border-4 border-double border-gray-200 rounded-xl max-w-lg">
+					<span class="fa fa-phone text-primary text-2xl"></span>
+
+					<h3 class="text-lg font-semibold mt-1">Phone Number:</h3>
+
+					<p class="text-gray-600 mt-2">+234 123 456 7890</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- footer -->
+		<footer class="pt-12 pb-8">
+			<div class="max-w-7xl mx-auto">
+				<img src="/images/Logo.png" alt="" class="mx-auto" />
+
+				<ul class="flex items-center gap-4 text-lg mx-auto w-fit mt-6">
+					<li>
+						<a href="#">About</a>
+					</li>
+					<li>
+						<a href="#">Features</a>
+					</li>
+					<li>
+						<a href="#">Pricing</a>
+					</li>
+					<li>
+						<a href="#">FAQ's</a>
+					</li>
+					<li>
+						<a href="#">Contact</a>
+					</li>
+				</ul>
+
+				<hr class="mt-6" />
+
+				<div class="mt-4 flex items-center justify-between">
+					<h5>&copy; 2022 Daycare Management. All rights reserved.</h5>
+
+					<ul class="flex items-center gap-4 text-base">
+						<li>
+							<a href="#">Terms</a>
+						</li>
+						<li>
+							<a href="#">Privacy</a>
+						</li>
+						<li>
+							<a href="#">Cookies</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+		<!-- end footer -->
+
+		<script>
+			const data = [
+				{
+					question: "How secure is the parent-teacher communication system?",
+					answer:
+						"Our system uses end-to-end encryption for all messages and media shared between parents and teachers. We comply with COPPA and other relevant data protection regulations to ensure the safety of all communications.",
+					isOpen: false,
+				},
+				{
+					question: "Can I track my child's daily activities and meals?",
+					answer:
+						"Yes! Our system provides real-time updates on your child's activities, meals, naps, and learning progress through an easy-to-use dashboard. You can also receive notifications for important updates.",
+					isOpen: false,
+				},
+				{
+					question: "How does the billing and payment system work?",
+					answer:
+						"We offer automated monthly billing with multiple payment options including credit cards and ACH transfers. Parents can view detailed invoices, set up automatic payments, and access payment history anytime.",
+					isOpen: false,
+				},
+				{
+					question: "Is there a mobile app available?",
+					answer:
+						"Yes, we have both iOS and Android apps available. The mobile app provides all the features of the web platform, including real-time notifications, activity tracking, and communication tools.",
+					isOpen: false,
+				},
+				{
+					question: "How do you handle attendance tracking?",
+					answer:
+						"Our system includes digital check-in/check-out features with unique PIN codes for authorized pickups. Staff can easily track attendance, late arrivals, and early departures with detailed reporting.",
+					isOpen: false,
+				},
+				{
+					question: "What kind of support do you offer?",
+					answer:
+						"We provide 24/7 technical support through email, chat, and phone. Our team also offers free training sessions for staff and maintains detailed documentation for all features.",
+					isOpen: false,
+				},
+			];
+		</script>
+	</body>
+</html>
