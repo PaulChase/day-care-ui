@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login & SignUp Page</title>
+		<link rel="stylesheet" href="/dist/app.css" />
+		<!-- fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+
+		<!-- font awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+			integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<!-- swiper js -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+		<style>
+			body {
+				font-family: "SF Pro Display", sans-serif;
+			}
+		</style>
+
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+	</head>
+
+	<body class="pt-6">
+		<!-- navbar -->
+		<nav class="max-w-7xl p-4 mx-auto">
+			<img src="/images/Logo.png" alt="" />
+		</nav>
+		<!-- navbar end -->
+
+		<img src="/images/auth-bg.png" alt="" class="absolute top-0 right-0 w-3/5" />
+
+		<!-- main section-->
+		<main class="relative">
+			<div class="max-w-7xl mx-auto relative z-20 h-[80vh] flex items-center justify-start" x-data="{type: 'signup'}">
+				<div class="w-[28rem]">
+					<h4
+						class="text-3xl font-quicksand font-bold text-center"
+						x-text="type === 'signup' ? 'Create Account' : 'Welcome back'"
+					></h4>
+
+					<p
+						class="text-base text-gray-600 mt-2 text-center"
+						x-text="type === 'signup' ? 'Start your 30 days free trial. Cancel anytime.' : 'Glad to see you again. log in your account'"
+					></p>
+
+					<!-- toggle form -->
+					<div class="w-full mx-auto bg-gray-100 p-1 rounded-lg grid grid-cols-2 gap-2 mt-6 text-sm">
+						<button
+							type="button"
+							class="rounded-md"
+							:class="type == 'signin' && ' bg-white p-3 font-semibold border border-gray-200'"
+							@click="type = 'signin'"
+						>
+							Sign In
+						</button>
+						<button
+							type="button"
+							class="rounded-md"
+							:class="type == 'signup' && ' bg-white p-3 font-semibold border border-gray-200'"
+							@click="type = 'signup'"
+						>
+							Sign Up
+						</button>
+					</div>
+					<!-- toggle form end -->
+
+					<!-- sign in form -->
+					<form action="" class="mt-6" x-show="type == 'signin'" x-cloak>
+						<div>
+							<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+								>Email</label
+							>
+							<div class="flex">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="size-4"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+										/>
+									</svg>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+									placeholder="johndoe@test.com"
+								/>
+							</div>
+						</div>
+
+						<div class="mt-4">
+							<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+								>Password</label
+							>
+							<div class="flex">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="size-4"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z"
+										/>
+									</svg>
+								</span>
+								<input
+									type="password"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+									placeholder="********"
+								/>
+							</div>
+						</div>
+
+						<div class="flex items-center justify-between mt-2">
+							<div class="flex items-center">
+								<input
+									id="checkbox-1"
+									type="checkbox"
+									value=""
+									class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+								/>
+								<label for="checkbox-1" class="ms-2 text-sm text-gray-800 dark:text-gray-300">Keep me Logged In </label>
+							</div>
+
+							<a href="#" class="text-sm font-medium text-primary"> Forgot Password </a>
+						</div>
+
+						<button type="submit" class="primary-btn w-full mt-8 disabled:bg-opacity-50 disabled:border-0"">Sign In</button>
+					</form>
+
+					<!-- sign up form -->
+					<form action="" class="mt-6" x-show="type == 'signup'" x-cloak>
+						<div>
+							<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+								>Full Name</label
+							>
+							<div class="flex">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="size-4"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+										/>
+									</svg>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+									placeholder="John Doe"
+								/>
+							</div>
+						</div>
+
+						<div class="mt-4">
+							<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+								>Email</label
+							>
+							<div class="flex">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="size-4"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+										/>
+									</svg>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+									placeholder="johndoe@test.com"
+								/>
+							</div>
+						</div>
+
+						<div class="mt-4">
+							<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+								>Password</label
+							>
+							<div class="flex">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="size-4"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z"
+										/>
+									</svg>
+								</span>
+								<input
+									type="password"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+									placeholder="********"
+								/>
+							</div>
+						</div>
+
+						<div class="flex items-center justify-between mt-2">
+							<div class="flex items-center">
+								<input
+									id="checkbox-1"
+									type="checkbox"
+									value=""
+									class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+								/>
+								<label for="checkbox-1" class="ms-2 text-sm text-gray-800 dark:text-gray-300">
+									By proceeding, you agree to our <a href="#" class="text-primary font-medium">Terms and Conditions</a>
+								</label>
+							</div>
+						</div>
+
+						<button type="submit" class="primary-btn w-full mt-8 disabled:bg-opacity-50 disabled:border-0"">Sign In</button>
+					</form>
+
+					<div class="flex items-center mt-8">
+						<hr class="flex-grow border-t-2 border-gray-300" />
+						<span class="mx-4 text-gray-600">Or </span>
+						<hr class="flex-grow border-t-2 border-gray-300" />
+					</div>
+
+					<a
+						href="#"
+						class="mt-6 flex items-center bg-white p-1 md:p-2 border border-gray-300 rounded-xl font-medium justify-center"
+					>
+						<img src="/images/googlelogo.jpg" alt="" class="w-7 h-7 mr-4" />
+						<span class="text-sm">Sign In with Google</span>
+					</a>
+				</div>
+			</div>
+		</main>
+
+		<footer
+			class="mt-4 flex items-center justify-between z-10 max-w-7xl mx-auto absolute bottom-0 left-5 w-full right-5 py-4 text-gray-600"
+		>
+			<h5>&copy; 2022 Daycare Management. All rights reserved.</h5>
+
+			<a href="#"><span class="fa fa-circle-question mr-2"></span> Get help </a>
+		</footer>
+	</body>
+</html>
