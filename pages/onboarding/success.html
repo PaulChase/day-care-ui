@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Onboarding Welcome Page</title>
+		<link rel="stylesheet" href="/dist/app.css" />
+		<!-- fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+
+		<!-- font awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+			integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<!-- swiper js -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+		<style>
+			body {
+				font-family: "SF Pro Display", sans-serif;
+			}
+		</style>
+
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+	</head>
+
+	<body class="pt-6">
+		<!-- navbar -->
+		<nav class="max-w-7xl p-4 mx-auto">
+			<img src="/images/Logo.png" alt="" />
+		</nav>
+		<!-- navbar end -->
+
+		<div class="max-w-lg mx-auto mt-16">
+			<img src="/images/form-success.png" alt="" class="mx-auto mb-4 h-56" />
+			<h4 class="text-3xl font-quicksand font-bold text-center">Success! Your Daycare is Ready!</h4>
+
+			<p class="text-base text-gray-600 mt-2 text-center">
+				Congratulations, you've successfully completed the setup for your daycare. You're now ready to manage
+				attendance, fees, staff, and more
+			</p>
+
+			<a href="#">
+				<button type="submit" class="primary-btn w-full mt-8 disabled:bg-opacity-50 disabled:border-0">
+					Go to Dashboard
+				</button>
+			</a>
+		</div>
+
+		<footer
+			class="mt-4 flex items-center justify-between z-10 max-w-7xl mx-auto absolute bottom-0 py-4 text-gray-600 left-0 w-full right-0"
+		>
+			<h5>&copy; 2022 Daycare Management. All rights reserved.</h5>
+
+			<a href="#"><span class="fa fa-circle-question mr-2"></span> Get help </a>
+		</footer>
+	</body>
+</html>
