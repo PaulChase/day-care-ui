@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Add Child Page</title>
+		<link rel="stylesheet" href="/dist/app.css" />
+		<!-- fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+
+		<!-- font awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+			integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<style>
+			body {
+				font-family: "SF Pro Display", sans-serif;
+			}
+
+			[x-cloak] {
+				display: none;
+			}
+
+			.dropzone {
+				min-height: 150px;
+				border: none !important;
+				background: transparent !important;
+				padding: 0 !important;
+			}
+			.dropzone .dz-message {
+				margin: 0 !important;
+			}
+			.dz-preview {
+				margin: 1rem !important;
+			}
+		</style>
+
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+
+		<!-- lucide icons -->
+		<script src="https://unpkg.com/lucide@latest"></script>
+
+		<!-- chart js -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+		<!-- dropzone js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
+	</head>
+
+	<body class="">
+		<div x-data="{ isExpanded: false }" class="min-h-screen flex">
+			<!-- Sidebar -->
+			<aside
+				:class="isExpanded ? 'w-64' : 'w-16'"
+				class="transition-all duration-300 ease-in-out flex flex-col fixed top-0 left-0 h-full border-r-2 border-gray-300"
+			>
+				<!-- Logo Section -->
+				<div class="p-4 flex items-center justify-between h-24 border-b border-gray-300">
+					<a href="/">
+						<img src="/images/Logo.png" alt="" />
+					</a>
+					<button type="button" @click="isExpanded = !isExpanded" class="p-2 rounded-lg text-gray-700">
+						<i data-lucide="square-chevron-left" class="size-7"></i>
+					</button>
+				</div>
+
+				<!-- Navigation Links -->
+				<nav class="flex-1 pt-4">
+					<ul class="space-y-2 px-2">
+						<li>
+							<a
+								href="#"
+								class="flex items-center p-3 rounded-lg hover:bg-indigo-50 transition-colors hover:text-primary font-medium hover:font-semibold text-gray-700"
+							>
+								<i data-lucide="layout-grid" class="size-6"></i>
+								<span
+									:class="isExpanded ? 'opacity-100 ml-3' : 'opacity-0 hidden'"
+									class="transition-opacity duration-300"
+								>
+									Dashboard
+								</span>
+							</a>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="flex items-center p-3 rounded-lg hover:bg-indigo-50 transition-colors hover:text-primary font-medium hover:font-semibold text-gray-700"
+							>
+								<i data-lucide="baby" class="size-6"></i>
+								<span
+									:class="isExpanded ? 'opacity-100 ml-3' : 'opacity-0 hidden'"
+									class="transition-opacity duration-300"
+								>
+									Child
+								</span>
+							</a>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="flex items-center p-3 rounded-lg hover:bg-indigo-50 transition-colors hover:text-primary font-medium hover:font-semibold text-gray-700"
+							>
+								<i data-lucide="users" class="size-6"></i>
+								<span
+									:class="isExpanded ? 'opacity-100 ml-3' : 'opacity-0 hidden'"
+									class="transition-opacity duration-300"
+								>
+									Staff
+								</span>
+							</a>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="flex items-center p-3 rounded-lg hover:bg-indigo-50 transition-colors hover:text-primary font-medium hover:font-semibold text-gray-700"
+							>
+								<i data-lucide="banknote" class="size-6"></i>
+								<span
+									:class="isExpanded ? 'opacity-100 ml-3' : 'opacity-0 hidden'"
+									class="transition-opacity duration-300"
+								>
+									Fees & Payment
+								</span>
+							</a>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="flex items-center p-3 rounded-lg hover:bg-indigo-50 transition-colors hover:text-primary font-medium hover:font-semibold text-gray-700"
+							>
+								<i data-lucide="fingerprint" class="size-6"></i>
+								<span
+									:class="isExpanded ? 'opacity-100 ml-3' : 'opacity-0 hidden'"
+									class="transition-opacity duration-300"
+								>
+									Attendance
+								</span>
+							</a>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="flex items-center p-3 rounded-lg hover:bg-indigo-50 transition-colors hover:text-primary font-medium hover:font-semibold text-gray-700"
+							>
+								<i data-lucide="mail" class="size-6"></i>
+								<span
+									:class="isExpanded ? 'opacity-100 ml-3' : 'opacity-0 hidden'"
+									class="transition-opacity duration-300"
+								>
+									Message
+								</span>
+							</a>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="flex items-center p-3 rounded-lg hover:bg-indigo-50 transition-colors hover:text-primary font-medium hover:font-semibold text-gray-700"
+							>
+								<i data-lucide="user-plus" class="size-6"></i>
+								<span
+									:class="isExpanded ? 'opacity-100 ml-3' : 'opacity-0 hidden'"
+									class="transition-opacity duration-300"
+								>
+									Kids Enrolled
+								</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+
+				<!-- User Profile Section -->
+				<div class="pb-4">
+					<ul class="space-y-2 px-2">
+						<li>
+							<a
+								href="#"
+								class="flex items-center p-3 rounded-lg hover:bg-indigo-50 transition-colors hover:text-primary font-medium hover:font-semibold text-gray-700"
+							>
+								<i data-lucide="settings" class="size-6"></i>
+								<span
+									:class="isExpanded ? 'opacity-100 ml-3' : 'opacity-0 hidden'"
+									class="transition-opacity duration-300"
+								>
+									Settings
+								</span>
+							</a>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="flex items-center p-3 rounded-lg hover:bg-indigo-50 transition-colors hover:text-primary font-medium hover:font-semibold text-gray-700"
+							>
+								<i data-lucide="headset" class="size-6"></i>
+								<span
+									:class="isExpanded ? 'opacity-100 ml-3' : 'opacity-0 hidden'"
+									class="transition-opacity duration-300"
+								>
+									Help Center
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</aside>
+			<!-- end sidebar -->
+
+			<!-- Main Content -->
+			<main class="flex-1" :class="isExpanded ? 'ml-64' : 'ml-16'">
+				<div x-data="{showNotificationsModal: false, showAccountModal: false, }">
+					<!-- navbar -->
+					<nav class="flex items-center justify-between p-4 border-b border-gray-300 h-24">
+						<h2 class="text-xl font-semibold">Dashboard</h2>
+
+						<div class="flex items-center gap-3">
+							<button type="button" class="p-2 border border-gray-300 rounded-lg flex justify-center items-center">
+								<i data-lucide="mail" class="size-6"></i>
+							</button>
+							<button
+								@click="showNotificationsModal = !showNotificationsModal"
+								type="button"
+								class="p-2 border border-gray-300 rounded-lg flex justify-center items-center"
+							>
+								<i data-lucide="bell" class="size-6"></i>
+							</button>
+
+							<button
+								class="p-1 border border-gray-300 rounded-lg flex justify-center items-center"
+								@click="showAccountModal = !showAccountModal"
+							>
+								<img src="/images/face-card.png" alt="" class="size-8 rounded-full" />
+
+								<i data-lucide="chevron-down" class="size-4 ml-2"></i>
+							</button>
+							<button class="p-2 border border-gray-300 rounded-lg flex justify-center items-center">
+								<i data-lucide="ellipsis" class="size-6"></i>
+							</button>
+						</div>
+					</nav>
+					<!-- end navbar -->
+
+					<!-- notifications modal-->
+					<div
+						x-show="showNotificationsModal"
+						x-transition
+						x-cloak
+						class="fixed top-0 left-0 z-10 bg-black/60 w-full h-full flex justify-end items-start pt-24 pr-4"
+					>
+						<div
+							@click.outside="showNotificationsModal = !showNotificationsModal"
+							class="bg-white rounded-xl w-[32rem] mt-2"
+						>
+							<div class="flex justify-between items-center py-5 border-b border-gray-300 px-4">
+								<h3 class="font-semibold text-lg">Notifications</h3>
+
+								<button class="text-gray-700">
+									<i data-lucide="settings" class="size-6"></i>
+								</button>
+							</div>
+
+							<div class="py-3 px-4">
+								<ul
+									class="hidden text-sm font-medium text-center text-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400 border border-gray-300"
+								>
+									<li class="w-full focus-within:z-10">
+										<a
+											href="#"
+											class="inline-block w-full p-3 text-gray-900 bg-gray-100 border-r border-gray-200 dark:border-gray-700 rounded-s-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white"
+											aria-current="page"
+										>
+											All
+											<span class="px-2 py-1 inline-block bg-purple-100 text-primary text-xs rounded-lg ml-2">12</span>
+										</a>
+									</li>
+									<li class="w-full focus-within:z-10">
+										<a
+											href="#"
+											class="inline-block w-full p-3 bg-white border-r border-gray-200 dark:border-gray-700 hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+											>Enrollment
+											<span class="px-2 py-1 inline-block bg-gray-100 text-black text-xs rounded-lg ml-2">12</span>
+										</a>
+									</li>
+
+									<li class="w-full focus-within:z-10">
+										<a
+											href="#"
+											class="inline-block w-full p-3 bg-white border-s-0 border-gray-200 dark:border-gray-700 rounded-e-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+											>Attendance
+											<span class="px-2 py-1 inline-block bg-gray-100 text-black text-xs rounded-lg ml-2">12</span></a
+										>
+									</li>
+								</ul>
+							</div>
+
+							<div class="bg-gray-200 text-black uppercase text-sm px-4 py-2 font-medium">
+								<p>Today</p>
+							</div>
+
+							<div x-data="" class="space-y-2 p-3">
+								<template x-for="i in 3">
+									<div class="flex gap-4 px-4 py-3 shadow rounded-lg">
+										<p class="size-8 bg-primary rounded-full text-white flex items-center justify-center flex-shrink-0">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke-width="1.5"
+												stroke="currentColor"
+												class="size-5"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+												/>
+											</svg>
+										</p>
+										<div class="text-sm">
+											<div class="flex items-center justify-between">
+												<h4 class="bg-gray-100 font-medium px-3 py-2 rounded-lg w-fit">New Enrollment</h4>
+												<span>
+													<i data-lucide="dot" class="size-8 text-red-700"></i>
+												</span>
+											</div>
+
+											<p class="mt-2 text-gray-600">
+												Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus ipsa et earum laudantium. Ab
+												quae quas, repudiandae nulla numquam facere?
+											</p>
+
+											<p class="text-xs text-gray-500 font-medium mt-1">12 mins ago</p>
+										</div>
+									</div>
+								</template>
+							</div>
+
+							<div class="flex justify-between items-center py-3 border-t border-gray-300 px-4">
+								<button type="button" class="p-2 text-primary text-sm font-semibold">Mark all as read</button>
+
+								<a href="#">
+									<button type="button" class="primary-btn">View All Notifications</button>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!-- end  notifications modal -->
+
+					<!-- account modal-->
+					<div
+						x-show="showAccountModal"
+						x-transition
+						x-cloak
+						class="fixed top-0 left-0 z-10 bg-black/60 w-full h-full flex justify-end items-start pt-24 pr-4"
+					>
+						<div @click.outside="showAccountModal = !showAccountModal" class="bg-white rounded-xl w-[32rem] mt-2">
+							<div class="py-5 border-b border-gray-300 px-4">
+								<h3 class="font-semibold text-lg">Account</h3>
+								<div class="flex justify-between items-center gap-2 mt-4">
+									<div class="flex items-center gap-2">
+										<img src="/images/face-card.png" alt="" class="size-14 rounded-full" />
+										<div>
+											<h3 class="text-lg font-semibold">John Doe</h3>
+											<p class="text-gray-600 text-sm">johndoe@test.com</p>
+										</div>
+									</div>
+
+									<span>
+										<i data-lucide="circle-check" class="size-8 text-primary"></i>
+									</span>
+								</div>
+							</div>
+
+							<ul class="py-4 px-4 space-y-2">
+								<li>
+									<a href="#" class="">
+										<div
+											class="flex items-center gap-2 font-medium p-3 rounded-xl hover:border hover:border-gray-300 hover:bg-slate-100"
+										>
+											<span>
+												<i data-lucide="circle-user-round" class="size-6"></i>
+											</span>
+											My Profile
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="">
+										<div
+											class="flex items-center justify-between gap-2 font-medium p-3 rounded-xl hover:border hover:border-gray-300 hover:bg-slate-100"
+										>
+											<p class="flex items-center gap-2">
+												<span>
+													<i data-lucide="zap" class="size-6"></i>
+												</span>
+												Upgrade Account
+											</p>
+
+											<p class="bg-gray-100 text-xs px-2 py-1 rounded-full w-fit text-gray-700 border border-gray-300">
+												Pro plan
+											</p>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="">
+										<div
+											class="flex items-center gap-2 font-medium p-3 rounded-xl hover:border hover:border-gray-300 hover:bg-slate-100 text-red-500"
+										>
+											<span>
+												<i data-lucide="log-out" class="size-6"></i>
+											</span>
+											Log out
+										</div>
+									</a>
+								</li>
+							</ul>
+
+							<div class="py-3 border-t border-gray-300 px-4 bg-slate-100 rounded-b-xl">
+								<button type="button" class="p-2 text-sm font-semibold flex items-center gap-2 text-gray-700">
+									<i data-lucide="plus" class="size-6"></i> Add an exising account
+								</button>
+							</div>
+						</div>
+					</div>
+					<!-- end  account modal -->
+				</div>
+
+				<!-- header section -->
+				<section class="p-4 flex items-center gap-3 border-b border-gray-300">
+					<button type="button">
+						<span class="fa fa-arrow-left text-lg text-gray-600"></span>
+					</button>
+
+					<h3 class="text-lg font-quicksand font-bold">Add New Child / Edit Child's Information</h3>
+				</section>
+				<!-- end header sectio -->
+
+				<!-- main content -->
+				<div class="p-4 flex gap-4 items-start">
+					<!-- upload image -->
+					<div class="bg-gray-100 rounded-2xl p-1 border border-gray-300">
+						<div class="bg-white rounded-xl p-4 w-72 flex-shrink-0 border border-gray-300">
+							<h2 class="text-lg font-bold text-gray-800 mb-4">Child's Image</h2>
+
+							<!-- Dropzone Container -->
+							<form action="/file-upload" class="dropzone" id="my-dropzone">
+								<div
+									class="border-2 border-dashed border-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:border-blue-500"
+								>
+									<div class="dz-message flex flex-col items-center justify-center p-8 cursor-pointer">
+										<!-- Upload Icon -->
+										<i data-lucide="image-plus" class="size-10 text-gray-400"></i>
+
+										<!-- Text Content -->
+										<div class="text-center mt-3">
+											<p class="text-gray-700">Drag your image here</p>
+											<p class="text-gray-700">or</p>
+											<p class="text-gray-700">select <span class="font-medium text-primary">Click to browse</span></p>
+										</div>
+									</div>
+								</div>
+							</form>
+
+							<!-- Upload Progress and File List -->
+							<div id="preview-container" class="mt-4 space-y-4"></div>
+						</div>
+					</div>
+					<!-- end upload image -->
+
+					<!-- add child form -->
+					<section class="bg-gray-100 rounded-2xl p-1 border border-gray-300 flex-1">
+						<div class="font-medium bg-white rounded-xl text-sm border border-gray-300">
+							<div class="flex items-center justify-between p-4">
+								<p class="text-xl font-quicksand font-bold">Child's Information</p>
+							</div>
+
+							<form action="" class="mt-2 p-4">
+								<div class="">
+									<label for="email" class="input-label">Full Name</label>
+									<input type="text" id="email" class="input-field" placeholder="e.g John Doe" />
+								</div>
+
+								<div class="grid grid-cols-2 gap-4 mt-4">
+									<div class="">
+										<label for="countries" class="input-label">Gender</label>
+										<select id="countries" class="input-field">
+											<option value="Male">Male</option>
+											<option value="FeMale">FeMale</option>
+										</select>
+									</div>
+
+									<div class="">
+										<label for="email" class="input-label">Date of Birth</label>
+										<input type="date" id="email" class="input-field" />
+									</div>
+
+									<div class="">
+										<label for="countries" class="input-label">Country</label>
+										<select id="countries" class="input-field">
+											<option value="Nigeria">Nigeria</option>
+											<option value="Ghana">Ghana</option>
+											<option value="Kenya">Kenya</option>
+											<option value="South Africa">South Africa</option>
+										</select>
+									</div>
+
+									<div class="">
+										<label for="countries" class="input-label">State</label>
+										<select id="countries" class="input-field">
+											<option value="Lagos">Lagos</option>
+											<option value="Abuja">Abuja</option>
+											<option value="Kano">Kano</option>
+											<option value="Port Harcourt">Port Harcourt</option>
+										</select>
+									</div>
+									<div class="">
+										<label for="countries" class="input-label">LGA</label>
+										<select id="countries" class="input-field">
+											<option value="Ikeja">Ikeja</option>
+											<option value="Surulere">Surulere</option>
+											<option value="Yaba">Yaba</option>
+											<option value="Ikorodu">Ikorodu</option>
+										</select>
+									</div>
+									<div class="">
+										<label for="countries" class="input-label">City</label>
+										<select id="countries" class="input-field">
+											<option value="Ikeja">Ikeja</option>
+											<option value="Surulere">Surulere</option>
+											<option value="Yaba">Yaba</option>
+											<option value="Ikorodu">Ikorodu</option>
+										</select>
+									</div>
+
+									<div>
+										<label for="address" class="input-label">Home Address</label>
+										<textarea
+											name="address"
+											id="address"
+											rows="3"
+											placeholder="Type your address here..."
+											class="input-field"
+										></textarea>
+									</div>
+									<div>
+										<label for="medical" class="input-label">Medical Information</label>
+										<textarea
+											name="medical"
+											id="medical"
+											rows="3"
+											placeholder="Type your medical issues here..."
+											class="input-field"
+										></textarea>
+									</div>
+								</div>
+
+								<h3 class="text-lg font-medium mt-6">Parent's Information</h3>
+
+								<div class="mt-4">
+									<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+										>Email</label
+									>
+									<div class="flex">
+										<span
+											class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+										>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke-width="1.5"
+												stroke="currentColor"
+												class="size-4"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+												/>
+											</svg>
+										</span>
+										<input
+											type="email"
+											id="website-admin"
+											class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+											placeholder="johndoe@test.com"
+										/>
+									</div>
+								</div>
+
+								<div class="mt-4">
+									<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+										>Phone Number</label
+									>
+									<div class="flex">
+										<span
+											class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+										>
+											<i data-lucide="phone" class="size-4"></i>
+										</span>
+										<input
+											type="email"
+											id="website-admin"
+											class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+											placeholder="+234 565 6556"
+										/>
+									</div>
+								</div>
+
+								<h3 class="text-lg font-medium mt-6">Enrollment Information</h3>
+
+								<div class="grid grid-cols-2 gap-4 mt-4">
+									<div class="">
+										<label for="email" class="input-label">Enrollment Date</label>
+										<input type="date" id="email" class="input-field" />
+									</div>
+
+									<div class="">
+										<label for="countries" class="input-label">Enrollment Status</label>
+										<select id="countries" class="input-field">
+											<option value="Active">Active</option>
+											<option value="Inactive">Inactive</option>
+										</select>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<div class="mt-4 mb-2 flex justify-end items-center gap-x-4 px-4">
+							<button type="button" class="sec-btn bg-white">Discard</button>
+							<button type="button" class="primary-btn px-6">Save</button>
+						</div>
+					</section>
+				</div>
+			</main>
+		</div>
+
+		<script>
+			lucide.createIcons();
+
+			Dropzone.options.myDropzone = {
+				url: "https://transfer.sh/",
+				acceptedFiles: "image/*,application/pdf,.doc,.docx,.xls,.xlsx",
+				addRemoveLinks: true,
+				maxFilesize: 5, // MB
+				previewsContainer: "#preview-container",
+				init: function () {
+					this.on("addedfile", function (file) {
+						// Create custom preview element
+						const previewElement = document.createElement("div");
+						previewElement.className = "bg-gray-50 rounded-lg p-4 flex items-center justify-between";
+
+						const fileInfo = document.createElement("div");
+						fileInfo.className = "flex items-center space-x-4";
+
+						// File icon
+						const fileIcon = document.createElement("div");
+						fileIcon.className = "text-blue-500";
+						fileIcon.innerHTML = `
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                    `;
+
+						// File details
+						const details = document.createElement("div");
+						details.innerHTML = `
+                        <p class="text-sm font-medium text-gray-900">${file.name}</p>
+                        <p class="text-sm text-gray-500">${(file.size / 1024).toFixed(1)} KB</p>
+                    `;
+
+						fileInfo.appendChild(fileIcon);
+						fileInfo.appendChild(details);
+						previewElement.appendChild(fileInfo);
+
+						// Progress bar
+						const progressBar = document.createElement("div");
+						progressBar.className = "w-64 bg-gray-200 rounded-full h-2.5";
+						progressBar.innerHTML = '<div class="bg-blue-500 h-2.5 rounded-full" style="width: 0%"></div>';
+						previewElement.appendChild(progressBar);
+
+						file.previewElement = previewElement;
+						document.querySelector("#preview-container").appendChild(previewElement);
+					});
+
+					this.on("uploadprogress", function (file, progress) {
+						const progressBar = file.previewElement.querySelector(".bg-blue-500");
+						progressBar.style.width = `${progress}%`;
+					});
+
+					this.on("success", function (file) {
+						file.previewElement.classList.add("border-green-500");
+					});
+
+					this.on("error", function (file, message) {
+						file.previewElement.classList.add("border-red-500");
+						const details = file.previewElement.querySelector(".text-gray-500");
+						details.textContent = message;
+						details.classList.add("text-red-500");
+					});
+				},
+			};
+		</script>
+	</body>
+</html>

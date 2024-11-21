@@ -11,10 +11,10 @@
 	}
 
 	.input-label {
-		@apply text-sm lg:text-base text-gray-600 tracking-wide;
+		@apply text-sm  text-gray-600 tracking-wide;
 	}
 
 	.input-field {
-		@apply w-full border-2 border-gray-200 p-2 rounded-lg mt-1 focus:outline-none focus:border-primary focus:ring-primary;
+		@apply w-full border border-gray-300 p-3 rounded-lg mt-1 focus:outline-none focus:border-primary focus:ring-primary shadow-sm bg-white text-gray-700;
 	}
 }
