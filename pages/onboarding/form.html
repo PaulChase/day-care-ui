@@ -35,15 +35,17 @@
 		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
 	</head>
 
-	<body class="pt-6 bg-[#F9F9FB]">
+	<body class="pt-6 bg-[#F9F9FB] px-2">
 		<!-- navbar -->
 		<nav class="max-w-7xl p-4 mx-auto">
-			<img src="/images/Logo.png" alt="" />
+			<a href="/">
+				<img src="/images/Logo.png" alt="" class="h-8 md:h-auto" />
+			</a>
 		</nav>
 		<!-- navbar end -->
 
 		<div
-			class="max-w-2xl mx-auto w-full mt-16 bg-white p-8 rounded-xl shadow-md"
+			class="max-w-2xl mx-auto w-full mt-8 lg:mt-12 bg-white p-4 lg:p-8 rounded-xl shadow-md"
 			x-data="{
       step: 1,
       nextStep() {
@@ -709,7 +711,7 @@
 				<form action="" class="mt-6">
 					<h2 class="text-lg font-medium">Attendance Method Options</h2>
 
-					<div class="mt-2 space-y-4">
+					<div class="mt-2 space-y-4 text-sm lg:text-base">
 						<div class="flex items-center">
 							<input
 								id="checkbox-5"
