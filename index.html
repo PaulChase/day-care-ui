@@ -26,6 +26,9 @@
 		<!-- swiper js -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+		<!-- lucide icons -->
+		<script src="https://unpkg.com/lucide@latest"></script>
+
 		<style>
 			body {
 				font-family: "SF Pro Display", sans-serif;
@@ -37,128 +40,223 @@
 
 	<body class="pt-6">
 		<!-- navbar -->
-		<nav
-			class="max-w-5xl mx-auto flex items-center justify-between border-4 border-gray-200 border-double rounded-xl p-4"
-		>
-			<a href="/">
-				<img src="/images/Logo.png" alt="" />
-			</a>
-
-			<ul class="flex items-center gap-4 text-base">
-				<li>
-					<a href="/pages/about-us.html">About</a>
-				</li>
-				<li>
-					<a href="#">Features</a>
-				</li>
-				<li>
-					<a href="#">Pricing</a>
-				</li>
-				<li>
-					<a href="#">FAQ's</a>
-				</li>
-				<li>
-					<a href="#">Contact</a>
-				</li>
-			</ul>
-
-			<div class="flex items-center gap-x-2">
-				<a href="">
-					<button type="button" class="primary-btn bg-gray-100 text-black border-gray-300">Login</button>
+		<div class="px-4">
+			<nav
+				class="max-w-5xl mx-auto flex items-center justify-between border-4 border-gray-200 border-double rounded-xl p-4"
+			>
+				<a href="/">
+					<img src="/images/Logo.png" alt="" class="h-6 md:h-auto" />
 				</a>
-				<a href="#">
-					<button type="button" class="primary-btn">Get Started</button>
-				</a>
-			</div>
-		</nav>
+
+				<ul class="lg:flex items-center gap-4 text-base hidden">
+					<li>
+						<a href="/pages/about-us.html">About</a>
+					</li>
+					<li>
+						<a href="">Features</a>
+					</li>
+					<li>
+						<a href="#">Pricing</a>
+					</li>
+					<li>
+						<a href="/pages/faq.html">FAQ's</a>
+					</li>
+					<li>
+						<a href="/pages/contact-us.html">Contact</a>
+					</li>
+				</ul>
+
+				<div class="lg:flex hidden items-center gap-x-2">
+					<a href="">
+						<button type="button" class="primary-btn bg-gray-100 text-black border-gray-300">Login</button>
+					</a>
+					<a href="#">
+						<button type="button" class="primary-btn">Get Started</button>
+					</a>
+				</div>
+
+				<div class="lg:hidden" x-data="{isOpen : false}">
+					<button class="text-gray-700" @click="isOpen = !isOpen">
+						<span class="fa fa-bars text-2xl"></span>
+					</button>
+
+					<div class="lg:hidden">
+						<nav
+							x-show="isOpen"
+							x-cloak
+							x-transition:enter="transition ease-out duration-300"
+							x-transition:enter-start="-translate-x-full"
+							x-transition:enter-end="translate-x-0"
+							x-transition:leave="transition ease-in duration-300"
+							x-transition:leave-start="translate-x-0"
+							x-transition:leave-end="-translate-x-full"
+							class="fixed inset-y-0 left-0 w-full shadow-lg transform p-4 h-screen bg-white flex flex-col justify-between pb-20 z-50"
+						>
+							<div>
+								<div class="flex justify-end">
+									<button @click="isOpen = !isOpen" class="text-2xl">
+										<span class="fa fa-times"></span>
+									</button>
+								</div>
+								<ul class="mt-6 divide-y divide-gray-200">
+									<li>
+										<a
+											href="/pages/about-us.html"
+											class="flex items-center justify-between py-4 px-2 text-gray-700 hover:bg-indigo-50 hover:text-primary rounded-md font-medium hover:font-semibold"
+										>
+											<span> About Us </span>
+
+											<i data-lucide="chevron-right"></i>
+										</a>
+									</li>
+									<li>
+										<a
+											href="#"
+											class="flex items-center justify-between py-4 px-2 text-gray-700 hover:bg-indigo-50 hover:text-primary rounded-md font-medium hover:font-semibold"
+										>
+											<span> Features </span>
+
+											<i data-lucide="chevron-right"></i>
+										</a>
+									</li>
+									<li>
+										<a
+											href="#"
+											class="flex items-center justify-between py-4 px-2 text-gray-700 hover:bg-indigo-50 hover:text-primary rounded-md font-medium hover:font-semibold"
+										>
+											<span> Pricing </span>
+
+											<i data-lucide="chevron-right"></i>
+										</a>
+									</li>
+									<li>
+										<a
+											href="/pages/faq.html"
+											class="flex items-center justify-between py-4 px-2 text-gray-700 hover:bg-indigo-50 hover:text-primary rounded-md font-medium hover:font-semibold"
+										>
+											<span> FAQ's </span>
+
+											<i data-lucide="chevron-right"></i>
+										</a>
+									</li>
+									<li>
+										<a
+											href="/pages/contact-us.html"
+											class="flex items-center justify-between py-4 px-2 text-gray-700 hover:bg-indigo-50 hover:text-primary rounded-md font-medium hover:font-semibold"
+										>
+											<span> Contact </span>
+
+											<i data-lucide="chevron-right"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="">
+								<a href="#" class="block">
+									<button type="button" class="primary-btn bg-gray-100 text-black border-gray-300 w-full">Login</button>
+								</a>
+								<a href="#" class="block mt-4">
+									<button type="button" class="primary-btn w-full">Get Started</button>
+								</a>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</nav>
+		</div>
 		<!-- navbar end -->
 
 		<!-- hero section -->
-		<header class="max-w-7xl mx-auto mt-10 px-4">
+		<header class="max-w-6xl mx-auto mt-10 px-4">
 			<div class="relative">
-				<img src="/images/Element 5.png" alt="" class="absolute left-16 top-1" />
-				<img src="/images/Element 7.png" alt="" class="absolute right-8 top-10" />
-				<img src="/images/Element 6.png" alt="" class="absolute left-8 -bottom-10" />
-				<img src="/images/spiral.png" alt="" class="absolute right-56 top-40" />
-				<img src="/images/Element 8.png" alt="" class="absolute right-24 -bottom-20" />
+				<img src="/images/Element 5.png" alt="" class="absolute left-0 lg:left-16 top-1 hidden lg:block" />
+				<img src="/images/Element 7.png" alt="" class="absolute right-8 top-10 hidden lg:block" />
+				<img src="/images/Element 6.png" alt="" class="absolute left-8 -bottom-10 hidden lg:block" />
+				<img src="/images/spiral.png" alt="" class="absolute right-56 top-40 hidden lg:block" />
+				<img src="/images/Element 8.png" alt="" class="absolute -right-12 lg:right-24 -bottom-20" />
 				<div class="relative z-10">
-					<h2 class="text-7xl font-bold max-w-2xl text-center mx-auto font-quicksand leading-[5rem]">
+					<h2
+						class="lg:text-7xl text-4xl font-bold max-w-2xl text-center mx-auto font-quicksand leading-10 lg:leading-[5rem]"
+					>
 						Managing your <span class="font-courgette text-[#704FE6] underline">Daycare</span> has never been this
 						<span class="text-[#FFB802] font-courgette underline">Easy</span>
 					</h2>
 
-					<p class="text-gray-600 max-w-xl mx-auto text-center text-lg mt-8">
+					<p class="text-gray-600 max-w-xl mx-auto text-center lg:text-lg mt-8">
 						Streamline your daycare’s daily operations, keep parents connected, and focus more on what matters—caring
 						for the kids.
 					</p>
 
 					<div class="flex items-center gap-x-4 mt-12 mx-auto w-fit">
 						<a href="">
-							<button type="button" class="sec-btn py-3 text-base">Book a Demo</button>
+							<button type="button" class="sec-btn py-3 text-sm lg:text-base">Book a Demo</button>
 						</a>
 						<a href="#">
-							<button type="button" class="primary-btn py-3 text-base">Start a Free trial</button>
+							<button type="button" class="primary-btn py-3 text-sm lg:text-base">Start a Free trial</button>
 						</a>
 					</div>
 				</div>
 			</div>
 
 			<div class="mt-16 mx-auto relative z-10 w-fit">
-				<img src="/images/dashboard.png" alt="" class="" />
+				<img src="/images/dashboard.png" alt="" class="h-56 lg:h-auto" />
 				<img src="/images/Element 4.png" alt="" class="absolute -right-20 -bottom-24" />
 			</div>
 		</header>
 		<!-- end hero section -->
 
 		<!-- features section -->
-		<section class="max-w-7xl mx-auto py-20 mt-16 px-4">
+		<section class="max-w-6xl mx-auto py-10 lg:py-20 mt-16 px-4">
 			<h4 class="text-primary uppercase text-center text-lg font-medium">Features</h4>
 
-			<h2 class="text-5xl font-bold max-w-2xl text-center mx-auto font-quicksand leading-[3.5rem] mt-4">
+			<h2
+				class="text-2xl md:text-3xl lg:text-5xl font-bold max-w-2xl text-center mx-auto font-quicksand leading-8 md:leading-10 lg:leading-[3.5rem] mt-2 lg:mt-4"
+			>
 				Simplify Your Daily <br />
 				Opertions with
 				<span class="text-primary font-courgette underline">Ease</span>
 			</h2>
 
-			<div class="grid grid-cols-3 gap-8 mt-16">
+			<div class="grid lg:grid-cols-3 gap-8 mt-10 lg:mt-16">
 				<div class="bg-[#2BD886] text-black px-4 py-10 rounded-[3rem] relative">
-					<img src="/images/feat-left-1.png" alt="" class="h-36" />
-					<img src="/images/feat-right-1.png" alt="" class="absolute top-0 right-0 rounded-tr-[3rem]" />
+					<img src="/images/feat-left-1.png" alt="" class="h-24 lg:h-36" />
+					<img src="/images/feat-right-1.png" alt="" class="absolute top-0 right-0 rounded-tr-[3rem] h-40 lg:h-auto" />
 
-					<h3 class="text-3xl font-semibold font-quicksand mt-10">
+					<h3 class="text-xl lg:text-3xl font-semibold font-quicksand lg:mt-10 mt-6">
 						Track <br />
 						<span class="font-courgette"> Attendance </span>
 					</h3>
 
-					<p class="leading-7 mt-6">
+					<p class="text-sm lg:text-base leading-7 lg:mt-6 mt-3">
 						Keep track of every child’s attendance with just a few clicks. Check-ins and check-outs are updated
 						instantly, giving you more time to focus on the kids.
 					</p>
 				</div>
 				<div class="bg-[#CCBDF4] text-black px-4 py-10 rounded-[3rem] relative">
-					<img src="/images/feat-left-2.png" alt="" class="h-36" />
-					<img src="/images/feat-right-2.png" alt="" class="absolute top-0 right-0 rounded-tr-[3rem]" />
+					<img src="/images/feat-left-2.png" alt="" class="h-24 lg:h-36" />
+					<img src="/images/feat-right-2.png" alt="" class="absolute top-0 right-0 rounded-tr-[3rem] h-32 lg:h-auto" />
 
-					<h3 class="text-3xl font-semibold font-quicksand mt-10">
+					<h3 class="text-xl lg:text-3xl font-semibold font-quicksand lg:mt-10 mt-6">
 						Send Instant <br />
 						<span class="font-courgette"> Updates </span>
 					</h3>
 
-					<p class="leading-7 mt-6">
+					<p class="text-sm lg:text-base leading-7 lg:mt-6 mt-3">
 						Stay connected with parents by sending real-time updates about their child’s activities, meals, naps, and
 						more, right from your dashboard.
 					</p>
 				</div>
 				<div class="bg-[#DAFFB9] text-black px-4 py-10 rounded-[3rem] relative">
-					<img src="/images/feat-left-3.png" alt="" class="h-36" />
-					<img src="/images/feat-right-3.png" alt="" class="absolute top-0 right-0 rounded-tr-[3rem]" />
+					<img src="/images/feat-left-3.png" alt="" class="h-24 lg:h-36" />
+					<img src="/images/feat-right-3.png" alt="" class="absolute top-0 right-0 rounded-tr-[3rem] h-32 lg:h-auto" />
 
-					<h3 class="text-3xl font-semibold font-quicksand mt-10">
+					<h3 class="text-xl lg:text-3xl font-semibold font-quicksand lg:mt-10 mt-6">
 						Automate <br />
 						<span class="font-courgette"> Payments </span>
 					</h3>
 
-					<p class="leading-7 mt-6">
+					<p class="text-sm lg:text-base leading-7 lg:mt-6 mt-3">
 						Never worry about chasing payments again. Our system automatically generates bills, sends reminders, and
 						processes payments, saving you time and effort.
 					</p>
@@ -168,65 +266,69 @@
 		<!-- edn features section -->
 
 		<!-- features details section -->
-		<section class="max-w-7xl mx-auto py-20 mt-16 px-4">
+		<section class="max-w-6xl mx-auto py-10 lg:py-20 mt-4 lg:mt-16 px-4">
 			<h4 class="text-primary uppercase text-center text-lg font-medium">Features</h4>
 
-			<h2 class="text-5xl font-bold max-w-2xl text-center mx-auto font-quicksand leading-[3.5rem] mt-4">
+			<h2
+				class="text-2xl md:text-3xl lg:text-5xl font-bold max-w-2xl text-center mx-auto font-quicksand leading-8 md:leading-10 lg:leading-[3.5rem] mt-2 lg:mt-4"
+			>
 				Simplify Your Daily <br />
-				Opertions with
+				Operations with
 				<span class="text-primary font-courgette underline">Ease</span>
 			</h2>
 
 			<!-- grid -1 -->
-			<div class="grid grid-cols-2 gap-x-8 mt-12">
-				<div class="bg-[#F1EDFD] px-6 py-10 rounded-xl relative">
-					<h3 class="text-base uppercase text-primary font-medium">Build trust through seamless communication</h3>
+			<div class="grid lg:grid-cols-2 gap-8 mt-12">
+				<div class="bg-[#F1EDFD] px-4 lg:px-6 py-6 lg:py-10 rounded-xl relative">
+					<h3 class="text-sm lg:text-base uppercase text-primary font-medium">
+						Build trust through seamless communication
+					</h3>
 
-					<h2 class="font-quicksand text-3xl font-bold leading-10 mt-6">
+					<h2 class="font-quicksand text-xl lg:text-3xl font-bold leading-7 lg:leading-10 lg:mt-6 mt-4">
 						Keep Parents <br />
 						Connected Every Step <br />
 						of the Way
 					</h2>
 
-					<p class="text-gray-700 leading-7 mt-4">
+					<p class="text-gray-700 text-sm md:text-base lg:leading-7 mt-4 mb-12 lg:mb-0">
 						With our system, parents can stay informed with real-time notifications, daily reports, and photos of their
 						child’s activities. Whether it's nap time, snack time, or a special moment, they’ll never miss a thing.
 					</p>
 
-					<a href="" class="inline-block text-primary font-medium absolute bottom-8 left-6">
+					<a href="" class="inline-block text-primary font-medium absolute bottom-8 left-4 lg:left-6">
 						Download the Parent App <span class="fa fa-circle-arrow-right"></span>
 					</a>
 				</div>
 
 				<div class="flex flex-col items-end justify-between gap-y-6">
-					<img src="/images/side-1.png" alt="" class="h-56" />
-					<img src="/images/side-2.png" alt="" class="h-56" />
-					<img src="/images/side-3.png" alt="" class="h-56" />
+					<img src="/images/side-1.png" alt="" class="lg:h-48 h-28 md:h-40" />
+					<img src="/images/side-2.png" alt="" class="lg:h-48 h-28 md:h-40" />
+					<img src="/images/side-3.png" alt="" class="lg:h-48 h-28 md:h-40" />
 				</div>
 			</div>
 
 			<!-- grid 2 -->
-			<div class="grid grid-cols-2 gap-x-8 mt-6">
-				<div class="flex flex-col items-end justify-between gap-y-6">
-					<img src="/images/new-side-1.png" alt="" class="h-48" />
-					<img src="/images/new-side-2.png" alt="" class="h-48" />
-					<img src="/images/new-side-3.png" alt="" class="h-48" />
+			<div class="grid lg:grid-cols-2 gap-8 lg:mt-6 mt-12">
+				<div class="flex flex-col items-start justify-between gap-y-6 order-2 lg:-order-1">
+					<img src="/images/new-side-1.png" alt="" class="lg:h-48 h-28 md:h-40" />
+					<img src="/images/new-side-2.png" alt="" class="lg:h-48 h-28 md:h-40" />
+					<img src="/images/new-side-3.png" alt="" class="lg:h-48 h-28 md:h-40" />
 				</div>
-				<div class="bg-[#EEF8DF] px-6 py-10 rounded-xl relative">
-					<h3 class="text-base uppercase text-primary font-medium">OverLine</h3>
+				<div class="bg-[#EEF8DF] px-4 lg:px-6 py-6 lg:py-10 rounded-xl relative">
+					<h3 class="text-sm lg:text-base uppercase text-primary font-medium">OverLine</h3>
 
-					<h2 class="font-quicksand text-3xl font-bold leading-10 mt-6">
+					<h2 class="font-quicksand text-xl lg:text-3xl font-bold leading-7 lg:leading-10 lg:mt-6 mt-4">
 						Manage Your Staff <br />
 						and Schedules Without <br />
 						the Hassle
 					</h2>
 
-					<p class="text-gray-700 leading-7 mt-4">
+					<p class="text-gray-700 text-sm md:text-base lg:leading-7 mt-4 mb-12 lg:mb-0">
 						Create staff schedules, and track availability with just a few clicks. Our easy-to-use calendar lets you
 						manage your team efficiently, ensuring everyone is where they need to be.
 					</p>
 
-					<a href="" class="inline-block text-primary font-medium absolute bottom-8 left-6">
+					<a href="" class="inline-block text-primary font-medium absolute bottom-8 left-4 lg:left-6">
 						Create Account <span class="fa fa-circle-arrow-right"></span>
 					</a>
 				</div>
@@ -235,17 +337,21 @@
 		<!-- end features details section -->
 
 		<!-- testimonials section -->
-		<section class="max-w-7xl mx-auto py-20 mt-16 px-4">
+		<section class="max-w-6xl mx-auto py-10 lg:py-20 mt-4 lg:mt-16 px-4">
 			<h4 class="text-primary uppercase text-center text-lg font-medium">Testimonials</h4>
 
-			<h2 class="text-5xl font-bold max-w-2xl text-center mx-auto font-quicksand leading-[3.5rem] mt-4">
+			<h2
+				class="lg:text-5xl text-2xl md:text-3xl font-bold max-w-2xl text-center mx-auto font-quicksand leading-8 md:leading-10 lg:leading-[3.5rem] lg:mt-4 mt-2"
+			>
 				Hear from Daycare Owners <br />
 				Who Love Our
 				<span class="text-primary font-courgette underline">Solution</span>
 			</h2>
 
-			<div class="border-4 rounded-xl border-double border-gray-300 grid grid-cols-5 p-10 mt-20">
-				<div class="lg:col-span-3 bg-gray-50 rounded-l-3xl p-6">
+			<div
+				class="border-4 rounded-xl border-double border-gray-300 grid grid-cols-1 gap-4 md:gap-0 md:grid-cols-5 p-4 lg:p-8 lg:mt-16 mt-8"
+			>
+				<div class="md:col-span-3 bg-gray-50 rounded-2xl lg:rounded-l-3xl p-4 lg:p-6">
 					<div class="swiper">
 						<!-- Additional required wrapper -->
 						<div class="swiper-wrapper">
@@ -254,23 +360,23 @@
 								<div>
 									<ul class="flex items-center gap-1">
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 									</ul>
 
-									<p class="font-quicksand text-xl font-semibold mt-4">
+									<p class="font-quicksand lg:text-xl text-sm font-medium lg:font-semibold mt-4">
 										This software has completely transformed how we manage our daycare center. The parent communication
 										features and automated billing have saved us countless hours each week. It's like having an extra
 										staff member!
@@ -278,30 +384,30 @@
 
 									<p class="mt-6">- <span class="font-medium">Sarah Martinez</span></p>
 
-									<p class="text-lg text-gray-600 mt-">Sunshine Kids Academy</p>
+									<p class="lg:text-lg text-gray-600 text-sm">Sunshine Kids Academy</p>
 								</div>
 							</div>
 							<div class="swiper-slide">
 								<div>
 									<ul class="flex items-center gap-1">
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 									</ul>
 
-									<p class="font-quicksand text-xl font-semibold mt-4">
+									<p class="font-quicksand lg:text-xl text-sm font-medium lg:font-semibold mt-4">
 										As someone who struggled with keeping track of attendance and staff schedules, this platform has
 										been a game-changer. The intuitive interface made it easy for my entire team to adapt, and parents
 										love the real-time updates about their children.
@@ -309,30 +415,30 @@
 
 									<p class="mt-6">- <span class="font-medium">Michael Chen</span></p>
 
-									<p class="text-lg text-gray-600 mt-">Little Explorers Daycare</p>
+									<p class="lg:text-lg text-gray-600 text-sm">Little Explorers Daycare</p>
 								</div>
 							</div>
 							<div class="swiper-slide">
 								<div>
 									<ul class="flex items-center gap-1">
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 										<li>
-											<span class="fa fa-star text-yellow-500 text-xl"></span>
+											<span class="fa fa-star text-yellow-500 lg:text-xl text-base"></span>
 										</li>
 									</ul>
 
-									<p class="font-quicksand text-xl font-semibold mt-4">
+									<p class="font-quicksand lg:text-xl text-sm font-medium lg:font-semibold mt-4">
 										The reporting features alone are worth every penny. I can now generate detailed insights about our
 										operations in seconds, which used to take hours of manual work. Plus, the developmental milestone
 										tracking helps us provide better care for each child.
@@ -340,7 +446,7 @@
 
 									<p class="mt-6">- <span class="font-medium">Jessica Thompson</span></p>
 
-									<p class="text-lg text-gray-600 mt-">Growing Hearts Child Care Center</p>
+									<p class="lg:text-lg text-gray-600 text-sm">Growing Hearts Child Care Center</p>
 								</div>
 							</div>
 							...
@@ -349,31 +455,36 @@
 						<div class="swiper-pagination"></div>
 					</div>
 				</div>
-				<img src="/images/testi.png" alt="" class="lg:col-span-2 object-cover rounded-r-3xl" />
+				<img
+					src="/images/testi.png"
+					alt=""
+					class="md:col-span-2 object-cover rounded-2xl lg:rounded-r-3xl h-60 md:h-auto w-full"
+				/>
 			</div>
 		</section>
 		<!-- end testimonials section -->
 
 		<!-- pricing section -->
 		<section
-			class="max-w-7xl mx-auto pb-20 pt-36 mt-16 bg-cover bg-no-repeat bg-top px-4"
-			style="background-image: url('/images/pricing-bg.png')"
+			class="max-w-7xl mx-auto pb-20 lg:pt-36 mt-16 bg-cover bg-no-repeat bg-top px-4 lg:bg-[url('/images/pricing-bg.png')]"
 		>
-			<h4 class="text-primary uppercase text-center text-lg font-medium">Pricing</h4>
+			<h4 class="text-primary uppercase text-center text-base lg:text-lg font-medium">Pricing</h4>
 
-			<h2 class="text-5xl font-bold max-w-2xl text-center mx-auto font-quicksand leading-[3.5rem] mt-4">
+			<h2
+				class="lg:text-5xl text-2xl font-bold max-w-2xl text-center mx-auto font-quicksand leading-8 lg:leading-[3.5rem] lg:mt-4 mt-2"
+			>
 				Choose a plan than fits <br />
 				Your Daycare’s Needs
 			</h2>
 
 			<div
-				class="w-96 mx-auto bg-gray-100 p-2 rounded-lg grid grid-cols-2 gap-2 mt-10 text-sm"
+				class="lg:w-96 mx-auto bg-gray-100 p-1 lg:p-2 rounded-2xl grid grid-cols-2 gap-2 mt-10 text-sm"
 				x-data="{type: 'monthly'}"
 			>
 				<button
 					type="button"
 					class="rounded-xl"
-					:class="type == 'monthly' && ' bg-white p-4 font-semibold border border-gray-200'"
+					:class="type == 'monthly' && ' bg-white py-3 lg:p-4 font-medium lg:font-semibold border border-gray-200'"
 					@click="type = 'monthly'"
 				>
 					Monthly Billing
@@ -381,7 +492,7 @@
 				<button
 					type="button"
 					class="rounded-xl"
-					:class="type == 'yearly' && ' bg-white p-4 font-semibold border border-gray-200'"
+					:class="type == 'yearly' && ' bg-white py-3 lg:p-4 font-medium lg:font-semibold border border-gray-200'"
 					@click="type = 'yearly'"
 				>
 					Yearly Billing
@@ -389,109 +500,43 @@
 			</div>
 
 			<!-- price list -->
-
-			<div class="grid grid-cols-3 gap-8 mt-16">
+			<div class="grid lg:grid-cols-3 gap-6 lg:gap-8 mt-10 lg:mt-16 max-w-6xl mx-auto">
 				<!-- basic plan -->
-				<div class="border-4 border-double border-gray-300 rounded-lg px-6 py-12 bg-white">
+				<div class="border-4 border-double border-gray-300 rounded-lg lg:px-6 lg:py-12 px-4 py-6 bg-white">
 					<h2 class="text-center">
 						<!-- naira symbol -->
-						<span class="text-3xl font-semibold"> ₦ </span>
-						<span class="text-5xl font-bold">29,000</span>
-						<span class="text-3xl font-semibold">/mo</span>
+						<span class="md:text-3xl text-xl font-semibold"> ₦ </span>
+						<span class="md:text-5xl text-3xl font-bold">29,000</span>
+						<span class="md:text-3xl text-xl font-semibold">/mo</span>
 					</h2>
 
 					<p class="mt-6 text-center font-medium text-lg">Basic Plan 🚀</p>
 					<p class="text-center text-gray-700 text-base mt-1">ideal for small daycares</p>
 
-					<ul class="space-y-3 mt-5">
+					<ul class="space-y-3 mt-5 text-sm md:text-base">
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Manage up to 30 children 👶
 						</li>
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Basic attendance tracking 📝
 						</li>
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Parent messaging (email only) 📧
 						</li>
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Billing & invoicing 💰
 						</li>
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Basic reporting 📊
 						</li>
 					</ul>
 
-					<a href="" class="block mt-10">
+					<a href="" class="block mt-6 lg:mt-10">
 						<button type="button" class="primary-btn w-full">Get Started</button>
 					</a>
 					<a href="" class="block mt-4">
@@ -500,106 +545,41 @@
 				</div>
 
 				<!-- standard plan -->
-				<div class="border-4 border-double border-gray-300 rounded-lg px-6 py-12 bg-white">
+				<div class="border-4 border-double border-gray-300 rounded-lg lg:px-6 lg:py-12 px-4 py-6 bg-white">
 					<h2 class="text-center">
 						<!-- naira symbol -->
-						<span class="text-3xl font-semibold"> ₦ </span>
-						<span class="text-5xl font-bold">79,000</span>
-						<span class="text-3xl font-semibold">/mo</span>
+						<span class="md:text-3xl text-xl font-semibold"> ₦ </span>
+						<span class="md:text-5xl text-3xl font-bold">79,000</span>
+						<span class="md:text-3xl text-xl font-semibold">/mo</span>
 					</h2>
 
-					<p class="mt-6 text-center font-medium text-lg">Standard 🌟</p>
+					<p class="mt-6 text-center font-medium text-base lg:text-lg">Standard 🌟</p>
 					<p class="text-center text-gray-700 text-base mt-1">ideal for small daycares</p>
 
-					<ul class="space-y-3 mt-5">
+					<ul class="space-y-3 mt-5 text-sm md:text-base">
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Manage up to 100 children 👶
 						</li>
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Real-time attendance tracking ⏱️
 						</li>
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Parent communication (app & email) 📱
 						</li>
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Automated billing reminders 🕒
 						</li>
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Activity & meal planning 🍽️
 						</li>
 					</ul>
 
-					<a href="" class="block mt-10">
+					<a href="" class="block mt-6 lg:mt-10">
 						<button type="button" class="primary-btn w-full">Get Started</button>
 					</a>
 					<a href="" class="block mt-4">
@@ -608,106 +588,41 @@
 				</div>
 
 				<!-- Premium -->
-				<div class="border-4 border-double border-gray-300 rounded-lg px-6 py-12 bg-white">
+				<div class="border-4 border-double border-gray-300 rounded-lg lg:px-6 lg:py-12 px-4 py-6 bg-white">
 					<h2 class="text-center">
 						<!-- naira symbol -->
-						<span class="text-3xl font-semibold"> ₦ </span>
-						<span class="text-5xl font-bold">149,000</span>
-						<span class="text-3xl font-semibold">/mo</span>
+						<span class="md:text-3xl text-xl font-semibold"> ₦ </span>
+						<span class="md:text-5xl text-3xl font-bold">149,000</span>
+						<span class="md:text-3xl text-xl font-semibold">/mo</span>
 					</h2>
 
 					<p class="mt-6 text-center font-medium text-lg">Premium 🏆</p>
 					<p class="text-center text-gray-700 text-base mt-1">ideal for small daycares</p>
 
-					<ul class="space-y-3 mt-5">
+					<ul class="space-y-3 mt-5 text-sm lg:text-base">
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Unlimited children 👶
 						</li>
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Advanced attendance with check-in/out 🔑
 						</li>
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Parent communication (app, SMS, & email)
 						</li>
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Advanced billing automation ⚙️
 						</li>
 						<li class="text-gray-600 flex items-center gap-1">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="size-6 text-emerald-600"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-								/>
-							</svg>
+							<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
 							Customizable reports & analytics 📈
 						</li>
 					</ul>
 
-					<a href="" class="block mt-10">
+					<a href="" class="block mt-6 lg:mt-10">
 						<button type="button" class="primary-btn w-full">Get Started</button>
 					</a>
 					<a href="" class="block mt-4">
@@ -719,34 +634,34 @@
 		<!-- end pricing section -->
 
 		<!-- newsletter section -->
-		<section class="py-20 mt-16 relative">
-			<img src="/images/newsletter-bg.png" alt="" class="absolute left-0 top-0" />
-			<div class="flex items-center justify-between relative z-10 mt-40 p-6 max-w-7xl mx-auto">
-				<h2 class="text-4xl font-bold font-quicksand">
+		<section class="py-20 lg:mt-16 relative">
+			<img src="/images/newsletter-bg.png" alt="" class="absolute left-0 top-0 max-h-[65rem] w-full" />
+			<div class="flex flex-col md:flex-row items-center justify-between relative z-10 lg:mt-40 p-6 max-w-6xl mx-auto">
+				<h2 class="text-2xl lg:text-4xl font-bold font-quicksand text-center md:text-left">
 					Subscribe to our <span class="font-courgette">newsletter</span> <br />
 					for daily updates
 				</h2>
 
-				<div class="p-6 bg-white w-fit rounded-full">
-					<img src="/images/newsletter-img.png" alt="" class="w-96 h-96 rounded-full object-cover" />
+				<div class="p-6 bg-white w-fit rounded-full -order-1 md:order-1">
+					<img src="/images/newsletter-img.png" alt="" class="lg:w-96 lg:h-96 w-60 h-60 rounded-full object-cover" />
 				</div>
 			</div>
 		</section>
 		<!-- end newsletter section -->
 
 		<!-- get started section -->
-		<section class="py-20 mt-60 pb-40 relative overflow-hidden">
-			<img src="/images/path.png" alt="" class="absolute left-0 -bottom-44" />
+		<section class="lg:py-20 py-10 px-4 lg:mt-60 pb-40 relative overflow-hidden">
+			<img src="/images/path.png" alt="" class="absolute left-0 lg:-bottom-72" />
 
 			<div class="relative z-10">
-				<img src="/images/get-started.png" alt="" class="w-44 h-44 rounded-full object-cover mx-auto" />
+				<img src="/images/get-started.png" alt="" class="md:w-44 md:h-44 h-32 w-32 rounded-full object-cover mx-auto" />
 
-				<h2 class="text-5xl font-bold font-quicksand text-center mt-4">
+				<h2 class="lg:text-5xl text-2xl font-bold font-quicksand text-center mt-4">
 					Ready to Get Started? Let’s Make <br />
 					Daycare Management Easy for You!
 				</h2>
 
-				<p class="mt-6 text-gray-600 max-w-2xl m-auto text-center text-lg">
+				<p class="mt-6 text-gray-600 max-w-2xl m-auto text-center text-base lg:text-lg">
 					Manage your daycare effortlessly with our all-in-one system. From attendance tracking to staff management,
 					we’ve got you covered.
 				</p>
@@ -759,11 +674,11 @@
 		<!-- end get started section -->
 
 		<!-- footer -->
-		<footer class="pt-12 pb-8">
-			<div class="max-w-7xl mx-auto">
-				<img src="/images/Logo.png" alt="" class="mx-auto" />
+		<footer class="lg:pt-12 pt-10 lg:pb-8 pb-4">
+			<div class="max-w-6xl mx-auto px-4">
+				<img src="/images/Logo.png" alt="" class="mx-auto h-7 lg:h-auto" />
 
-				<ul class="flex items-center gap-4 text-lg mx-auto w-fit mt-6">
+				<ul class="flex items-center gap-4 text-sm lg:text-lg mx-auto w-fit mt-6 justify-center text-gray-700">
 					<li>
 						<a href="#">About</a>
 					</li>
@@ -783,10 +698,10 @@
 
 				<hr class="mt-6" />
 
-				<div class="mt-4 flex items-center justify-between">
+				<div class="mt-4 flex flex-col lg:flex-row items-center justify-between gap-4">
 					<h5>&copy; 2022 Daycare Management. All rights reserved.</h5>
 
-					<ul class="flex items-center gap-4 text-base">
+					<ul class="flex items-center gap-4 text-sm md:text-base text-gray-700">
 						<li>
 							<a href="#">Terms</a>
 						</li>
@@ -804,6 +719,10 @@
 
 		<!-- scripts -->
 		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+		<script>
+			lucide.createIcons();
+		</script>
 		<script>
 			const swiper = new Swiper(".swiper", {
 				// Optional parameters
