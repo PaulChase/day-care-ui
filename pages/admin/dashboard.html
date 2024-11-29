@@ -34,7 +34,7 @@
 	</head>
 
 	<body class="">
-		<div x-data="{ isExpanded: true }" class="min-h-screen flex">
+		<div x-data="{ isExpanded: true }" class="min-h-screen lg:flex w-full">
 			<!-- Sidebar -->
 			<aside
 				:class="isExpanded ? 'w-64' : 'w-16'"
@@ -191,7 +191,7 @@
 			<!-- end sidebar -->
 
 			<!-- Main Content -->
-			<main class="flex-1" :class="isExpanded ? 'lg:ml-64' : 'lg:ml-16'">
+			<main class="flex-1 w-full" :class="isExpanded ? 'lg:ml-64' : 'lg:ml-16'">
 				<div x-data="{showNotificationsModal: false, showAccountModal: false, }">
 					<!-- navbar -->
 					<nav class="flex items-center justify-between px-2 py-4 lg:p-4 border-b border-gray-300 h-auto lg:h-24">
@@ -749,7 +749,7 @@
 						</div>
 
 						<div class="text-gray-700 font-medium bg-white px-3 rounded-xl text-sm border border-gray-300 mt-1 w-full">
-							<div class="overflow-x-auto w-96 lg:w-full">
+							<div class="overflow-x-auto w-full">
 								<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
 									<thead class="text-xs text-gray-700 dark:text-gray-400">
 										<tr>

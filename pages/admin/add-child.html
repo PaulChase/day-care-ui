@@ -59,11 +59,11 @@
 	</head>
 
 	<body class="">
-		<div x-data="{ isExpanded: false }" class="min-h-screen flex">
+		<div x-data="{ isExpanded: true }" class="min-h-screen flex">
 			<!-- Sidebar -->
 			<aside
 				:class="isExpanded ? 'w-64' : 'w-16'"
-				class="transition-all duration-300 ease-in-out flex flex-col fixed top-0 left-0 h-full border-r-2 border-gray-300"
+				class="transition-all duration-300 ease-in-out lg:flex flex-col fixed top-0 left-0 h-full border-r-2 border-gray-300 hidden"
 			>
 				<!-- Logo Section -->
 				<div class="p-4 flex items-center justify-between h-24 border-b border-gray-300">
@@ -216,7 +216,7 @@
 			<!-- end sidebar -->
 
 			<!-- Main Content -->
-			<main class="flex-1" :class="isExpanded ? 'ml-64' : 'ml-16'">
+			<main class="flex-1" :class="isExpanded ? 'lg:ml-64' : 'lg:ml-16'">
 				<div x-data="{showNotificationsModal: false, showAccountModal: false, }">
 					<!-- navbar -->
 					<nav class="flex items-center justify-between p-4 border-b border-gray-300 h-24">
@@ -441,15 +441,15 @@
 						<span class="fa fa-arrow-left text-lg text-gray-600"></span>
 					</button>
 
-					<h3 class="text-lg font-quicksand font-bold">Add New Child / Edit Child's Information</h3>
+					<h3 class="lg:text-lg font-quicksand font-bold">Add New Child / Edit Child's Information</h3>
 				</section>
 				<!-- end header sectio -->
 
 				<!-- main content -->
-				<div class="p-4 flex gap-4 items-start">
+				<div class="p-4 flex flex-col lg:flex-row gap-4 items-start">
 					<!-- upload image -->
-					<div class="bg-gray-100 rounded-2xl p-1 border border-gray-300">
-						<div class="bg-white rounded-xl p-4 w-72 flex-shrink-0 border border-gray-300">
+					<div class="bg-gray-100 rounded-2xl p-1 border border-gray-300 w-full lg:w-fit">
+						<div class="bg-white rounded-xl p-4 w-full lg:w-72 flex-shrink-0 border border-gray-300">
 							<h2 class="text-lg font-bold text-gray-800 mb-4">Child's Image</h2>
 
 							<!-- Dropzone Container -->
@@ -478,10 +478,10 @@
 					<!-- end upload image -->
 
 					<!-- add child form -->
-					<section class="bg-gray-100 rounded-2xl p-1 border border-gray-300 flex-1">
+					<section class="bg-gray-100 rounded-2xl p-1 border border-gray-300 flex-1 max-w-5xl w-full">
 						<div class="font-medium bg-white rounded-xl text-sm border border-gray-300">
 							<div class="flex items-center justify-between p-4">
-								<p class="text-xl font-quicksand font-bold">Child's Information</p>
+								<p class="text-lg md:text-xl font-quicksand font-bold">Child's Information</p>
 							</div>
 
 							<form action="" class="mt-2 p-4">
@@ -490,7 +490,7 @@
 									<input type="text" id="email" class="input-field" placeholder="e.g John Doe" />
 								</div>
 
-								<div class="grid grid-cols-2 gap-4 mt-4">
+								<div class="grid md:grid-cols-2 gap-4 mt-4">
 									<div class="">
 										<label for="countries" class="input-label">Gender</label>
 										<select id="countries" class="input-field">
@@ -619,7 +619,7 @@
 
 								<h3 class="text-lg font-medium mt-6">Enrollment Information</h3>
 
-								<div class="grid grid-cols-2 gap-4 mt-4">
+								<div class="grid md:grid-cols-2 gap-4 mt-4">
 									<div class="">
 										<label for="email" class="input-label">Enrollment Date</label>
 										<input type="date" id="email" class="input-field" />

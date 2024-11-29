@@ -43,11 +43,11 @@
 	</head>
 
 	<body class="">
-		<div x-data="{ isExpanded: true }" class="min-h-screen flex">
+		<div x-data="{ isExpanded: true }" class="min-h-screen flex w-full">
 			<!-- Sidebar -->
 			<aside
 				:class="isExpanded ? 'w-64' : 'w-16'"
-				class="transition-all duration-300 ease-in-out flex flex-col fixed top-0 left-0 h-full border-r-2 border-gray-300"
+				class="transition-all duration-300 ease-in-out lg:flex flex-col fixed top-0 left-0 h-full border-r-2 border-gray-300 hidden"
 			>
 				<!-- Logo Section -->
 				<div class="p-4 flex items-center justify-between h-24 border-b border-gray-300">
@@ -200,7 +200,7 @@
 			<!-- end sidebar -->
 
 			<!-- Main Content -->
-			<main class="flex-1" :class="isExpanded ? 'ml-64' : 'ml-16'">
+			<main class="flex-1 w-full" :class="isExpanded ? 'lg:ml-64' : 'lg:ml-16'">
 				<div x-data="{showNotificationsModal: false, showAccountModal: false, }">
 					<!-- navbar -->
 					<nav class="flex items-center justify-between p-4 border-b border-gray-300 h-24">
@@ -420,21 +420,21 @@
 				</div>
 
 				<!-- main content -->
-				<div class="p-4">
+				<div class="p-4 w-full">
 					<button
 						type="button"
 						class="size-9 border border-gray-300 rounded-md flex items-center justify-center shadow"
 					>
 						<i data-lucide="chevron-left" class="size-6 text-gray-600"></i>
 					</button>
-					<section class="bg-gray-100 rounded-2xl p-1 border border-gray-300 mt-6 max-w-7xl">
-						<img src="/images/child-bg.png" alt="" class="h-48 w-full rounded-t-xl" />
+					<section class="bg-gray-100 rounded-2xl p-1 border border-gray-300 mt-6 max-w-7xl w-full">
+						<img src="/images/child-bg.png" alt="" class="md:h-48 h-32 w-full rounded-t-xl" />
 
-						<div class="bg-white border rounded-b-xl pb-6">
-							<div class="flex items-center justify-between px-4">
-								<div class="flex items-center gap-4 -mt-12 z-10">
+						<div class="bg-white border rounded-b-xl pb-6 w-full">
+							<div class="flex flex-col lg:flex-row items-start lg:items-center lg:justify-between px-4 gap-4">
+								<div class="flex items-center gap-4 md:-mt-12 -mt-8 z-10">
 									<div class="w-fit p-2 bg-white rounded-full shadow-md relative">
-										<img src="/images/child.jpeg" alt="" class="size-40 rounded-full object-cover" />
+										<img src="/images/child.jpeg" alt="" class="md:size-40 size-32 rounded-full object-cover" />
 
 										<span class="block absolute right-0 bottom-3 z-10">
 											<i data-lucide="badge-check" class="size-12 text-white fill-blue-600"></i>
@@ -459,15 +459,15 @@
 
 							<!-- tabs -->
 							<div x-data="tabs" class="w-full mt-4 px-2">
-								<div class="flex items-center gap-x-2 py-4 overflow-x-scroll w-[60rem]">
+								<div class="py-4 overflow-auto w-full whitespace-nowrap">
 									<template x-for="(tab, tabIndex) in tabMenu" :key="tabIndex">
-										<button
-											class="px-4 py-2 text-xs text-gray-600 whitespace-nowrap"
+										<div
+											class="px-4 py-2 text-xs text-gray-600 whitespace-nowrap inline-block"
 											:class="currentTab == tab && ' text-primary font-semibold border-b-4 border-primary'"
 											@click="currentTab = tab"
 										>
 											<span x-text="tab"></span>
-										</button>
+										</div>
 									</template>
 								</div>
 
@@ -475,10 +475,10 @@
 
 								<!-- Bio data form -->
 								<div x-show="currentTab == 'Basic Information'" x-transition x-cloak>
-									<div class="p-4 flex items-start gap-4">
+									<div class="p-4 flex flex-col lg:flex-row items-start gap-4">
 										<h2 class="text-xl font-semibold min-w-80">Bio Data</h2>
 
-										<form action="" class="flex-1 space-y-4">
+										<form action="" class="flex-1 space-y-4 w-full">
 											<div class="">
 												<label for="email" class="input-label">Usual Name</label>
 												<input type="text" id="email" class="input-field" />
@@ -542,11 +542,11 @@
 
 								<!-- Parent & Guardian form -->
 								<div x-show="currentTab == 'Parent & Guardian'" x-transition x-cloak>
-									<div class="p-4 flex items-start gap-4">
+									<div class="p-4 flex flex-col lg:flex-row items-start gap-4">
 										<h2 class="text-xl font-semibold min-w-80 text-gray-700">Parent Information</h2>
 
-										<form action="" class="flex-1 space-y-4">
-											<div class="grid grid-cols-2 gap-x-4">
+										<form action="" class="flex-1 space-y-4 w-full">
+											<div class="grid md:grid-cols-2 gap-4">
 												<div class="">
 													<label for="email" class="input-label">Usual Name</label>
 													<input type="text" id="email" class="input-field" />
@@ -651,10 +651,10 @@
 
 								<!-- Health Information form -->
 								<div x-show="currentTab == 'Health Information'" x-transition x-cloak>
-									<div class="p-4 flex items-start gap-4">
+									<div class="p-4 flex flex-col lg:flex-row items-start gap-4">
 										<h2 class="text-lg font-semibold min-w-80 text-gray-700">Emergency Health Information</h2>
 
-										<form action="" class="flex-1 space-y-4">
+										<form action="" class="flex-1 space-y-4 w-full">
 											<div class="">
 												<label for="email" class="input-label">Care Card Number</label>
 												<input type="text" id="email" class="input-field" />
@@ -676,10 +676,10 @@
 
 									<hr class="border-gray-300 my-4" />
 
-									<div class="p-4 flex items-start gap-4">
+									<div class="p-4 flex flex-col lg:flex-row items-start gap-4">
 										<h2 class="text-lg font-semibold min-w-80 text-gray-700">Child's Immunization Status</h2>
 
-										<form action="" class="flex-1 space-y-4">
+										<form action="" class="flex-1 space-y-4 w-full">
 											<div class="">
 												<label for="email" class="input-label"> Immunization Status </label>
 												<input type="text" id="email" class="input-field" />
@@ -697,10 +697,10 @@
 
 									<hr class="border-gray-300 my-4" />
 
-									<div class="p-4 flex items-start gap-4">
+									<div class="p-4 flex flex-col lg:flex-row items-start gap-4">
 										<h2 class="text-lg font-semibold min-w-80 text-gray-700">Health Information</h2>
 
-										<form action="" class="flex-1 space-y-4">
+										<form action="" class="flex-1 space-y-4 w-full">
 											<div class="">
 												<label for="email" class="input-label"> Current Medications </label>
 												<input type="text" id="email" class="input-field" />
@@ -719,10 +719,10 @@
 
 								<!-- Authorized & Unauthorized form -->
 								<div x-show="currentTab == 'Authorized & Unauthorized'" x-transition x-cloak>
-									<div class="p-4 flex items-start gap-4">
+									<div class="p-4 flex flex-col lg:flex-row items-start gap-4">
 										<h2 class="text-lg font-semibold min-w-80 text-gray-700">Authorized Pickup</h2>
 
-										<form action="" class="flex-1 space-y-4">
+										<form action="" class="flex-1 space-y-4 w-full">
 											<div class="">
 												<label for="email" class="input-label">Full Name</label>
 												<input type="text" id="email" class="input-field" />
@@ -749,10 +749,10 @@
 
 									<hr class="border-gray-300 my-4" />
 
-									<div class="p-4 flex items-start gap-4">
+									<div class="p-4 flex flex-col lg:flex-row items-start gap-4">
 										<h2 class="text-lg font-semibold min-w-80 text-gray-700">Unauthorized Pickup</h2>
 
-										<form action="" class="flex-1 space-y-4">
+										<form action="" class="flex-1 space-y-4 w-full">
 											<div class="">
 												<label for="email" class="input-label">Full Name</label>
 												<input type="text" id="email" class="input-field" />
@@ -772,10 +772,10 @@
 
 								<!-- Legal Custody form -->
 								<div x-show="currentTab == 'Legal Custody'" x-transition x-cloak>
-									<div class="p-4 flex items-start gap-4">
+									<div class="p-4 flex flex-col lg:flex-row items-start gap-4">
 										<h2 class="text-lg font-semibold min-w-80 text-gray-700">Legal Custody</h2>
 
-										<form action="" class="flex-1 space-y-4">
+										<form action="" class="flex-1 space-y-4 w-full">
 											<div class="">
 												<label for="email" class="input-label">Custody Status</label>
 												<input type="text" id="email" class="input-field" />
@@ -791,10 +791,10 @@
 
 								<!-- Behaviors form -->
 								<div x-show="currentTab == 'Behaviors'" x-transition x-cloak>
-									<div class="p-4 flex items-start gap-4">
+									<div class="p-4 flex flex-col lg:flex-row items-start gap-4">
 										<h2 class="text-lg font-semibold min-w-80 text-gray-700">Group Experiences</h2>
 
-										<form action="" class="flex-1 space-y-4">
+										<form action="" class="flex-1 space-y-4 w-full">
 											<div class="">
 												<label for="email" class="input-label"> Favorite Activities </label>
 												<input type="text" id="email" class="input-field" />
@@ -808,10 +808,10 @@
 
 									<hr class="border-gray-300 my-4" />
 
-									<div class="p-4 flex items-start gap-4">
+									<div class="p-4 flex flex-col lg:flex-row items-start gap-4">
 										<h2 class="text-lg font-semibold min-w-80 text-gray-700">Emmotional</h2>
 
-										<form action="" class="flex-1 space-y-4">
+										<form action="" class="flex-1 space-y-4 w-full">
 											<div class="">
 												<label for="email" class="input-label"> Behavior towards other children </label>
 												<input type="text" id="email" class="input-field" />
@@ -833,10 +833,10 @@
 
 									<hr class="border-gray-300 my-4" />
 
-									<div class="p-4 flex items-start gap-4">
+									<div class="p-4 flex flex-col lg:flex-row items-start gap-4">
 										<h2 class="text-lg font-semibold w-80 text-gray-700">Family and General Household Information</h2>
 
-										<form action="" class="flex-1 space-y-4">
+										<form action="" class="flex-1 space-y-4 w-full">
 											<div>
 												<label for="address" class="input-label"> Significant people in the child's life </label>
 												<textarea name="address" id="address" rows="2" class="input-field"></textarea>
@@ -845,7 +845,7 @@
 												<label for="email" class="input-label"> Guidance and discipline techniques used at home </label>
 												<input type="text" id="email" class="input-field" />
 											</div>
-											<div class="grid grid-cols-2 gap-x-4">
+											<div class="grid md:grid-cols-2 gap-4">
 												<div class="">
 													<label for="email" class="input-label">Primary languages spoken at home </label>
 													<input type="text" id="email" class="input-field" />
@@ -860,11 +860,11 @@
 
 									<hr class="border-gray-300 my-4" />
 
-									<div class="p-4 flex items-start gap-4">
+									<div class="p-4 flex flex-col lg:flex-row items-start gap-4">
 										<h2 class="text-lg font-semibold w-80 text-gray-700">Sleeping</h2>
 
-										<form action="" class="flex-1 space-y-4">
-											<div class="grid grid-cols-2 gap-4">
+										<form action="" class="flex-1 space-y-4 w-full">
+											<div class="grid md:grid-cols-2 gap-4">
 												<div class="">
 													<label for="email" class="input-label">Nap time </label>
 													<input type="time" id="email" class="input-field" />
@@ -885,7 +885,7 @@
 													<label for="email" class="input-label">How long to settle </label>
 													<input type="text" id="email" class="input-field" />
 												</div>
-												<div class="col-span-2">
+												<div class="md:col-span-2">
 													<label for="email" class="input-label">Mood upon waking </label>
 													<input type="text" id="email" class="input-field" />
 												</div>
@@ -895,11 +895,11 @@
 
 									<hr class="border-gray-300 my-4" />
 
-									<div class="p-4 flex items-start gap-4">
-										<h2 class="text-lg font-semibold w-80 text-gray-700">Toleting</h2>
+									<div class="p-4 flex flex-col lg:flex-row items-start gap-4">
+										<h2 class="text-lg font-semibold w-80 text-gray-700">Toileting</h2>
 
-										<form action="" class="flex-1 space-y-4">
-											<div class="grid grid-cols-2 gap-4">
+										<form action="" class="flex-1 space-y-4 w-full">
+											<div class="grid md:grid-cols-2 gap-4">
 												<div class="">
 													<label for="email" class="input-label"> Is your Child toilet trained? </label>
 													<input type="text" id="email" class="input-field" />
@@ -908,7 +908,7 @@
 													<label for="email" class="input-label"> Frequncy or Patterns of bowel movements </label>
 													<input type="text" id="email" class="input-field" />
 												</div>
-												<div class="col-span-2">
+												<div class="md:col-span-2">
 													<label for="email" class="input-label">Assistance needed for toileting </label>
 													<input type="text" id="email" class="input-field" />
 												</div>
@@ -943,9 +943,9 @@
 													<i data-lucide="box" class="size-6"></i>
 												</button>
 											</div>
-											<div class="flex items-center justify-between p-3">
-												<div class="flex items-center gap-x-4">
-													<div class="flex w-60">
+											<div class="flex flex-col md:flex-row md:items-center md:justify-between p-3 gap-4">
+												<div class="flex flex-col md:flex-row items-center gap-4">
+													<div class="flex lg:w-60 w-full">
 														<span
 															class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
 														>
@@ -959,29 +959,25 @@
 														/>
 													</div>
 
-													<div class="border-l border-gray-300 flex items-center gap-4 px-4">
-														<div class="">
-															<select
-																id="countries"
-																class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 w-28"
-															>
-																<option value="Active">Active</option>
-																<option value="Inactive">Inactive</option>
-															</select>
-														</div>
-														<div class="">
-															<select
-																id="countries"
-																class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 w-28"
-															>
-																<option value="Jan">Jan</option>
-																<option value="Feb">Feb</option>
-																<option value="Mar">Mar</option>
-																<option value="Apr">Apr</option>
-																<option value="May">May</option>
-																<option value="Jun">Jun</option>
-															</select>
-														</div>
+													<div class="lg:border-l border-gray-300 flex items-center gap-4 lg:px-4 w-full">
+														<select
+															id="countries"
+															class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 w-full md:w-28"
+														>
+															<option value="Active">Active</option>
+															<option value="Inactive">Inactive</option>
+														</select>
+														<select
+															id="countries"
+															class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 w-full md:w-28"
+														>
+															<option value="Jan">Jan</option>
+															<option value="Feb">Feb</option>
+															<option value="Mar">Mar</option>
+															<option value="Apr">Apr</option>
+															<option value="May">May</option>
+															<option value="Jun">Jun</option>
+														</select>
 													</div>
 												</div>
 
@@ -995,7 +991,7 @@
 										</div>
 
 										<div class="text-gray-700 font-medium bg-white px-3 rounded-xl text-sm border border-gray-300 mt-1">
-											<div class="relative overflow-x-auto">
+											<div class="relative overflow-x-auto w-full">
 												<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
 													<thead class="text-xs text-gray-700 dark:text-gray-400">
 														<tr>
@@ -1101,7 +1097,9 @@
 								<div x-show="currentTab == 'Fees'" x-transition x-cloak>
 									<section class="bg-gray-100 rounded-2xl p-1 border border-gray-300 mt-8">
 										<div class="text-gray-700 font-medium bg-white rounded-xl text-sm border border-gray-300">
-											<div class="flex items-center justify-between p-3 border-b border-gray-300">
+											<div
+												class="flex flex-col md:flex-row md:items-center md:justify-between items-start p-3 border-b border-gray-300 gap-4"
+											>
 												<div class="flex gap-6">
 													<div>
 														<h3 class="text-sm text-green-600">Amount Paid</h3>
@@ -1122,9 +1120,9 @@
 													<i data-lucide="box" class="size-6"></i>
 												</button>
 											</div>
-											<div class="flex items-center justify-between p-3">
-												<div class="flex items-center gap-x-4">
-													<div class="flex w-60">
+											<div class="flex flex-col md:flex-row md:items-center md:justify-between p-3 gap-4">
+												<div class="flex flex-col md:flex-row items-center gap-4">
+													<div class="flex lg:w-60 w-full">
 														<span
 															class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
 														>
@@ -1138,29 +1136,25 @@
 														/>
 													</div>
 
-													<div class="border-l border-gray-300 flex items-center gap-4 px-4">
-														<div class="">
-															<select
-																id="countries"
-																class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 w-28"
-															>
-																<option value="Active">Active</option>
-																<option value="Inactive">Inactive</option>
-															</select>
-														</div>
-														<div class="">
-															<select
-																id="countries"
-																class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 w-28"
-															>
-																<option value="Jan">Jan</option>
-																<option value="Feb">Feb</option>
-																<option value="Mar">Mar</option>
-																<option value="Apr">Apr</option>
-																<option value="May">May</option>
-																<option value="Jun">Jun</option>
-															</select>
-														</div>
+													<div class="lg:border-l border-gray-300 flex items-center gap-4 lg:px-4 w-full">
+														<select
+															id="countries"
+															class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 w-full md:w-28"
+														>
+															<option value="Active">Active</option>
+															<option value="Inactive">Inactive</option>
+														</select>
+														<select
+															id="countries"
+															class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 w-full md:w-28"
+														>
+															<option value="Jan">Jan</option>
+															<option value="Feb">Feb</option>
+															<option value="Mar">Mar</option>
+															<option value="Apr">Apr</option>
+															<option value="May">May</option>
+															<option value="Jun">Jun</option>
+														</select>
 													</div>
 												</div>
 
@@ -1174,7 +1168,7 @@
 										</div>
 
 										<div class="text-gray-700 font-medium bg-white px-3 rounded-xl text-sm border border-gray-300 mt-1">
-											<div class="relative overflow-x-auto">
+											<div class="relative overflow-x-auto w-full lg:w-full">
 												<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
 													<thead class="text-xs text-gray-700 dark:text-gray-400">
 														<tr>
@@ -1195,7 +1189,7 @@
 																	359,233.00
 																</th>
 
-																<td class="px-6 py-4 text-gray-900">22nd May, 2022</td>
+																<td class="px-6 py-4 text-gray-900 whitespace-nowrap">22nd May, 2022</td>
 																<td class="px-6 py-4">
 																	<span
 																		class="text-xs inline-flex items-center gap-1 bg-green-100 text-green-600 px-2 py-1 rounded-full"
