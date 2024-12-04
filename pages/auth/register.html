@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Login Page</title>
+		<title>Register Page</title>
 		<link rel="stylesheet" href="/dist/app.css" />
 		<!-- fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,9 +23,6 @@
 			referrerpolicy="no-referrer"
 		/>
 
-		<!-- lucide icons -->
-		<script src="https://unpkg.com/lucide@latest"></script>
-
 		<!-- swiper js -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
@@ -35,6 +32,10 @@
 			}
 		</style>
 
+		<!-- lucide icons -->
+		<script src="https://unpkg.com/lucide@latest"></script>
+
+		<!-- alpine js -->
 		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
 	</head>
 
@@ -55,17 +56,36 @@
 				class="relative z-20 h-auto flex items-center justify-start bg-white p-4 border-4 border-double border-gray-300 rounded-xl mt-12 md:max-w-[28rem]"
 			>
 				<div class="w-full">
-					<h4 class="text-3xl font-quicksand font-bold text-center">Welcome back</h4>
+					<h4 class="text-3xl font-quicksand font-bold text-center">Create Account</h4>
 
-					<p class="text-base text-gray-600 mt-2 text-center">Glad to see you again. log in your account</p>
+					<p class="text-base text-gray-600 mt-2 text-center">Start your 30 days free trial. Cancel anytime.</p>
 
 					<p class="text-base text-gray-600 mt-2 text-center">
-						New here? <a href="/pages/auth/register.html" class="text-primary font-medium">Sign Up</a>
+						Already have an account? <a href="/pages/auth/login.html" class="text-primary font-medium">Login</a>
 					</p>
 
-					<!-- sign in form -->
-					<form action="" class="mt-6 lg:mt-8" x-show="type == 'signin'" x-cloak>
+					<!-- sign up form -->
+					<form action="" class="mt-6 lg:mt-8">
 						<div>
+							<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+								>Full Name</label
+							>
+							<div class="flex">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<i data-lucide="user" class="size-5 text-gray-700"> </i>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+									placeholder="John Doe"
+								/>
+							</div>
+						</div>
+
+						<div class="mt-4">
 							<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
 								>Email</label
 							>
@@ -111,10 +131,10 @@
 									value=""
 									class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
 								/>
-								<label for="checkbox-1" class="ms-2 text-sm text-gray-800 dark:text-gray-300">Keep me Logged In </label>
+								<label for="checkbox-1" class="ms-2 text-sm text-gray-800 dark:text-gray-300">
+									By proceeding, you agree to our <a href="#" class="text-primary font-medium">Terms and Conditions</a>
+								</label>
 							</div>
-
-							<a href="#" class="text-sm font-medium text-primary"> Forgot Password </a>
 						</div>
 
 						<button type="submit" class="primary-btn w-full mt-8 disabled:bg-opacity-50 disabled:border-0">
