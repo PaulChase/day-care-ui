@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Admin Fees Page</title>
+		<title>Parent Settings Page</title>
 		<link rel="stylesheet" href="/dist/app.css" />
 		<!-- fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -201,8 +201,8 @@
 
 			<!-- Main Content -->
 			<main class="flex-1 w-full" :class="isExpanded ? 'lg:ml-64' : 'lg:ml-16'">
-				<!-- navbar -->
 				<div x-data="{showNotificationsModal: false, showAccountModal: false, }">
+					<!-- navbar -->
 					<nav class="flex items-center justify-between px-2 py-4 lg:p-4 border-b border-gray-300 h-auto lg:h-24">
 						<h2 class="text-xl font-semibold hidden lg:block">Dashboard</h2>
 						<a href="/">
@@ -397,6 +397,7 @@
 							</div>
 						</div>
 					</nav>
+					<!-- end navbar -->
 
 					<!-- notifications modal-->
 					<div
@@ -586,268 +587,417 @@
 					</div>
 					<!-- end  account modal -->
 				</div>
-				<!-- end navbar -->
 
 				<!-- main content -->
-				<div class="p-4 w-full">
-					<section class="bg-gray-100 rounded-2xl p-1 border border-gray-300 mt-8">
-						<div class="text-gray-700 font-medium bg-white rounded-xl text-sm border border-gray-300">
-							<div
-								class="flex flex-col md:flex-row md:items-center md:justify-between items-start p-3 border-b border-gray-300 gap-4"
-							>
-								<div class="flex gap-6">
-									<div>
-										<h3 class="text-sm text-green-600">Amount Paid</h3>
-
-										<h2 class="text-2xl font-quicksand text-black font-bold mt-1">N1,234,567.00</h2>
-									</div>
-									<div>
-										<h3 class="text-sm text-red-600">Amount Due</h3>
-
-										<h2 class="text-2xl font-quicksand text-black font-bold mt-1">N34,567.00</h2>
-									</div>
-								</div>
-
-								<button
-									type="button"
-									class="p-2 border border-gray-300 rounded-lg flex justify-center items-center text-primary"
+				<div class="w-full h-full">
+					<!-- tabs -->
+					<div x-data="tabs" class="w-full flex flex-col lg:flex-row lg:h-full">
+						<div
+							class="p-4 overflow-auto w-full whitespace-nowrap flex lg:flex-col lg:w-64 lg:border-r lg:border-gray-300 lg:h-full lg:flex-shrink-0 mb-4 lg:m-0"
+						>
+							<template x-for="(tab, tabIndex) in tabMenu" :key="tabIndex">
+								<div
+									class="px-4 py-2 text-xs md:text-sm text-gray-600 whitespace-nowrap inline-block cursor-pointer"
+									:class="currentTab == tab && ' bg-gray-100 border border-gray-300 rounded-lg font-semibold text-black'"
+									@click="currentTab = tab"
 								>
-									<i data-lucide="box" class="size-6"></i>
-								</button>
-							</div>
-							<div class="flex flex-col md:flex-row md:items-center md:justify-between p-3 gap-4">
-								<div class="flex flex-col md:flex-row items-center gap-4">
-									<div class="flex lg:w-60 w-full">
-										<span
-											class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
-										>
-											<i data-lucide="search" class="size-4"></i>
-										</span>
-										<input
-											type="text"
-											id="website-admin"
-											class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
-											placeholder="search..."
-										/>
-									</div>
-
-									<div class="lg:border-l border-gray-300 flex items-center gap-4 lg:px-4 w-full">
-										<select
-											id="countries"
-											class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 w-full md:w-28"
-										>
-											<option value="Active">Active</option>
-											<option value="Inactive">Inactive</option>
-										</select>
-										<select
-											id="countries"
-											class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 w-full md:w-28"
-										>
-											<option value="Jan">Jan</option>
-											<option value="Feb">Feb</option>
-											<option value="Mar">Mar</option>
-											<option value="Apr">Apr</option>
-											<option value="May">May</option>
-											<option value="Jun">Jun</option>
-										</select>
-									</div>
+									<span x-text="tab"></span>
 								</div>
-
-								<button
-									type="button"
-									class="p-2 border border-gray-300 rounded-lg flex justify-center items-center text-sm text-gray-700"
-								>
-									<i data-lucide="refresh-ccw" class="size-4 mr-2"></i> Refresh
-								</button>
-							</div>
+							</template>
 						</div>
 
-						<div class="text-gray-700 font-medium bg-white px-3 rounded-xl text-sm border border-gray-300 mt-1">
-							<div class="relative overflow-x-auto w-full lg:w-full">
-								<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-									<thead class="text-xs text-gray-700 dark:text-gray-400">
-										<tr>
-											<th scope="col" class="p-4">
-												<div class="flex items-center">
-													<input
-														id="checkbox-all-search"
-														type="checkbox"
-														class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-													/>
-													<label for="checkbox-all-search" class="sr-only">checkbox</label>
-												</div>
-											</th>
-											<th scope="col" class="px-6 py-3">Child's Name</th>
-											<th scope="col" class="px-6 py-3">Amount Paid (N)</th>
-											<th scope="col" class="px-6 py-3">Payment Date</th>
-											<th scope="col" class="px-6 py-3">Status</th>
-											<th scope="col" class="px-6 py-3">Action</th>
-										</tr>
-									</thead>
-									<tbody x-data>
-										<template x-for="i in 10">
-											<tr
-												class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+						<div x-show="currentTab == 'Account'" x-transition x-cloak class="w-full">
+							<div class="divide-y">
+								<div class="px-4 py-6 lg:py-8 grid gap-4 lg:grid-cols-2 lg:gap-2">
+									<div>
+										<h3 class="text-lg lg:text-xl font-semibold">Account Settings</h3>
+
+										<p class="mt-2 text-gray-600">View and update your account details, profile, and more.</p>
+									</div>
+
+									<div class="space-y-4">
+										<div class="">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>Full Name</label
 											>
-												<td class="w-4 p-4">
-													<div class="flex items-center">
-														<input
-															id="checkbox-table-search-1"
-															type="checkbox"
-															class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-														/>
-														<label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-													</div>
-												</td>
-												<td
-													scope="row"
-													class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap flex items-center gap-2"
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
 												>
-													<img src="/images/face-card.png" alt="" class="size-10 rounded-md" />
-													John Doe
-												</td>
+													<i data-lucide="user" class="size-5 text-gray-700"> </i>
+												</span>
+												<input
+													type="text"
+													id="website-admin"
+													class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+												/>
+											</div>
+										</div>
+										<div class="">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>Email</label
+											>
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+												>
+													<i data-lucide="mail" class="size-5 text-gray-700"> </i>
+												</span>
+												<input
+													type="text"
+													id="website-admin"
+													class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+												/>
+											</div>
+										</div>
+										<div class="">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>Phone Number</label
+											>
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+												>
+													<i data-lucide="phone" class="size-5 text-gray-700"> </i>
+												</span>
+												<input
+													type="text"
+													id="website-admin"
+													class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
 
-												<td class="px-6 py-4 text-gray-900 whitespace-nowrap">359,233.00</td>
-
-												<td class="px-6 py-4 text-gray-900 whitespace-nowrap">22nd May, 2022</td>
-												<td class="px-6 py-4">
-													<span
-														class="text-xs inline-flex items-center gap-1 bg-green-100 text-green-600 px-2 py-1 rounded-full"
-													>
-														<i data-lucide="dot" class="size-4" :id="i"></i>
-														<span class="">Paid</span>
-													</span>
-												</td>
-
-												<td class="px-4 py-4">
-													<div class="relative" x-data="{showMenu: false}">
-														<button
-															type="button"
-															@click="showMenu = !showMenu"
-															class="h-9 w-9 flex items-center justify-center border border-gray-300 rounded-md shadow-sm"
-														>
-															<span class="fa fa-ellipsis"></span>
-														</button>
-
-														<div
-															x-show="showMenu"
-															x-transition
-															x-cloak
-															class="absolute top-10 right-8 bg-white z-10 w-56 border border-gray-300 rounded-md text-sm shadow-md"
-														>
-															<ul>
-																<li>
-																	<a href="#">
-																		<button
-																			type="button"
-																			class="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-gray-50"
-																		>
-																			<i class="fa fa-eye mr-2"></i>
-																			View Receipt
-																		</button>
-																	</a>
-																</li>
-																<li>
-																	<a href="#">
-																		<button
-																			type="button"
-																			class="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-gray-50"
-																		>
-																			<i class="fa fa-rocket mr-2"></i>
-																			Send Invoice
-																		</button>
-																	</a>
-																</li>
-																<li class="border-t border-gray-300">
-																	<a href="#">
-																		<button
-																			type="button"
-																			class="flex items-center w-full px-4 py-3 text-red-600 hover:bg-gray-50"
-																		>
-																			<i class="fa fa-trash mr-2"></i>
-																			Delete
-																		</button>
-																	</a>
-																</li>
-															</ul>
-														</div>
-													</div>
-												</td>
-											</tr>
-										</template>
-									</tbody>
-								</table>
-								<nav
-									class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4 mb-4"
-									aria-label="Table navigation"
-								>
-									<span
-										class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto"
-										>Showing <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of
-										<span class="font-semibold text-gray-900 dark:text-white">1000</span></span
-									>
-									<ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
-										<li>
-											<a
-												href="#"
-												class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-												>Previous</a
-											>
-										</li>
-										<li>
-											<a
-												href="#"
-												class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-												>1</a
-											>
-										</li>
-										<li>
-											<a
-												href="#"
-												class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-												>2</a
-											>
-										</li>
-										<li>
-											<a
-												href="#"
-												aria-current="page"
-												class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-												>3</a
-											>
-										</li>
-										<li>
-											<a
-												href="#"
-												class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-												>4</a
-											>
-										</li>
-										<li>
-											<a
-												href="#"
-												class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-												>5</a
-											>
-										</li>
-										<li>
-											<a
-												href="#"
-												class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-												>Next</a
-											>
-										</li>
-									</ul>
-								</nav>
+								<div class="flex justify-end items-center p-4 gap-4">
+									<button class="sec-btn">Cancel</button>
+									<button class="primary-btn">Save Changes</button>
+								</div>
 							</div>
 						</div>
-					</section>
+
+						<div x-show="currentTab == 'Password'" x-transition x-cloak class="w-full">
+							<div class="divide-y">
+								<div class="px-4 py-6 lg:py-8 grid gap-4 lg:grid-cols-2 lg:gap-2">
+									<div>
+										<h3 class="text-lg lg:text-xl font-semibold">Password</h3>
+
+										<p class="mt-2 text-gray-600">Change or view your password</p>
+									</div>
+
+									<div class="space-y-4">
+										<div class="relative" x-data="{show:false}">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>Current Password</label
+											>
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+												>
+													<i data-lucide="key" class="size-5 text-gray-700"></i>
+												</span>
+												<div class="relative flex-1">
+													<input
+														:type="show ? 'text' : 'password'"
+														id="website-admin"
+														class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+													/>
+													<button
+														type="button"
+														@click="show = !show"
+														class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-700"
+													>
+														<i data-lucide="eye" x-show="!show"></i>
+														<i data-lucide="eye-closed" x-show="show"></i>
+													</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="relative" x-data="{show:false}">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>New Password</label
+											>
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+												>
+													<i data-lucide="key" class="size-5 text-gray-700"></i>
+												</span>
+												<div class="relative flex-1">
+													<input
+														:type="show ? 'text' : 'password'"
+														id="website-admin"
+														class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+													/>
+													<button
+														type="button"
+														@click="show = !show"
+														class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-700"
+													>
+														<i data-lucide="eye" x-show="!show"></i>
+														<i data-lucide="eye-closed" x-show="show"></i>
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="flex justify-end items-center p-4 gap-4">
+									<button class="sec-btn">Cancel</button>
+									<button class="primary-btn">Save Changes</button>
+								</div>
+							</div>
+						</div>
+
+						<div x-show="currentTab == 'Push Notifications'" x-transition x-cloak>
+							<div class="divide-y">
+								<div class="px-4 py-6 lg:py-8 grid gap-4 lg:grid-cols-2 lg:gap-2">
+									<div>
+										<h3 class="text-lg lg:text-xl font-semibold">Payment Notifications</h3>
+
+										<p class="mt-2 text-gray-600">
+											Receive real-time updates on payment statuses, reminders for upcoming dues, and alerts for any
+											discrepancies
+										</p>
+									</div>
+
+									<div class="space-y-4">
+										<div class="flex items-center justify-between gap-2">
+											<div>
+												<h3 class="font-medium">Payment Reminders</h3>
+
+												<p class="mt-1 text-gray-600">Sent to remind admins of upcoming payment due dates.</p>
+											</div>
+
+											<div class="flex items-center">
+												<label class="inline-flex relative items-center cursor-pointer">
+													<input type="checkbox" value="" class="sr-only peer" id="toggle" />
+													<div
+														class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+													></div>
+												</label>
+											</div>
+										</div>
+
+										<div class="flex items-center justify-between gap-2">
+											<div>
+												<h3 class="font-medium">Failed Payments</h3>
+
+												<p class="mt-1 text-gray-600">Alert sent when a payment fails to process.</p>
+											</div>
+
+											<div class="flex items-center">
+												<label class="inline-flex relative items-center cursor-pointer">
+													<input type="checkbox" value="" class="sr-only peer" id="toggle" />
+													<div
+														class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+													></div>
+												</label>
+											</div>
+										</div>
+
+										<div class="flex items-center justify-between gap-2">
+											<div>
+												<h3 class="font-medium">Payment Confirmations</h3>
+
+												<p class="mt-1 text-gray-600">Notification sent when a payment is successfully processed</p>
+											</div>
+
+											<div class="flex items-center">
+												<label class="inline-flex relative items-center cursor-pointer">
+													<input type="checkbox" value="" class="sr-only peer" id="toggle" />
+													<div
+														class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+													></div>
+												</label>
+											</div>
+										</div>
+
+										<div class="flex items-center justify-between gap-2">
+											<div>
+												<h3 class="font-medium">Late Fees Alerts</h3>
+
+												<p class="mt-1 text-gray-600">Alerts sent when a payment is overdue and late fees apply.</p>
+											</div>
+
+											<div class="flex items-center">
+												<label class="inline-flex relative items-center cursor-pointer">
+													<input type="checkbox" value="" class="sr-only peer" id="toggle" />
+													<div
+														class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+													></div>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="px-4 py-6 lg:py-8 grid gap-4 lg:grid-cols-2 lg:gap-2">
+									<div>
+										<h3 class="text-lg lg:text-xl font-semibold">Attendance Notifications</h3>
+
+										<p class="mt-2 text-gray-600">
+											Stay informed about children’s attendance patterns, including check-ins, check-outs, and absences.
+										</p>
+									</div>
+
+									<div class="space-y-4">
+										<div class="flex items-center justify-between gap-2">
+											<div>
+												<h3 class="font-medium">Child Check-in Alerts</h3>
+
+												<p class="mt-1 text-gray-600">Notification sent when a child checks in to the daycare.</p>
+											</div>
+
+											<div class="flex items-center">
+												<label class="inline-flex relative items-center cursor-pointer">
+													<input type="checkbox" value="" class="sr-only peer" id="toggle" />
+													<div
+														class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+													></div>
+												</label>
+											</div>
+										</div>
+
+										<div class="flex items-center justify-between gap-2">
+											<div>
+												<h3 class="font-medium">Child Check-in Alerts</h3>
+
+												<p class="mt-1 text-gray-600">Notification sent when a child checks out from the daycare</p>
+											</div>
+
+											<div class="flex items-center">
+												<label class="inline-flex relative items-center cursor-pointer">
+													<input type="checkbox" value="" class="sr-only peer" id="toggle" />
+													<div
+														class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+													></div>
+												</label>
+											</div>
+										</div>
+
+										<div class="flex items-center justify-between gap-2">
+											<div>
+												<h3 class="font-medium">Absentee Alerts</h3>
+
+												<p class="mt-1 text-gray-600">Alerts sent when a child is absent without notice.</p>
+											</div>
+
+											<div class="flex items-center">
+												<label class="inline-flex relative items-center cursor-pointer">
+													<input type="checkbox" value="" class="sr-only peer" id="toggle" />
+													<div
+														class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+													></div>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="px-4 py-6 lg:py-8 grid gap-4 lg:grid-cols-2 lg:gap-2">
+									<div>
+										<h3 class="text-lg lg:text-xl font-semibold">System</h3>
+
+										<p class="mt-2 text-gray-600">
+											Be alerted to important system updates, maintenance schedules, and security measures.
+										</p>
+									</div>
+
+									<div class="space-y-4">
+										<div class="flex items-center justify-between gap-2">
+											<div>
+												<h3 class="font-medium">System Maintenance Alerts</h3>
+
+												<p class="mt-1 text-gray-600">Notifications sent to inform admins of scheduled maintenance</p>
+											</div>
+
+											<div class="flex items-center">
+												<label class="inline-flex relative items-center cursor-pointer">
+													<input type="checkbox" value="" class="sr-only peer" id="toggle" />
+													<div
+														class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+													></div>
+												</label>
+											</div>
+										</div>
+
+										<div class="flex items-center justify-between gap-2">
+											<div>
+												<h3 class="font-medium">Feature Updates</h3>
+
+												<p class="mt-1 text-gray-600">Alerts for new features added to the system.</p>
+											</div>
+
+											<div class="flex items-center">
+												<label class="inline-flex relative items-center cursor-pointer">
+													<input type="checkbox" value="" class="sr-only peer" id="toggle" />
+													<div
+														class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+													></div>
+												</label>
+											</div>
+										</div>
+
+										<div class="flex items-center justify-between gap-2">
+											<div>
+												<h3 class="font-medium">Bug Fix Notifications</h3>
+
+												<p class="mt-1 text-gray-600">Notifications sent to inform about resolved issues.</p>
+											</div>
+
+											<div class="flex items-center">
+												<label class="inline-flex relative items-center cursor-pointer">
+													<input type="checkbox" value="" class="sr-only peer" id="toggle" />
+													<div
+														class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+													></div>
+												</label>
+											</div>
+										</div>
+
+										<div class="flex items-center justify-between gap-2">
+											<div>
+												<h3 class="font-medium">User Feedback Requets</h3>
+
+												<p class="mt-1 text-gray-600">
+													Notifications requesting feedback from users on system performance.
+												</p>
+											</div>
+
+											<div class="flex items-center">
+												<label class="inline-flex relative items-center cursor-pointer">
+													<input type="checkbox" value="" class="sr-only peer" id="toggle" />
+													<div
+														class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+													></div>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</main>
 		</div>
 
 		<script>
 			lucide.createIcons();
+
+			document.addEventListener("alpine:init", () => {
+				Alpine.data("tabs", () => ({
+					currentTab: "Account",
+					tabMenu: ["Account", "Password", "Push Notifications"],
+					changeTab(tab) {
+						this.currentTab = tab;
+					},
+				}));
+			});
 		</script>
 	</body>
 </html>

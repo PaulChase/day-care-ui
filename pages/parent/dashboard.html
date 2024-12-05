@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Admin Fees Page</title>
+		<title>Parents Dashboard Page</title>
 		<link rel="stylesheet" href="/dist/app.css" />
 		<!-- fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,15 +14,6 @@
 		/>
 		<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
 
-		<!-- font awesome -->
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-			integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-
 		<style>
 			body {
 				font-family: "SF Pro Display", sans-serif;
@@ -30,6 +21,33 @@
 
 			[x-cloak] {
 				display: none;
+			}
+
+			.swiper-button-prev,
+			.swiper-button-next {
+				width: 50px !important;
+				height: 50px !important;
+				background-color: white !important;
+				border-radius: 50% !important; /* Creates a circular shape */
+				border: 2px solid #e0e0e0 !important;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+				transition: all 0.3s ease !important;
+				display: flex !important;
+				justify-content: center !important;
+				align-items: center !important;
+			}
+
+			.swiper-button-prev:hover,
+			.swiper-button-next:hover {
+				background-color: #f0f0f0 !important;
+				border-color: #c0c0c0 !important;
+			}
+
+			/* Adjust the arrow color and size */
+			.swiper-button-prev::after,
+			.swiper-button-next::after {
+				font-size: 20px !important;
+				color: #333 !important;
 			}
 		</style>
 
@@ -40,10 +58,25 @@
 
 		<!-- chart js -->
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+		<!-- swiper js -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/simple-jscalendar@1.4.5/source/jsCalendar.min.js"
+			integrity="sha384-F3Wc9EgweCL3C58eDn9902kdEH6bTDL9iW2JgwQxJYUIeudwhm4Wu9JhTkKJUtIJ"
+			crossorigin="anonymous"
+		></script>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/simple-jscalendar@1.4.5/source/jsCalendar.min.css"
+			integrity="sha384-CTBW6RKuDwU/TWFl2qLavDqLuZtBzcGxBXY8WvQ0lShXglO/DsUvGkXza+6QTxs0"
+			crossorigin="anonymous"
+		/>
 	</head>
 
 	<body class="">
-		<div x-data="{ isExpanded: true }" class="min-h-screen flex w-full">
+		<div x-data="{ isExpanded: true }" class="min-h-screen lg:flex w-full">
 			<!-- Sidebar -->
 			<aside
 				:class="isExpanded ? 'w-64' : 'w-16'"
@@ -90,20 +123,7 @@
 								</span>
 							</a>
 						</li>
-						<li>
-							<a
-								href="#"
-								class="flex items-center p-3 rounded-lg hover:bg-indigo-50 transition-colors hover:text-primary font-medium hover:font-semibold text-gray-700"
-							>
-								<i data-lucide="users" class="size-6"></i>
-								<span
-									:class="isExpanded ? 'opacity-100 ml-3' : 'opacity-0 hidden'"
-									class="transition-opacity duration-300"
-								>
-									Staff
-								</span>
-							</a>
-						</li>
+
 						<li>
 							<a
 								href="#"
@@ -201,8 +221,8 @@
 
 			<!-- Main Content -->
 			<main class="flex-1 w-full" :class="isExpanded ? 'lg:ml-64' : 'lg:ml-16'">
-				<!-- navbar -->
 				<div x-data="{showNotificationsModal: false, showAccountModal: false, }">
+					<!-- navbar -->
 					<nav class="flex items-center justify-between px-2 py-4 lg:p-4 border-b border-gray-300 h-auto lg:h-24">
 						<h2 class="text-xl font-semibold hidden lg:block">Dashboard</h2>
 						<a href="/">
@@ -286,20 +306,7 @@
 														</span>
 													</a>
 												</li>
-												<li>
-													<a
-														href="#"
-														class="flex items-center p-3 rounded-lg hover:bg-indigo-50 transition-colors hover:text-primary font-medium hover:font-semibold text-gray-700"
-													>
-														<i data-lucide="users" class="size-6"></i>
-														<span
-															:class="isExpanded ? 'opacity-100 ml-3' : 'opacity-0 hidden'"
-															class="transition-opacity duration-300"
-														>
-															Staff
-														</span>
-													</a>
-												</li>
+
 												<li>
 													<a
 														href="#"
@@ -397,6 +404,7 @@
 							</div>
 						</div>
 					</nav>
+					<!-- end navbar -->
 
 					<!-- notifications modal-->
 					<div
@@ -586,38 +594,97 @@
 					</div>
 					<!-- end  account modal -->
 				</div>
-				<!-- end navbar -->
 
 				<!-- main content -->
 				<div class="p-4 w-full">
-					<section class="bg-gray-100 rounded-2xl p-1 border border-gray-300 mt-8">
-						<div class="text-gray-700 font-medium bg-white rounded-xl text-sm border border-gray-300">
-							<div
-								class="flex flex-col md:flex-row md:items-center md:justify-between items-start p-3 border-b border-gray-300 gap-4"
-							>
-								<div class="flex gap-6">
-									<div>
-										<h3 class="text-sm text-green-600">Amount Paid</h3>
+					<section class="lg:w-96 w-full">
+						<div class="swiper children">
+							<!-- Additional required wrapper -->
+							<div class="swiper-wrapper">
+								<!-- Slides -->
+								<div class="swiper-slide">
+									<div class="bg-gray-100 rounded-2xl p-1 border border-gray-30 w-full">
+										<div class="bg-white px-10 lg:px-16 py-10 rounded-xl border border-gray-300 w-full">
+											<div class="w-fit mx-auto p-2 bg-white rounded-full shadow-md relative">
+												<img src="/images/child.jpeg" alt="" class="md:size-40 size-32 rounded-full object-cover" />
 
-										<h2 class="text-2xl font-quicksand text-black font-bold mt-1">N1,234,567.00</h2>
-									</div>
-									<div>
-										<h3 class="text-sm text-red-600">Amount Due</h3>
+												<span class="block absolute right-0 bottom-3 z-10">
+													<i data-lucide="badge-check" class="size-12 text-white fill-blue-600"></i>
+												</span>
+											</div>
 
-										<h2 class="text-2xl font-quicksand text-black font-bold mt-1">N34,567.00</h2>
+											<h3 class="text-center text-lg font-semibold lg:text-xl mt-4">Kim Doe</h3>
+
+											<p class="text-gray-600 text-center mt-1 lg:text-lg">4 years</p>
+										</div>
 									</div>
 								</div>
 
-								<button
-									type="button"
-									class="p-2 border border-gray-300 rounded-lg flex justify-center items-center text-primary"
-								>
-									<i data-lucide="box" class="size-6"></i>
-								</button>
+								<div class="swiper-slide">
+									<div class="bg-gray-100 rounded-2xl p-1 border border-gray-30 w-full">
+										<div class="bg-white px-10 lg:px-16 py-10 rounded-xl border border-gray-300 w-full">
+											<div class="w-fit mx-auto p-2 bg-white rounded-full shadow-md relative">
+												<img src="/images/face-card.png" alt="" class="md:size-40 size-32 rounded-full object-cover" />
+
+												<span class="block absolute right-0 bottom-3 z-10">
+													<i data-lucide="badge-check" class="size-12 text-white fill-blue-600"></i>
+												</span>
+											</div>
+
+											<h3 class="text-center text-lg font-semibold lg:text-xl mt-4">Kim Doe</h3>
+
+											<p class="text-gray-600 text-center mt-1 lg:text-lg">4 years</p>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="flex flex-col md:flex-row md:items-center md:justify-between p-3 gap-4">
-								<div class="flex flex-col md:flex-row items-center gap-4">
-									<div class="flex lg:w-60 w-full">
+
+							<!-- If we need navigation buttons -->
+							<div class="swiper-button-prev"></div>
+							<div class="swiper-button-next"></div>
+						</div>
+					</section>
+
+					<section class="grid lg:border border-slate-300 rounded-xl lg:divide-x mt-6 lg:mt-8">
+						<div class="space-y-2 lg:space-y-3 p-4">
+							<p class="text-gray-700 font-medium uppercase text-sm lg:text-base">
+								Next Payment Due: <span class="text-primary"> November 5, 2024</span>
+							</p>
+
+							<h3 class="text-2xl lg:text-3xl font-quicksand font-bold">Amount Due: N1,742,586.19</h3>
+
+							<button class="primary-btn">Pay Now</button>
+						</div>
+					</section>
+
+					<section class="flex flex-col lg:flex-row gap-4 mt-8 lg:items-start">
+						<!-- grid 1 -->
+						<div class="bg-gray-100 rounded-2xl p-1 border border-gray-300 lg:w-fit w-full flex-shrink-0">
+							<div
+								class="uppercase text-gray-700 font-medium bg-white px-3 py-4 rounded-xl text-sm border border-gray-300 h-24"
+							>
+								<h3>Attendance Overview</h3>
+
+								<p class="mt-1 lg:mt-2 text-xl lg:text-2xl">100%</p>
+							</div>
+
+							<div
+								class="uppercase text-gray-700 font-medium bg-white px-3 rounded-xl flex items-center justify-between text-sm border border-gray-300 mt-1 relative w-full"
+							>
+								<div class="auto-jsCalendar mx-auto"></div>
+							</div>
+						</div>
+
+						<!-- grid 2 -->
+						<section class="bg-gray-100 rounded-2xl p-1 border border-gray-300 w-full">
+							<div
+								class="uppercase text-gray-700 font-medium bg-white rounded-xl text-sm border border-gray-300 min-h-28"
+							>
+								<div class="flex items-center justify-between p-3 border-b border-gray-300">
+									<h3>Account Management</h3>
+								</div>
+								<div class="flex items-center justify-between p-3">
+									<div class="flex w-60">
 										<span
 											class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
 										>
@@ -631,223 +698,271 @@
 										/>
 									</div>
 
-									<div class="lg:border-l border-gray-300 flex items-center gap-4 lg:px-4 w-full">
-										<select
-											id="countries"
-											class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 w-full md:w-28"
-										>
-											<option value="Active">Active</option>
-											<option value="Inactive">Inactive</option>
-										</select>
-										<select
-											id="countries"
-											class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 w-full md:w-28"
-										>
-											<option value="Jan">Jan</option>
-											<option value="Feb">Feb</option>
-											<option value="Mar">Mar</option>
-											<option value="Apr">Apr</option>
-											<option value="May">May</option>
-											<option value="Jun">Jun</option>
-										</select>
-									</div>
+									<button
+										type="button"
+										class="p-2 border border-gray-300 rounded-lg flex justify-center items-center text-sm text-gray-700"
+									>
+										<i data-lucide="refresh-ccw" class="size-4 mr-2"></i> Refresh
+									</button>
 								</div>
+							</div>
 
-								<button
-									type="button"
-									class="p-2 border border-gray-300 rounded-lg flex justify-center items-center text-sm text-gray-700"
-								>
-									<i data-lucide="refresh-ccw" class="size-4 mr-2"></i> Refresh
-								</button>
+							<div
+								class="text-gray-700 font-medium bg-white px-3 rounded-xl text-sm border border-gray-300 mt-1 w-full h-96 overflow-y-auto"
+							>
+								<div class="overflow-x-auto w-full">
+									<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+										<thead class="text-xs text-gray-700 dark:text-gray-400">
+											<tr>
+												<th scope="col" class="px-6 py-3">Date</th>
+												<th scope="col" class="px-6 py-3">Payment Amount</th>
+												<th scope="col" class="px-6 py-3">Invoice Number</th>
+												<th scope="col" class="px-6 py-3">Status</th>
+											</tr>
+										</thead>
+										<tbody x-data>
+											<template x-for="i in 4">
+												<tr
+													class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+												>
+													<th
+														scope="row"
+														class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap flex items-center gap-2"
+													>
+														Nov 30, 2025
+													</th>
+													<td class="px-6 py-4 text-gray-900 whitespace-nowrap">N765,234.12</td>
+													<td class="px-6 py-4">#223342</td>
+													<td class="px-6 py-4">
+														<span
+															class="text-xs inline-flex items-center gap-1 bg-green-100 text-green-600 px-2 py-1 rounded-full"
+														>
+															<i data-lucide="dot" class="size-4" :id="i"></i>
+															<span class="">Active</span>
+														</span>
+													</td>
+												</tr>
+											</template>
+										</tbody>
+									</table>
+									<nav
+										class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4 mb-4"
+										aria-label="Table navigation"
+									>
+										<span
+											class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto"
+											>Showing <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of
+											<span class="font-semibold text-gray-900 dark:text-white">1000</span></span
+										>
+										<ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+											<li>
+												<a
+													href="#"
+													class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+													>Previous</a
+												>
+											</li>
+											<li>
+												<a
+													href="#"
+													class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+													>1</a
+												>
+											</li>
+
+											<li>
+												<a
+													href="#"
+													class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+													>Next</a
+												>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+						</section>
+					</section>
+
+					<section class="grid lg:grid-cols-2 gap-4 mt-8 lg:items-start">
+						<!-- grid 1 -->
+						<div class="bg-gray-100 rounded-2xl p-1 border border-gray-300">
+							<div
+								class="uppercase text-gray-700 font-medium bg-white px-3 py-4 rounded-xl flex items-center justify-between text-sm border border-gray-300"
+							>
+								<h3 class="uppercase">Child Progress Reports</h3>
+							</div>
+							<div
+								class="uppercase text-gray-700 font-medium bg-white px-3 py-4 rounded-xl flex items-center justify-between text-sm border border-gray-300 mt-1"
+							>
+								<h3 class="uppercase">Skill Area</h3>
+								<h3 class="uppercase">Socre (Out of 5)</h3>
+							</div>
+
+							<div
+								class="text-gray-700 bg-white px-3 rounded-xl text-sm lg:text-base border border-gray-300 mt-1 lg:max-h-80 max-h-96 overflow-y-auto divide-y font-semibold"
+							>
+								<div class="flex justify-between items-center gap-2 p-3">
+									<h4>Language Development</h4>
+									<p>4.5</p>
+								</div>
+								<div class="flex justify-between items-center gap-2 p-3">
+									<h4>Social Skills</h4>
+									<p>4.5</p>
+								</div>
+								<div class="flex justify-between items-center gap-2 p-3">
+									<h4>Motor Skills</h4>
+									<p>4.5</p>
+								</div>
+								<div class="flex justify-between items-center gap-2 p-3">
+									<h4>Cognitive Skills</h4>
+									<p>4.5</p>
+								</div>
+								<div class="flex justify-between items-center gap-2 p-3">
+									<h4>Emotional Development</h4>
+									<p>4.5</p>
+								</div>
 							</div>
 						</div>
 
-						<div class="text-gray-700 font-medium bg-white px-3 rounded-xl text-sm border border-gray-300 mt-1">
-							<div class="relative overflow-x-auto w-full lg:w-full">
-								<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-									<thead class="text-xs text-gray-700 dark:text-gray-400">
-										<tr>
-											<th scope="col" class="p-4">
-												<div class="flex items-center">
-													<input
-														id="checkbox-all-search"
-														type="checkbox"
-														class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-													/>
-													<label for="checkbox-all-search" class="sr-only">checkbox</label>
-												</div>
-											</th>
-											<th scope="col" class="px-6 py-3">Child's Name</th>
-											<th scope="col" class="px-6 py-3">Amount Paid (N)</th>
-											<th scope="col" class="px-6 py-3">Payment Date</th>
-											<th scope="col" class="px-6 py-3">Status</th>
-											<th scope="col" class="px-6 py-3">Action</th>
-										</tr>
-									</thead>
-									<tbody x-data>
-										<template x-for="i in 10">
-											<tr
-												class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-											>
-												<td class="w-4 p-4">
-													<div class="flex items-center">
-														<input
-															id="checkbox-table-search-1"
-															type="checkbox"
-															class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-														/>
-														<label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-													</div>
-												</td>
-												<td
-													scope="row"
-													class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap flex items-center gap-2"
-												>
-													<img src="/images/face-card.png" alt="" class="size-10 rounded-md" />
-													John Doe
-												</td>
+						<!-- grid 2 -->
+						<div class="bg-gray-100 rounded-2xl p-1 border border-gray-300">
+							<div
+								class="uppercase text-gray-700 font-medium bg-white px-3 py-4 rounded-xl text-sm border border-gray-300 h-24"
+							>
+								<div class="flex items-center justify-between">
+									<h3>Upcoming Daycare Events</h3>
+								</div>
 
-												<td class="px-6 py-4 text-gray-900 whitespace-nowrap">359,233.00</td>
-
-												<td class="px-6 py-4 text-gray-900 whitespace-nowrap">22nd May, 2022</td>
-												<td class="px-6 py-4">
-													<span
-														class="text-xs inline-flex items-center gap-1 bg-green-100 text-green-600 px-2 py-1 rounded-full"
-													>
-														<i data-lucide="dot" class="size-4" :id="i"></i>
-														<span class="">Paid</span>
-													</span>
-												</td>
-
-												<td class="px-4 py-4">
-													<div class="relative" x-data="{showMenu: false}">
-														<button
-															type="button"
-															@click="showMenu = !showMenu"
-															class="h-9 w-9 flex items-center justify-center border border-gray-300 rounded-md shadow-sm"
-														>
-															<span class="fa fa-ellipsis"></span>
-														</button>
-
-														<div
-															x-show="showMenu"
-															x-transition
-															x-cloak
-															class="absolute top-10 right-8 bg-white z-10 w-56 border border-gray-300 rounded-md text-sm shadow-md"
-														>
-															<ul>
-																<li>
-																	<a href="#">
-																		<button
-																			type="button"
-																			class="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-gray-50"
-																		>
-																			<i class="fa fa-eye mr-2"></i>
-																			View Receipt
-																		</button>
-																	</a>
-																</li>
-																<li>
-																	<a href="#">
-																		<button
-																			type="button"
-																			class="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-gray-50"
-																		>
-																			<i class="fa fa-rocket mr-2"></i>
-																			Send Invoice
-																		</button>
-																	</a>
-																</li>
-																<li class="border-t border-gray-300">
-																	<a href="#">
-																		<button
-																			type="button"
-																			class="flex items-center w-full px-4 py-3 text-red-600 hover:bg-gray-50"
-																		>
-																			<i class="fa fa-trash mr-2"></i>
-																			Delete
-																		</button>
-																	</a>
-																</li>
-															</ul>
-														</div>
-													</div>
-												</td>
-											</tr>
-										</template>
-									</tbody>
-								</table>
-								<nav
-									class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4 mb-4"
-									aria-label="Table navigation"
-								>
-									<span
-										class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto"
-										>Showing <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of
-										<span class="font-semibold text-gray-900 dark:text-white">1000</span></span
-									>
-									<ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
-										<li>
-											<a
-												href="#"
-												class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-												>Previous</a
-											>
-										</li>
-										<li>
-											<a
-												href="#"
-												class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-												>1</a
-											>
-										</li>
-										<li>
-											<a
-												href="#"
-												class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-												>2</a
-											>
-										</li>
-										<li>
-											<a
-												href="#"
-												aria-current="page"
-												class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-												>3</a
-											>
-										</li>
-										<li>
-											<a
-												href="#"
-												class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-												>4</a
-											>
-										</li>
-										<li>
-											<a
-												href="#"
-												class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-												>5</a
-											>
-										</li>
-										<li>
-											<a
-												href="#"
-												class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-												>Next</a
-											>
-										</li>
-									</ul>
-								</nav>
+								<div class="mt-2">
+									<h4 class="text-2xl font-bold font-quicksand">100</h4>
+								</div>
 							</div>
+
+							<!-- daycare events -->
+							<div
+								class="text-gray-700 bg-white px-3 rounded-xl text-sm border border-gray-300 mt-1 lg:max-h-80 max-h-96 overflow-y-auto divide-y"
+							>
+								<div class="flex justify-between items-center gap-2 p-3">
+									<div>
+										<h4 class="font-semibold lg:text-base">Parent Teacher Event</h4>
+										<p class="text-gray-600 mt-1">Dec 2nd, 2029 - 2:00 PM</p>
+									</div>
+
+									<button class="text-primary font-semibold">Add to Calendar</button>
+								</div>
+								<div class="flex justify-between items-center gap-2 p-3">
+									<div>
+										<h4 class="font-semibold lg:text-base">Field Trip</h4>
+										<p class="text-gray-600 mt-1">Dec 2nd, 2029 - 2:00 PM</p>
+									</div>
+
+									<button class="text-primary font-semibold">Add to Calendar</button>
+								</div>
+								<div class="flex justify-between items-center gap-2 p-3">
+									<div>
+										<h4 class="font-semibold lg:text-base">Holiday Party</h4>
+										<p class="text-gray-600 mt-1">Dec 2nd, 2029 - 2:00 PM</p>
+									</div>
+
+									<button class="text-primary font-semibold">Add to Calendar</button>
+								</div>
+								<div class="flex justify-between items-center gap-2 p-3">
+									<div>
+										<h4 class="font-semibold lg:text-base">Completed Purchases</h4>
+										<p class="text-gray-600 mt-1">Dec 2nd, 2029 - 2:00 PM</p>
+									</div>
+
+									<button class="text-primary font-semibold">Add to Calendar</button>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section class="bg-gray-100 rounded-2xl p-1 border border-gray-300 w-full mt-6 grid grid-cols-1">
+						<div
+							class="uppercase text-gray-700 font-medium bg-white px-3 py-4 rounded-xl text-sm border border-gray-300 h-24"
+						>
+							<h3>Today Amount Paid by year</h3>
+
+							<p class="mt-1 lg:mt-2 text-xl lg:text-2xl font-semibold">N1,890,233.38</p>
+						</div>
+
+						<div
+							class="uppercase text-gray-700 font-medium bg-white px-3 rounded-xl flex items-center justify-between text-sm border border-gray-300 mt-1 lg:h-80 h-96 relative w-full"
+						>
+							<canvas id="bar-chart" class=""></canvas>
 						</div>
 					</section>
 				</div>
 			</main>
 		</div>
 
+		<!-- scripts -->
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 		<script>
 			lucide.createIcons();
+
+			const ctx = document.getElementById("bar-chart");
+			ctx.style.height = "100%";
+			ctx.style.width = "100%";
+
+			new Chart(ctx, {
+				type: "bar",
+				data: {
+					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+					datasets: [
+						{
+							label: "# of Votes",
+							data: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200],
+							borderWidth: 0,
+							backgroundColor: "#dbd1fa",
+							borderColor: "#7047EB",
+							borderRadius: 10,
+							hoverBackgroundColor: "#7047EB",
+						},
+					],
+				},
+				options: {
+					scales: {
+						y: {
+							beginAtZero: true,
+						},
+						x: {
+							grid: {
+								display: false, // Hides vertical grid lines
+							},
+						},
+					},
+					plugins: {
+						legend: {
+							display: false, // This hides the legend/labels
+						},
+					},
+				},
+			});
+		</script>
+
+		<script>
+			const swiper = new Swiper(".children", {
+				// Optional parameters
+				loop: true,
+				autoplay: {
+					delay: 3000,
+				},
+
+				// If we need pagination
+				pagination: {
+					el: ".swiper-pagination",
+				},
+
+				// Navigation arrows
+				navigation: {
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+			});
 		</script>
 	</body>
 </html>
