@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Pus Notifications Page</title>
+		<title>Settings Page</title>
 		<link rel="stylesheet" href="/dist/app.css" />
 		<!-- fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -591,7 +591,6 @@
 				<!-- main content -->
 				<div class="w-full h-full">
 					<!-- tabs -->
-					<!-- tabs -->
 					<div x-data="tabs" class="w-full flex flex-col lg:flex-row lg:h-full">
 						<div
 							class="p-4 overflow-auto w-full whitespace-nowrap flex lg:flex-col lg:w-64 lg:border-r lg:border-gray-300 lg:h-full lg:flex-shrink-0 mb-4 lg:m-0"
@@ -605,6 +604,655 @@
 									<span x-text="tab"></span>
 								</div>
 							</template>
+						</div>
+
+						<div x-show="currentTab == 'General'" x-transition x-cloak class="w-full">
+							<div class="divide-y">
+								<div class="px-4 py-6 lg:py-8 grid gap-4 lg:grid-cols-2 lg:gap-2">
+									<div>
+										<h3 class="text-lg lg:text-xl font-semibold">Daycare Details</h3>
+
+										<p class="mt-2 text-gray-600">Parents will use this information to contact you</p>
+									</div>
+
+									<div class="space-y-4">
+										<div class="">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>Daycare Name</label
+											>
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+												>
+													<i data-lucide="store" class="size-5 text-gray-700"> </i>
+												</span>
+												<input
+													type="text"
+													id="website-admin"
+													class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+												/>
+											</div>
+										</div>
+										<div class="">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>Email</label
+											>
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+												>
+													<i data-lucide="mail" class="size-5 text-gray-700"> </i>
+												</span>
+												<input
+													type="text"
+													id="website-admin"
+													class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+												/>
+											</div>
+										</div>
+										<div class="">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>Phone Number</label
+											>
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+												>
+													<i data-lucide="phone" class="size-5 text-gray-700"> </i>
+												</span>
+												<input
+													type="text"
+													id="website-admin"
+													class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="px-4 py-6 lg:py-8 grid gap-4 lg:grid-cols-2 lg:gap-2">
+									<div>
+										<h3 class="text-lg lg:text-xl font-semibold">Daycare Address</h3>
+
+										<p class="mt-2 text-gray-600">This address will appear on your invoice</p>
+									</div>
+
+									<div class="space-y-4">
+										<div class="">
+											<label for="countries" class="input-label">Country</label>
+											<select id="countries" class="input-field">
+												<option value="Nigeria">Nigeria</option>
+												<option value="Ghana">Ghana</option>
+												<option value="Kenya">Kenya</option>
+												<option value="South Africa">South Africa</option>
+											</select>
+										</div>
+
+										<div class="">
+											<label for="states" class="input-label">State</label>
+											<select id="states" class="input-field">
+												<option value="Lagos">Lagos</option>
+												<option value="Abuja">Abuja</option>
+												<option value="Kano">Kano</option>
+												<option value="Port Harcourt">Port Harcourt</option>
+											</select>
+										</div>
+
+										<div class="flex flex-col gap-4 lg:flex-row">
+											<div class="w-full">
+												<label for="cities" class="input-label">City</label>
+												<select id="cities" class="input-field">
+													<option value="Ikeja">Ikeja</option>
+													<option value="Surulere">Surulere</option>
+													<option value="Yaba">Yaba</option>
+													<option value="Ikorodu">Ikorodu</option>
+												</select>
+											</div>
+
+											<div class="lg:w-44 w-full">
+												<label for="email" class="input-label">Postal Code</label>
+												<input type="email" id="email" class="input-field" />
+											</div>
+										</div>
+
+										<div class="">
+											<label for="address" class="input-label">Address</label>
+											<input type="email" id="address" class="input-field" />
+										</div>
+									</div>
+								</div>
+
+								<div class="flex justify-end items-center p-4 gap-4">
+									<button class="sec-btn">Cancel</button>
+									<button class="primary-btn">Save Changes</button>
+								</div>
+							</div>
+						</div>
+
+						<div x-show="currentTab == 'Plan & Pricing'" x-transition x-cloak class="w-full">
+							<div class="divide-y">
+								<div class="px-4 py-6 lg:py-8 grid gap-4 lg:grid-cols-2 lg:gap-2">
+									<div>
+										<h3 class="text-lg lg:text-xl font-semibold">Plan & Pricing</h3>
+
+										<p class="mt-2 text-gray-600">
+											Manage your subscription plans. Choose a plan that best suits your needs, compare features, and
+											adjust your subscription as needed
+										</p>
+									</div>
+
+									<div class="space-y-6 lg:space-y-8">
+										<!-- 1st plan -->
+										<div class="border border-gray-300 rounded-2xl">
+											<div class="bg-gray-100 flex items-center justify-between p-4">
+												<h3 class="text-lg font-medium lg:text-xl">Basic Plan</h3>
+
+												<button class="sec-btn bg-white">Downgrade</button>
+											</div>
+
+											<div class="p-4">
+												<h2 class="">
+													<!-- naira symbol -->
+													<span class="md:text-2xl text-xl font-semibold"> ₦ </span>
+													<span class="md:text-4xl text-2xl font-bold">200,000</span>
+													<span class="md:text-2xl text-xl font-medium text-gray-600">/mo</span>
+												</h2>
+
+												<p class="text-gray-600 text-sm mt-1 md:text-base">
+													Essentials for small daycares, covering registration and attendance.
+												</p>
+
+												<hr class="my-4" />
+
+												<ul class="grid gap-2 lg:grid-cols-2 text-sm md:text-base">
+													<li class="text-gray-600 flex items-center gap-1">
+														<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
+														User Registration
+													</li>
+													<li class="text-gray-600 flex items-center gap-1">
+														<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
+														Basic Notifications
+													</li>
+													<li class="text-gray-600 flex items-center gap-1">
+														<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
+														Attendance tracking
+													</li>
+													<li class="text-gray-600 flex items-center gap-1">
+														<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
+														Child Profile Management
+													</li>
+												</ul>
+											</div>
+										</div>
+
+										<!-- 2nd plan -->
+										<div class="border border-gray-300 rounded-2xl">
+											<div class="bg-gray-100 flex items-center justify-between p-4">
+												<h3 class="text-lg font-medium lg:text-xl">Pro Plan</h3>
+
+												<button class="sec-btn bg-white">Current Plan</button>
+											</div>
+
+											<div class="p-4">
+												<h2 class="">
+													<!-- naira symbol -->
+													<span class="md:text-2xl text-xl font-semibold"> ₦ </span>
+													<span class="md:text-4xl text-2xl font-bold">300,000</span>
+													<span class="md:text-2xl text-xl font-medium text-gray-600">/mo</span>
+												</h2>
+
+												<p class="text-gray-600 text-sm mt-1 md:text-base">
+													Comprehensive management features for growing facilities.
+												</p>
+
+												<hr class="my-4" />
+
+												<ul class="grid gap-2 lg:grid-cols-2 text-sm md:text-base">
+													<li class="text-gray-600 flex items-center gap-1">
+														<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
+														All Basic plan features
+													</li>
+													<li class="text-gray-600 flex items-center gap-1">
+														<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
+														Event Management
+													</li>
+													<li class="text-gray-600 flex items-center gap-1">
+														<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
+														Payment Management
+													</li>
+													<li class="text-gray-600 flex items-center gap-1">
+														<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
+														Attendance Reports
+													</li>
+												</ul>
+											</div>
+										</div>
+
+										<!-- 3rd plan -->
+										<div class="border border-gray-300 rounded-2xl">
+											<div class="bg-gray-100 flex items-center justify-between p-4">
+												<h3 class="text-lg font-medium lg:text-xl">Advanced Plan</h3>
+
+												<button class="primary-btn">Free trial - 30 days</button>
+											</div>
+
+											<div class="p-4">
+												<h2 class="">
+													<!-- naira symbol -->
+													<span class="md:text-2xl text-xl font-semibold"> ₦ </span>
+													<span class="md:text-4xl text-2xl font-bold">400,000</span>
+													<span class="md:text-2xl text-xl font-medium text-gray-600">/mo</span>
+												</h2>
+
+												<p class="text-gray-600 text-sm mt-1 md:text-base">
+													Advanced tools and support for established daycares.
+												</p>
+
+												<hr class="my-4" />
+
+												<ul class="grid gap-2 lg:grid-cols-2 text-sm md:text-base">
+													<li class="text-gray-600 flex items-center gap-1">
+														<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
+														All Pro plan features
+													</li>
+													<li class="text-gray-600 flex items-center gap-1">
+														<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
+														Customizable user Roles
+													</li>
+													<li class="text-gray-600 flex items-center gap-1">
+														<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
+														Advanced Reporting
+													</li>
+													<li class="text-gray-600 flex items-center gap-1">
+														<i data-lucide="circle-check" class="size-6 text-emerald-600"></i>
+														Priority Customer Support
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div x-show="currentTab == 'Account'" x-transition x-cloak class="w-full">
+							<div class="divide-y">
+								<div class="px-4 py-6 lg:py-8 grid gap-4 lg:grid-cols-2 lg:gap-2">
+									<div>
+										<h3 class="text-lg lg:text-xl font-semibold">Account Settings</h3>
+
+										<p class="mt-2 text-gray-600">View and update your account details, profile, and more.</p>
+									</div>
+
+									<div class="space-y-4">
+										<div class="">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>Full Name</label
+											>
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+												>
+													<i data-lucide="user" class="size-5 text-gray-700"> </i>
+												</span>
+												<input
+													type="text"
+													id="website-admin"
+													class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+												/>
+											</div>
+										</div>
+										<div class="">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>Email</label
+											>
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+												>
+													<i data-lucide="mail" class="size-5 text-gray-700"> </i>
+												</span>
+												<input
+													type="text"
+													id="website-admin"
+													class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+												/>
+											</div>
+										</div>
+										<div class="">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>Phone Number</label
+											>
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+												>
+													<i data-lucide="phone" class="size-5 text-gray-700"> </i>
+												</span>
+												<input
+													type="text"
+													id="website-admin"
+													class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="flex justify-end items-center p-4 gap-4">
+									<button class="sec-btn">Cancel</button>
+									<button class="primary-btn">Save Changes</button>
+								</div>
+							</div>
+						</div>
+
+						<div x-show="currentTab == 'Payment & Billing'" x-transition x-cloak class="w-full">
+							<div class="divide-y">
+								<div class="px-4 py-6 lg:py-8 grid gap-4 lg:grid-cols-2 lg:gap-4">
+									<div>
+										<h3 class="text-lg lg:text-xl font-semibold">Payment</h3>
+										<p class="mt-2 text-gray-600">
+											Manage your payment methods securely. Add, update, or remove your credit/debit cards
+										</p>
+									</div>
+
+									<div class="space-y-4 lg:space-y-6">
+										<div class="flex items-center justify-between border border-gray-300 rounded-lg p-3">
+											<div class="flex items-center gap-2">
+												<span data-lucide="circle-check" class="size-6 fill-primary text-white"></span>
+												<img src="/images/visa.png" alt="" />
+												<div>
+													<div class="flex items-center">
+														<p class="flex -space-x-4">
+															<i data-lucide="dot"></i>
+															<i data-lucide="dot"></i>
+															<i data-lucide="dot"></i>
+															<i data-lucide="dot"></i>
+														</p>
+														<p class="flex -space-x-4">
+															<i data-lucide="dot"></i>
+															<i data-lucide="dot"></i>
+															<i data-lucide="dot"></i>
+															<i data-lucide="dot"></i>
+														</p>
+														<p>1234</p>
+													</div>
+													<p class="text-gray-500 font-medium">Expiry 10/27</p>
+												</div>
+											</div>
+											<button>
+												<span data-lucide="ellipsis" class="size-6"></span>
+											</button>
+										</div>
+
+										<div class="flex items-center justify-between border border-gray-300 rounded-lg p-3">
+											<div class="flex items-center gap-2">
+												<span data-lucide="circle-check" class="size-6"></span>
+												<img src="/images/mastercard.png" alt="" />
+												<div>
+													<div class="flex items-center">
+														<p class="flex -space-x-4">
+															<i data-lucide="dot"></i>
+															<i data-lucide="dot"></i>
+															<i data-lucide="dot"></i>
+															<i data-lucide="dot"></i>
+														</p>
+														<p>1234</p>
+													</div>
+													<p class="text-gray-500 font-medium">Expiry 10/27</p>
+												</div>
+											</div>
+											<button>
+												<span data-lucide="ellipsis" class="size-6"></span>
+											</button>
+										</div>
+
+										<button class="text-primary font-medium flex items-center gap-1 text-sm lg:text-base py-2">
+											<span data-lucide="plus" class="size-6"></span>
+											New Payment Method
+										</button>
+									</div>
+								</div>
+
+								<div class="px-4 py-6 lg:py-8 grid gap-4 lg:grid-cols-2 lg:gap-2">
+									<div>
+										<h3 class="text-lg lg:text-xl font-semibold">Billing</h3>
+										<p class="mt-2 text-gray-600">
+											Review and update your billing information to ensure accurate and timely payments
+										</p>
+									</div>
+
+									<div class="space-y-6 lg:space-y-8">
+										<div class="flex items-center justify-between">
+											<div>
+												<h4 class="font-medium lg:text-lg">Billing Period</h4>
+												<p class="text-gray-600">Next billing on Sept 15, 2024</p>
+											</div>
+											<div class="flex items-center gap-2">
+												<button class="sec-btn bg-white font-medium">Change Billing Plan</button>
+												<button class="sec-btn bg-white">
+													<i data-lucide="bell"></i>
+												</button>
+											</div>
+										</div>
+
+										<!-- current plan -->
+										<div class="border border-gray-300 rounded-2xl">
+											<div class="flex items-center justify-between p-4">
+												<h3 class="text-lg font-medium lg:text-xl">Pro Plan</h3>
+												<button class="sec-btn text-xs">19 days left</button>
+											</div>
+											<div class="lg:p-4 p-2">
+												<h2>
+													<span class="md:text-2xl text-xl font-semibold">₦</span>
+													<span class="md:text-4xl text-2xl font-bold">200,000</span>
+													<span class="md:text-2xl text-xl font-medium text-gray-600">/mo</span>
+												</h2>
+												<p class="text-gray-600 text-sm mt-1 md:text-base">
+													Essentials for small daycares, covering registration and attendance.
+												</p>
+												<hr class="my-4" />
+												<div class="flex items-center justify-between lg:p-4 p-2">
+													<h3 class="lg:text-lg font-medium text-red-700">Current Plan</h3>
+													<button class="sec-btn bg-white">Change Plan</button>
+												</div>
+											</div>
+										</div>
+
+										<div
+											class="text-gray-700 font-medium bg-white px-3 rounded-xl text-sm border border-gray-300 mt-1 w-full"
+										>
+											<div class="relative overflow-x-auto w-full lg:w-full">
+												<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+													<thead class="text-xs text-gray-700 dark:text-gray-400">
+														<tr>
+															<th scope="col" class="px-6 py-3">Invoice#</th>
+															<th scope="col" class="px-6 py-3">Date</th>
+															<th scope="col" class="px-6 py-3">Plan</th>
+															<th scope="col" class="px-6 py-3">Amount</th>
+														</tr>
+													</thead>
+													<tbody x-data>
+														<template x-for="i in 4" :key="i">
+															<tr
+																class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+															>
+																<th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+																	#2BD886
+																</th>
+
+																<td class="px-6 py-4 text-gray-900 whitespace-nowrap">Aug 15, 2024</td>
+																<td class="px-6 py-4 whitespace-nowrap">Pro plan</td>
+																<td class="px-6 py-4 whitespace-nowrap">$80</td>
+																<td class="px-6 py-4 whitespace-nowrap">
+																	<span class="fa fa-download"></span>
+																</td>
+															</tr>
+														</template>
+													</tbody>
+												</table>
+												<nav
+													class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4 mb-4"
+													aria-label="Table navigation"
+												>
+													<span
+														class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto"
+														>Showing <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of
+														<span class="font-semibold text-gray-900 dark:text-white">1000</span></span
+													>
+													<ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+														<li>
+															<a
+																href="#"
+																class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+																>Previous</a
+															>
+														</li>
+														<li>
+															<a
+																href="#"
+																class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+																>1</a
+															>
+														</li>
+														<li>
+															<a
+																href="#"
+																class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+																>2</a
+															>
+														</li>
+														<li>
+															<a
+																href="#"
+																aria-current="page"
+																class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+																>3</a
+															>
+														</li>
+
+														<li>
+															<a
+																href="#"
+																class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+																>Next</a
+															>
+														</li>
+													</ul>
+												</nav>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="px-4 py-6 lg:py-8 grid gap-4 lg:grid-cols-2 lg:gap-2">
+									<div>
+										<h3 class="text-lg lg:text-xl font-semibold">Email</h3>
+
+										<p class="mt-2 text-gray-600">Invoice will be sent to this email address</p>
+									</div>
+
+									<div class="space-y-4">
+										<div class="">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>Email</label
+											>
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+												>
+													<i data-lucide="mail" class="size-5 text-gray-700"> </i>
+												</span>
+												<input
+													type="text"
+													id="website-admin"
+													class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="flex justify-end items-center p-4 gap-4">
+									<button class="sec-btn">Cancel</button>
+									<button class="primary-btn">Save Changes</button>
+								</div>
+							</div>
+						</div>
+
+						<div x-show="currentTab == 'Password'" x-transition x-cloak class="w-full">
+							<div class="divide-y">
+								<div class="px-4 py-6 lg:py-8 grid gap-4 lg:grid-cols-2 lg:gap-2">
+									<div>
+										<h3 class="text-lg lg:text-xl font-semibold">Password</h3>
+
+										<p class="mt-2 text-gray-600">Change or view your password</p>
+									</div>
+
+									<div class="space-y-4">
+										<div class="relative" x-data="{show:false}">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>Current Password</label
+											>
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+												>
+													<i data-lucide="key" class="size-5 text-gray-700"></i>
+												</span>
+												<div class="relative flex-1">
+													<input
+														:type="show ? 'text' : 'password'"
+														id="website-admin"
+														class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+													/>
+													<button
+														type="button"
+														@click="show = !show"
+														class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-700"
+													>
+														<i data-lucide="eye" x-show="!show"></i>
+														<i data-lucide="eye-closed" x-show="show"></i>
+													</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="relative" x-data="{show:false}">
+											<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white"
+												>New Password</label
+											>
+											<div class="flex">
+												<span
+													class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+												>
+													<i data-lucide="key" class="size-5 text-gray-700"></i>
+												</span>
+												<div class="relative flex-1">
+													<input
+														:type="show ? 'text' : 'password'"
+														id="website-admin"
+														class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+													/>
+													<button
+														type="button"
+														@click="show = !show"
+														class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-700"
+													>
+														<i data-lucide="eye" x-show="!show"></i>
+														<i data-lucide="eye-closed" x-show="show"></i>
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="flex justify-end items-center p-4 gap-4">
+									<button class="sec-btn">Cancel</button>
+									<button class="primary-btn">Save Changes</button>
+								</div>
+							</div>
 						</div>
 
 						<div x-show="currentTab == 'Push Notifications'" x-transition x-cloak>
@@ -907,7 +1555,7 @@
 
 			document.addEventListener("alpine:init", () => {
 				Alpine.data("tabs", () => ({
-					currentTab: "Push Notifications",
+					currentTab: "General",
 					tabMenu: ["General", "Plan & Pricing", "Account", "Payment & Billing", "Password", "Push Notifications"],
 					changeTab(tab) {
 						this.currentTab = tab;
