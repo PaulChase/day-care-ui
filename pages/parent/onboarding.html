@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Onboarding Form Page</title>
+		<link rel="stylesheet" href="/dist/app.css" />
+		<!-- fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+
+		<!-- font awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+			integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<!-- swiper js -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+		<style>
+			body {
+				font-family: "SF Pro Display", sans-serif;
+			}
+		</style>
+
+		<!-- lucide icons -->
+		<script src="https://unpkg.com/lucide@latest"></script>
+
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+	</head>
+
+	<body class="pt-6 bg-[#F9F9FB] px-2">
+		<!-- navbar -->
+		<nav class="max-w-7xl p-4 mx-auto">
+			<a href="/">
+				<img src="/images/Logo.png" alt="" class="h-8 md:h-auto" />
+			</a>
+		</nav>
+		<!-- navbar end -->
+
+		<div
+			class="max-w-2xl mx-auto w-full mt-8 lg:mt-12 bg-white p-4 lg:p-8 rounded-xl shadow-md"
+			x-data="{
+      step: 1,
+      nextStep() {
+        this.step++;
+      },
+      prevStep() {
+        this.step--;
+      },
+    }"
+		>
+			<div class="w-full h-4 bg-gray-200 rounded-full overflow-hidden mb-6">
+				<div
+					class="h-full bg-primary rounded-full transition-all duration-300 ease-out"
+					:style="`width: ${(step/14) * 100}%`"
+				></div>
+			</div>
+
+			<!-- form 1 -->
+			<div x-show="step == 1" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Tell us about child</h1>
+
+				<p class="text-gray-600 mt-1">Let's get to know your child.</p>
+
+				<form action="" class="mt-6">
+					<div>
+						<label for="website-admin" class="input-label">Full Name</label>
+						<div class="flex">
+							<span
+								class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+							>
+								<i data-lucide="user" class="size-5 text-gray-700"></i>
+							</span>
+							<input
+								type="text"
+								id="website-admin"
+								class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+								placeholder="John Doe"
+							/>
+						</div>
+					</div>
+
+					<div class="mt-4">
+						<label for="website-admin" class="input-label">Usual Name of Child (If different)</label>
+						<div class="flex">
+							<span
+								class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+							>
+								<i data-lucide="user" class="size-5 text-gray-700"></i>
+							</span>
+							<input
+								type="text"
+								id="website-admin"
+								class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+							/>
+						</div>
+					</div>
+
+					<div class="grid md:grid-cols-2 gap-4 mt-4">
+						<div class="">
+							<label for="countries" class="input-label">Gender</label>
+							<select id="countries" class="input-field">
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+							</select>
+						</div>
+
+						<div>
+							<label for="website-admin" class="input-label">Date of birth</label>
+							<div class="flex mt-1">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<i data-lucide="calendar" class="size-5 text-gray-700"></i>
+								</span>
+								<input
+									type="date"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+									placeholder="John Doe"
+								/>
+							</div>
+						</div>
+					</div>
+
+					<div class="mt-4">
+						<label for="website-admin" class="input-label">Starting date</label>
+						<div class="flex mt-1">
+							<span
+								class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+							>
+								<i data-lucide="calendar" class="size-5 text-gray-700"></i>
+							</span>
+							<input
+								type="date"
+								id="website-admin"
+								class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+							/>
+						</div>
+					</div>
+
+					<div class="mt-4">
+						<label for="address" class="input-label">Home Address</label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							placeholder="Type your address here..."
+							class="input-field"
+						></textarea>
+					</div>
+
+					<div class="mt-4">
+						<label for="website-admin" class="input-label">Postal Code</label>
+						<div class="flex mt-1">
+							<span
+								class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+							>
+								<i data-lucide="map-pin" class="size-5 text-gray-700"></i>
+							</span>
+							<input
+								type="text"
+								id="website-admin"
+								class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+							/>
+						</div>
+					</div>
+
+					<div class="mt-4">
+						<label for="website-admin" class="input-label">Telephone</label>
+						<div class="flex mt-1">
+							<span
+								class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+							>
+								<i data-lucide="phone" class="size-5 text-gray-700"></i>
+							</span>
+							<input
+								type="text"
+								id="website-admin"
+								class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+							/>
+						</div>
+					</div>
+
+					<div class="flex justify-end mt-8">
+						<button type="button" class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="nextStep">
+							Next
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 1 -->
+
+			<!-- form 2 -->
+			<div x-show="step == 2" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Parent/Guardian Information</h1>
+
+				<p class="text-gray-600 mt-1">
+					Provide the contact details of both parents or guardians, including work and home addresses.
+				</p>
+
+				<form action="" class="mt-6">
+					<div class="mt-4 grid md:grid-cols-2 gap-y-4 md:gap-x-4">
+						<div>
+							<label for="website-admin" class="input-label">Parent/Guardian 1 Name</label>
+							<div class="flex mt-1">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<i data-lucide="user" class="size-5 text-gray-700"></i>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+								/>
+							</div>
+						</div>
+						<div>
+							<label for="website-admin" class="input-label">Parent/Guardian 2 Name</label>
+							<div class="flex mt-1">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<i data-lucide="user" class="size-5 text-gray-700"></i>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+								/>
+							</div>
+						</div>
+
+						<div>
+							<label for="countries" class="input-label">Relationship</label>
+							<select
+								id="countries"
+								class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+							>
+								<option value="Father">Father</option>
+								<option value="Mother">Mother</option>
+								<option value="Guardian">Guardian</option>
+							</select>
+						</div>
+
+						<div>
+							<label for="countries" class="input-label">Relationship</label>
+							<select
+								id="countries"
+								class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+							>
+								<option value="Father">Father</option>
+								<option value="Mother">Mother</option>
+								<option value="Guardian">Guardian</option>
+							</select>
+						</div>
+
+						<div class="md:col-span-2">
+							<label for="address" class="input-label"> Address (If different from child)</label>
+							<textarea
+								name="address"
+								id="address"
+								rows="3"
+								placeholder="Type your address here..."
+								class="input-field"
+							></textarea>
+						</div>
+
+						<div>
+							<label for="website-admin" class="input-label"> Phone Number (Parent 1) </label>
+							<div class="flex mt-1">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<i data-lucide="phone" class="size-5 text-gray-700"></i>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+								/>
+							</div>
+						</div>
+						<div>
+							<label for="website-admin" class="input-label"> Phone Number (Parent 2) </label>
+							<div class="flex mt-1">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<i data-lucide="phone" class="size-5 text-gray-700"></i>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+								/>
+							</div>
+						</div>
+					</div>
+
+					<h1 class="text-lg font-semibold mt-6">Work Address Information</h1>
+
+					<div class="mt-4 grid md:grid-cols-2 gap-y-4 md:gap-x-4">
+						<div class="">
+							<label for="address" class="input-label">Work Address (Parent 1)</label>
+							<textarea
+								name="address"
+								id="address"
+								rows="2"
+								placeholder="Type your address here..."
+								class="input-field"
+							></textarea>
+						</div>
+						<div class=" ">
+							<label for="address" class="input-label">Work Address (Parent 2)</label>
+							<textarea
+								name="address"
+								id="address"
+								rows="2"
+								placeholder="Type your address here..."
+								class="input-field"
+							></textarea>
+						</div>
+
+						<div>
+							<label for="website-admin" class="input-label">Work Phone Number (Parent 1) </label>
+							<div class="flex mt-1">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<i data-lucide="phone" class="size-5 text-gray-700"></i>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+								/>
+							</div>
+						</div>
+						<div>
+							<label for="website-admin" class="input-label"> Work Phone Number (Parent 2) </label>
+							<div class="flex mt-1">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<i data-lucide="phone" class="size-5 text-gray-700"></i>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+								/>
+							</div>
+						</div>
+
+						<div>
+							<label for="website-admin" class="input-label">Cell Phone Number (Parent 1) </label>
+							<div class="flex mt-1">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<i data-lucide="phone" class="size-5 text-gray-700"></i>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+								/>
+							</div>
+						</div>
+						<div>
+							<label for="website-admin" class="input-label"> Cell Phone Number (Parent 2) </label>
+							<div class="flex mt-1">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<i data-lucide="phone" class="size-5 text-gray-700"></i>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+								/>
+							</div>
+						</div>
+
+						<div>
+							<label for="website-admin" class="input-label">Work Hours (Parent 1) </label>
+							<div class="flex mt-1">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<i data-lucide="clock" class="size-5 text-gray-700"></i>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+								/>
+							</div>
+						</div>
+						<div>
+							<label for="website-admin" class="input-label"> Work Hours (Parent 2) </label>
+							<div class="flex mt-1">
+								<span
+									class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+								>
+									<i data-lucide="clock" class="size-5 text-gray-700"></i>
+								</span>
+								<input
+									type="text"
+									id="website-admin"
+									class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+								/>
+							</div>
+						</div>
+					</div>
+
+					<div class="flex justify-end mt-8 gap-x-6">
+						<button type="button" class="sec-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="prevStep">
+							Prev
+						</button>
+						<button type="button" class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="nextStep">
+							Next
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 2 -->
+
+			<!-- form 3 -->
+			<div x-show="step == 3" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Emergency Health Information</h1>
+
+				<p class="text-gray-600 mt-1">
+					Provide details about your child’s healthcare information. This will help in case of a medical emergency.
+				</p>
+
+				<form action="" class="mt-6">
+					<div>
+						<label for="website-admin" class="input-label">Care Card Number</label>
+						<input type="text" class="input-field" />
+					</div>
+					<div class="mt-4">
+						<label for="website-admin" class="input-label"> Family Doctor/Clinic Name </label>
+						<input type="text" class="input-field" />
+					</div>
+					<div class="mt-4">
+						<label for="website-admin" class="input-label"> Family Doctor/Clinic Phone Number </label>
+						<input type="text" class="input-field" />
+					</div>
+
+					<div class="mt-4">
+						<label for="website-admin" class="input-label">Telephone 1</label>
+						<div class="flex mt-1">
+							<span
+								class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+							>
+								<i data-lucide="phone" class="size-5 text-gray-700"></i>
+							</span>
+							<input
+								type="text"
+								id="website-admin"
+								class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+							/>
+						</div>
+					</div>
+
+					<div class="mt-6">
+						<h3 class="lg:text-lg font-semibold">Consent for Emergency Care</h3>
+
+						<p class="mt-1 text-gray-600">Select 'Yes' to allow the facility to seek emergency care if needed</p>
+						<p class="mt-3 text-gray-600">
+							I authorize the staff at the child care centre to call a medical practitioner or ambulance / transport
+							child to emergency medical care, in the case of accident or illness of my child(ren), if the parent cannot
+							immediately be reached.
+						</p>
+
+						<div class="flex items-center mt-4">
+							<input
+								id="checkbox-1"
+								type="checkbox"
+								value=""
+								class="w-6 h-6 text-primary bg-primary border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							/>
+							<label for="checkbox-1" class="ms-2 text-gray-800 dark:text-gray-300">Yes </label>
+						</div>
+
+						<div class="flex items-center mt-2">
+							<input
+								id="checkbox-2"
+								type="checkbox"
+								value=""
+								class="w-6 h-6 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							/>
+							<label for="checkbox-2" class="ms-2 text-gray-800 dark:text-gray-300">No</label>
+						</div>
+					</div>
+
+					<div class="flex justify-end mt-8 gap-x-6">
+						<button type="button" class="sec-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="prevStep">
+							Prev
+						</button>
+						<button type="button" class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="nextStep">
+							Next
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 3 -->
+
+			<!-- form 4 -->
+			<div x-show="step == 4" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Alternate Persons Authorized to Pick Up Child</h1>
+
+				<p class="text-gray-600 mt-1">
+					List the individuals who are allowed to pick up your child from the facility. This should include their names,
+					relationship to the child, and phone numbers.
+				</p>
+
+				<form action="" class="mt-6">
+					<div
+						x-data="{
+            data: [
+              {
+                email: '',
+                role: '',
+              },
+            ],
+            addMore() {
+              this.data.push({
+                email: '',
+                role: '',
+              });
+            },
+            remove(index) {
+              this.data.splice(index, 1);
+            },
+          }"
+						class="space-y-6"
+					>
+						<template x-for="(form, index) in data" :key="index">
+							<div>
+								<div class="">
+									<label for="website-admin" class="input-label">Name</label>
+									<div class="flex">
+										<span
+											class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+										>
+											<span class="fa fa-user"></span>
+										</span>
+										<input
+											type="text"
+											id="website-admin"
+											class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+											placeholder="johndoe@test.com"
+										/>
+									</div>
+								</div>
+
+								<div class="mt-4">
+									<label for="countries" class="input-label">Relationship</label>
+									<select
+										id="countries"
+										class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+									>
+										<option value="Father">Father</option>
+										<option value="Mother">Mother</option>
+										<option value="Guardian">Guardian</option>
+									</select>
+								</div>
+
+								<div class="mt-4">
+									<label for="website-admin" class="input-label">Telephone</label>
+									<div class="flex">
+										<span
+											class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+										>
+											<span class="fa fa-phone"></span>
+										</span>
+										<input
+											type="text"
+											id="website-admin"
+											class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+											placeholder="johndoe@test.com"
+										/>
+									</div>
+								</div>
+
+								<div class="flex items-center mt-4">
+									<input
+										:id="'authorized-pickup-' + index"
+										type="checkbox"
+										value=""
+										class="w-6 h-6 text-primary bg-primary border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+									/>
+									<label :for="'authorized-pickup-' + index" class="ms-2 text-gray-800 dark:text-gray-300">
+										Authorized to Pickup
+									</label>
+								</div>
+
+								<div class="flex items-center mt-2">
+									<input
+										:id="'emergency-contact-' + index"
+										type="checkbox"
+										value=""
+										class="w-6 h-6 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+									/>
+									<label :for="'emergency-contact-' + index" class="ms-2 text-gray-800 dark:text-gray-300">
+										Authorized to Call in case of emergency
+									</label>
+								</div>
+
+								<div class="mt-2">
+									<button
+										x-show="index === data.length - 1"
+										type="button"
+										class="text-green-700 px-3 py-2 rounded-md border border-green-700 text-sm font-medium mr-4"
+										@click="addMore"
+									>
+										<span class="fa fa-plus mr-2"></span> Add more
+									</button>
+									<button type="button" class="sec-btn" @click="remove(index)" x-show="data.length > 1 ">
+										<span class="fa fa-minus mr-2"></span> Remove
+									</button>
+								</div>
+							</div>
+						</template>
+					</div>
+
+					<div class="flex justify-end mt-8 gap-x-6">
+						<button type="button" class="sec-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="prevStep">
+							Prev
+						</button>
+						<button type="button" class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="nextStep">
+							Next
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 4 -->
+
+			<!-- form 5 -->
+			<div x-show="step == 5" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Persons Not Permitted to access Child</h1>
+
+				<p class="text-gray-600 mt-1">
+					If there are any individuals who are legally restricted from seeing or picking up your child, provide their
+					names and phone numbers.
+				</p>
+
+				<form action="" class="mt-6">
+					<div
+						x-data="{
+            data: [
+              {
+                email: '',
+                role: '',
+              },
+            ],
+            addMore() {
+              this.data.push({
+                email: '',
+                role: '',
+              });
+            },
+            remove(index) {
+              this.data.splice(index, 1);
+            },
+          }"
+						class="space-y-6"
+					>
+						<template x-for="(form, index) in data" :key="index">
+							<div>
+								<div class="">
+									<label for="website-admin" class="input-label">Name</label>
+									<div class="flex">
+										<span
+											class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+										>
+											<span class="fa fa-user"></span>
+										</span>
+										<input
+											type="text"
+											id="website-admin"
+											class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+											placeholder="johndoe@test.com"
+										/>
+									</div>
+								</div>
+
+								<div class="mt-4">
+									<label for="countries" class="input-label">Relationship</label>
+									<select
+										id="countries"
+										class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+									>
+										<option value="Father">Father</option>
+										<option value="Mother">Mother</option>
+										<option value="Guardian">Guardian</option>
+									</select>
+								</div>
+
+								<div class="mt-4">
+									<label for="website-admin" class="input-label">Telephone</label>
+									<div class="flex">
+										<span
+											class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+										>
+											<span class="fa fa-phone"></span>
+										</span>
+										<input
+											type="text"
+											id="website-admin"
+											class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+											placeholder="johndoe@test.com"
+										/>
+									</div>
+								</div>
+
+								<div class="mt-2">
+									<button
+										x-show="index === data.length - 1"
+										type="button"
+										class="text-green-700 px-3 py-2 rounded-md border border-green-700 text-sm font-medium mr-4"
+										@click="addMore"
+									>
+										<span class="fa fa-plus mr-2"></span> Add more
+									</button>
+									<button type="button" class="sec-btn" @click="remove(index)" x-show="data.length > 1 ">
+										<span class="fa fa-minus mr-2"></span> Remove
+									</button>
+								</div>
+							</div>
+						</template>
+					</div>
+
+					<div class="flex justify-end mt-8 gap-x-6">
+						<button type="button" class="sec-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="prevStep">
+							Prev
+						</button>
+						<button type="button" class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="nextStep">
+							Next
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 5 -->
+
+			<!-- form 6 -->
+			<div x-show="step == 6" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Legal or Custody Orders</h1>
+
+				<p class="text-gray-600 mt-1">
+					If there are any custody or legal orders related to your child, please indicate here and attach the relevant
+					documents.
+				</p>
+
+				<form action="" class="mt-6">
+					<div class="mt-6">
+						<p class="font-medium lg:text-lg">Are there any legal or custody orders?</p>
+
+						<div class="flex items-center mt-2">
+							<input
+								id="checkbox-1"
+								type="checkbox"
+								value=""
+								class="w-6 h-6 text-primary bg-primary border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							/>
+							<label for="checkbox-1" class="ms-2 text-gray-800 dark:text-gray-300"
+								>If yes, supply a copy of the order to the facility Manager / Licensee
+							</label>
+						</div>
+
+						<div class="flex items-center mt-2">
+							<input
+								id="checkbox-2"
+								type="checkbox"
+								value=""
+								class="w-6 h-6 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							/>
+							<label for="checkbox-2" class="ms-2 text-gray-800 dark:text-gray-300">No</label>
+						</div>
+					</div>
+
+					<!-- upload image -->
+					<div class="bg-gray-100 rounded-2xl p-1 border border-gray-300 w-full mt-4">
+						<div class="bg-white rounded-xl p-4 w-full flex-shrink-0 border border-gray-300">
+							<!-- Dropzone Container -->
+							<form action="/file-upload" class="dropzone" id="my-dropzone">
+								<div
+									class="border-2 border-dashed border-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:border-blue-500"
+								>
+									<div class="dz-message flex flex-col items-center justify-center p-8 cursor-pointer">
+										<!-- Upload Icon -->
+										<i data-lucide="image-plus" class="size-10 text-gray-400"></i>
+
+										<!-- Text Content -->
+										<div class="text-center mt-3">
+											<p class="text-gray-700">Drag your image here</p>
+											<p class="text-gray-700">or</p>
+											<p class="text-gray-700">select <span class="font-medium text-primary">Click to browse</span></p>
+										</div>
+									</div>
+								</div>
+							</form>
+
+							<!-- Upload Progress and File List -->
+							<div id="preview-container" class="mt-4 space-y-4"></div>
+						</div>
+					</div>
+					<!-- end upload image -->
+
+					<div class="flex justify-end mt-8 gap-x-6">
+						<button type="button" class="sec-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="prevStep">
+							Prev
+						</button>
+						<button type="button" class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="nextStep">
+							Next
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 6 -->
+
+			<!-- form 7 -->
+			<div x-show="step == 7" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Child Immunization Status</h1>
+
+				<p class="text-gray-600 mt-1">
+					Indicate your child’s immunization status and provide the facility with any relevant immunization records.
+				</p>
+
+				<form action="" class="mt-6">
+					<div class="mt-6">
+						<p class="font-medium lg:text-lg">Has your child received all the required immunizations?</p>
+
+						<div class="flex items-center mt-2">
+							<input
+								id="checkbox-1"
+								type="checkbox"
+								value=""
+								class="w-6 h-6 text-primary bg-primary border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							/>
+							<label for="checkbox-1" class="ms-2 text-gray-800 dark:text-gray-300">Yes </label>
+						</div>
+
+						<div class="flex items-center mt-2">
+							<input
+								id="checkbox-2"
+								type="checkbox"
+								value=""
+								class="w-6 h-6 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							/>
+							<label for="checkbox-2" class="ms-2 text-gray-800 dark:text-gray-300">No</label>
+						</div>
+					</div>
+
+					<!-- upload image -->
+					<div class="bg-gray-100 rounded-2xl p-1 border border-gray-300 w-full mt-4">
+						<div class="bg-white rounded-xl p-4 w-full flex-shrink-0 border border-gray-300">
+							<!-- Dropzone Container -->
+							<form action="/file-upload" class="dropzone" id="my-dropzone">
+								<div
+									class="border-2 border-dashed border-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:border-blue-500"
+								>
+									<div class="dz-message flex flex-col items-center justify-center p-8 cursor-pointer">
+										<!-- Upload Icon -->
+										<i data-lucide="image-plus" class="size-10 text-gray-400"></i>
+
+										<!-- Text Content -->
+										<div class="text-center mt-3">
+											<p class="text-gray-700">Drag your image here</p>
+											<p class="text-gray-700">or</p>
+											<p class="text-gray-700">select <span class="font-medium text-primary">Click to browse</span></p>
+										</div>
+									</div>
+								</div>
+							</form>
+
+							<!-- Upload Progress and File List -->
+							<div id="preview-container" class="mt-4 space-y-4"></div>
+						</div>
+					</div>
+					<!-- end upload image -->
+
+					<div class="flex justify-end mt-8 gap-x-6">
+						<button type="button" class="sec-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="prevStep">
+							Prev
+						</button>
+						<button type="button" class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="nextStep">
+							Next
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 7 -->
+
+			<!-- form 8 -->
+			<div x-show="step == 8" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Health Information</h1>
+
+				<p class="text-gray-600 mt-1">
+					List any medical conditions, medications, allergies, or special health care needs your child may have
+				</p>
+
+				<form action="" class="mt-6">
+					<div
+						x-data="{
+            data: [
+              {
+                email: '',
+                role: '',
+              },
+            ],
+            addMore() {
+              this.data.push({
+                email: '',
+                role: '',
+              });
+            },
+            remove(index) {
+              this.data.splice(index, 1);
+            },
+          }"
+						class="space-y-3"
+					>
+						<template x-for="(form, index) in data" :key="index">
+							<div>
+								<div class="">
+									<label for="website-admin" class="input-label">Regular Medications</label>
+									<input type="text" id="website-admin" class="input-field" />
+								</div>
+
+								<div class="mt-2">
+									<button
+										x-show="index === data.length - 1"
+										type="button"
+										class="text-green-700 px-3 py-2 rounded-md border border-green-700 text-sm font-medium mr-4"
+										@click="addMore"
+									>
+										<span class="fa fa-plus mr-2"></span> Add more
+									</button>
+									<button type="button" class="sec-btn" @click="remove(index)" x-show="data.length > 1 ">
+										<span class="fa fa-minus mr-2"></span> Remove
+									</button>
+								</div>
+							</div>
+						</template>
+					</div>
+
+					<div class="mt-3">
+						<label for="address" class="input-label"> Allergies and treatments </label>
+						<textarea
+							name="address"
+							id="address"
+							rows="2"
+							class="input-field"
+							placeholder="If your child has any allergies, provide details and the required treatment Example: Peanut allergy, EpiPen required"
+						></textarea>
+					</div>
+					<div class="mt-3">
+						<label for="address" class="input-label"> Injuries, Illnesses, Operations </label>
+						<textarea
+							name="address"
+							id="address"
+							rows="2"
+							class="input-field"
+							placeholder="List any recent or significant health concerns Example: Asthma (uses inhaler), Tonsillectomy (June 2023)"
+						></textarea>
+					</div>
+					<div class="mt-3">
+						<label for="address" class="input-label"> Health Concerns </label>
+						<textarea
+							name="address"
+							id="address"
+							rows="2"
+							class="input-field"
+							placeholder="Provide any additional health concerns that staff should be aware of Example: Mild asthma, requires inhaler during physical activity."
+						></textarea>
+					</div>
+					<div class="mt-3">
+						<label for="address" class="input-label"> Developmental Concerns </label>
+						<textarea
+							name="address"
+							id="address"
+							rows="2"
+							class="input-field"
+							placeholder="Indicate if your child has any developmental concerns] Example: Minor delay in speech development, under observation."
+						></textarea>
+					</div>
+					<div class="mt-3">
+						<label for="address" class="input-label"> Other information we should know </label>
+						<textarea
+							name="address"
+							id="address"
+							rows="2"
+							class="input-field"
+							placeholder="Provide details about your child’s social experiences and preferences in group settings"
+						></textarea>
+					</div>
+
+					<div class="flex justify-end mt-8 gap-x-6">
+						<button type="button" class="sec-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="prevStep">
+							Prev
+						</button>
+						<button type="button" class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="nextStep">
+							Next
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 8 -->
+
+			<!-- form 9 -->
+			<div x-show="step == 9" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Group Experiences</h1>
+
+				<p class="text-gray-600 mt-1">
+					Provide details about your child’s social experiences and preferences in group settings
+				</p>
+
+				<form action="" class="mt-6">
+					<div class="mt-3">
+						<label for="address" class="input-label"> What is/are your child’s favorite toy(s) / activities? </label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="List your child’s favorite toys or activities"
+						></textarea>
+					</div>
+
+					<div class="mt-4">
+						<p class="text-gray-700">Has your child had previous playgroup experience?</p>
+
+						<div class="flex items-center mt-2">
+							<input
+								id="checkbox-1"
+								type="checkbox"
+								value=""
+								class="w-6 h-6 text-primary bg-primary border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							/>
+							<label for="checkbox-1" class="ms-2 text-gray-800 dark:text-gray-300">Yes </label>
+						</div>
+
+						<div class="flex items-center mt-2">
+							<input
+								id="checkbox-2"
+								type="checkbox"
+								value=""
+								class="w-6 h-6 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							/>
+							<label for="checkbox-2" class="ms-2 text-gray-800 dark:text-gray-300">No</label>
+						</div>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field mt-2"
+							placeholder="If yes, how did he/she adapt?"
+						></textarea>
+					</div>
+
+					<div class="mt-4">
+						<label for="address" class="input-label">How does your child behave toward other children? </label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="Describe how your child interacts with other children, e.g., seeks others out, feels shy"
+						></textarea>
+					</div>
+
+					<div class="flex justify-end mt-8 gap-x-6">
+						<button type="button" class="sec-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="prevStep">
+							Prev
+						</button>
+						<button type="button" class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="nextStep">
+							Next
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 9 -->
+
+			<!-- form 10 -->
+			<div x-show="step == 10" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Emotional</h1>
+
+				<p class="text-gray-600 mt-1">
+					Provide insights into your child’s emotional reactions in new or unfamiliar situations.
+				</p>
+
+				<form action="" class="mt-6">
+					<div class="mt-3">
+						<label for="address" class="input-label">
+							How does your child react when left with unfamiliar people or in unfamiliar situations?
+						</label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="Describe your child’s emotional response in unfamiliar situations"
+						></textarea>
+					</div>
+
+					<div class="mt-4">
+						<label for="address" class="input-label">Does your child have any particular fears?</label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="List any specific fears your child may have"
+						></textarea>
+					</div>
+					<div class="mt-4">
+						<label for="address" class="input-label"
+							>What suggestions do you have that would help staff make your child’s transition into this program
+							easier?</label
+						>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="Provide any suggestions that may help the transition"
+						></textarea>
+					</div>
+
+					<div class="flex justify-end mt-8 gap-x-6">
+						<button type="button" class="sec-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="prevStep">
+							Prev
+						</button>
+						<button type="button" class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="nextStep">
+							Next
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 10 -->
+
+			<!-- form 11 -->
+			<div x-show="step == 11" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Family and general household information</h1>
+
+				<p class="text-gray-600 mt-1">
+					Provide details about your household and the important people in your child’s life.
+				</p>
+
+				<form action="" class="mt-6">
+					<div class="mt-3">
+						<label for="address" class="input-label"> Names of significant people in your child’s life </label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="List family members or close individuals"
+						></textarea>
+					</div>
+
+					<div class="mt-4">
+						<label for="address" class="input-label">Describe the guidance and discipline methods used at home</label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="Share the methods you use for discipline at home"
+						></textarea>
+					</div>
+					<div class="mt-4">
+						<label for="address" class="input-label">Primary language spoken in the home</label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="List the primary language used at home"
+						></textarea>
+					</div>
+
+					<div class="mt-4">
+						<label for="address" class="input-label">Other languages spoken</label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="List any other languages your child is exposed to"
+						></textarea>
+					</div>
+
+					<div class="mt-4">
+						<label for="address" class="input-label">Name of English-speaking person</label>
+						<input type="text" class="input-field" />
+					</div>
+
+					<div class="mt-4">
+						<label for="website-admin" class="input-label">Telephone (for the English-speaking person)</label>
+						<div class="flex mt-1">
+							<span
+								class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+							>
+								<i data-lucide="phone" class="size-5 text-gray-700"></i>
+							</span>
+							<input
+								type="text"
+								id="website-admin"
+								class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+								placeholder="John Doe"
+							/>
+						</div>
+					</div>
+
+					<div class="flex justify-end mt-8 gap-x-6">
+						<button type="button" class="sec-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="prevStep">
+							Prev
+						</button>
+						<button type="button" class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="nextStep">
+							Next
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 11 -->
+
+			<!-- form 12 -->
+			<div x-show="step == 12" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Eating and Nutrition</h1>
+
+				<p class="text-gray-600 mt-1">Provide details about your child’s eating preferences and dietary needs.</p>
+
+				<form action="" class="mt-6">
+					<div class="mt-3">
+						<label for="address" class="input-label"> List your child's favorite food </label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="Enter your child’s favorite food"
+						></textarea>
+					</div>
+
+					<div class="mt-4">
+						<label for="address" class="input-label">List any disliked food.</label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="Enter any foods your child dislikes"
+						></textarea>
+					</div>
+					<div class="mt-4">
+						<label for="address" class="input-label">Describe any particular eating patterns</label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="Share any specific eating habits or patterns your child follows"
+						></textarea>
+					</div>
+
+					<div class="mt-4">
+						<label for="address" class="input-label"
+							>Are there any religious or ethnic observances related to foods?</label
+						>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="Indicate any religious or cultural practices related to food"
+						></textarea>
+					</div>
+
+					<div class="flex justify-end mt-8 gap-x-6">
+						<button type="button" class="sec-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="prevStep">
+							Prev
+						</button>
+						<button type="button" class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="nextStep">
+							Next
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 12 -->
+
+			<!-- form 13 -->
+			<div x-show="step == 13" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Sleeping</h1>
+
+				<p class="text-gray-600 mt-1">Provide details about your child’s sleep schedule and habits.</p>
+
+				<form action="" class="mt-6">
+					<h3 class="lg:text-lg font-semibold">Nap Time</h3>
+					<div class="mt-2">
+						<label for="address" class="input-label"> Nap time </label>
+
+						<input type="text" class="input-field" placeholder="Indicate your child’s usual nap time" />
+					</div>
+					<div class="mt-4">
+						<label for="address" class="input-label"> How long to settle </label>
+
+						<input type="text" class="input-field" placeholder="Enter how long your child takes to fall asleep" />
+					</div>
+					<div class="mt-4">
+						<label for="address" class="input-label"> Time of waking </label>
+
+						<input
+							type="text"
+							class="input-field"
+							placeholder="Indicate the usual time your child wakes up from naps"
+						/>
+					</div>
+
+					<h3 class="lg:text-lg font-semibold mt-5">Bed Time</h3>
+					<div class="mt-2">
+						<label for="address" class="input-label"> Bed time </label>
+
+						<input type="text" class="input-field" placeholder="Indicate your child’s bedtime" />
+					</div>
+					<div class="mt-4">
+						<label for="address" class="input-label"> How long to settle </label>
+
+						<input type="text" class="input-field" placeholder="Enter how long your child takes to fall asleep" />
+					</div>
+					<div class="mt-4">
+						<label for="address" class="input-label"> Time of waking </label>
+
+						<input
+							type="text"
+							class="input-field"
+							placeholder="Indicate the usual time your child wakes up in the morning"
+						/>
+					</div>
+
+					<div class="mt-4">
+						<p class="text-gray-700">Does your child take a favourite comforter (e.G. Blanket or toy) to bed?</p>
+
+						<div class="flex items-center mt-2">
+							<input
+								id="checkbox-1"
+								type="checkbox"
+								value=""
+								class="w-6 h-6 text-primary bg-primary border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							/>
+							<label for="checkbox-1" class="ms-2 text-gray-800 dark:text-gray-300">Yes </label>
+						</div>
+
+						<div class="flex items-center mt-2">
+							<input
+								id="checkbox-2"
+								type="checkbox"
+								value=""
+								class="w-6 h-6 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							/>
+							<label for="checkbox-2" class="ms-2 text-gray-800 dark:text-gray-300">No</label>
+						</div>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field mt-2"
+							placeholder="If yes, describe and tell us if it is “named"
+						></textarea>
+					</div>
+
+					<div class="mt-3">
+						<label for="address" class="input-label"> What is your child’s mood upon waking? </label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="Describe how your child typically feels when they wake up"
+						></textarea>
+					</div>
+
+					<div class="flex justify-end mt-8 gap-x-6">
+						<button type="button" class="sec-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="prevStep">
+							Prev
+						</button>
+						<button type="button" class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="nextStep">
+							Next
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 13 -->
+
+			<!-- form 14 -->
+			<div x-show="step == 14" x-transition x-cloak>
+				<h1 class="text-xl font-semibold">Toileting</h1>
+
+				<p class="text-gray-600 mt-1">
+					Provide information about your child’s toilet training and any assistance they may need.
+				</p>
+
+				<form action="" class="mt-6">
+					<div class="">
+						<p class="text-gray-700">Is your child toilet trained?</p>
+
+						<div class="flex items-center mt-2">
+							<input
+								id="checkbox-1-new"
+								type="checkbox"
+								value=""
+								class="w-6 h-6 text-primary bg-primary border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							/>
+							<label for="checkbox-1-new" class="ms-2 text-gray-800 dark:text-gray-300">Yes </label>
+						</div>
+
+						<div class="flex items-center mt-2">
+							<input
+								id="checkbox-2-new"
+								type="checkbox"
+								value=""
+								class="w-6 h-6 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							/>
+							<label for="checkbox-2-new" class="ms-2 text-gray-800 dark:text-gray-300">No</label>
+						</div>
+						<div class="flex items-center mt-2">
+							<input
+								id="checkbox-3"
+								type="checkbox"
+								value=""
+								class="w-6 h-6 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+							/>
+							<label for="checkbox-3" class="ms-2 text-gray-800 dark:text-gray-300">Partially</label>
+						</div>
+					</div>
+
+					<div class="mt-3">
+						<label for="address" class="input-label"
+							>Please indicate your child’s frequency or patterns for bowel movements</label
+						>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="Share how often your child typically has bowel movements"
+						></textarea>
+					</div>
+
+					<div class="mt-4">
+						<label for="address" class="input-label">Describe assistance needed for toileting</label>
+						<textarea
+							name="address"
+							id="address"
+							rows="3"
+							class="input-field"
+							placeholder="Indicate if your child needs any help using the toilet"
+						></textarea>
+					</div>
+
+					<h3 class="lg:text-lg font-semibold mt-5">What “special” word does your child use for…</h3>
+
+					<div class="mt-2">
+						<label for="address" class="input-label"> Urination: </label>
+
+						<input type="text" class="input-field" placeholder="e.g pee-pee" />
+					</div>
+					<div class="mt-4">
+						<label for="address" class="input-label"> Bowel Movement </label>
+
+						<input type="text" class="input-field" placeholder="e.g poo-poo" />
+					</div>
+
+					<div class="flex justify-end mt-8 gap-x-6">
+						<button type="button" class="sec-btn w-36 disabled:bg-opacity-50 disabled:border-0" @click="prevStep">
+							Prev
+						</button>
+						<button
+							type="button"
+							class="primary-btn w-36 disabled:bg-opacity-50 disabled:border-0"
+							@click="alert('Child Info saved successfully')"
+						>
+							Enroll Child
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- end form 14 -->
+		</div>
+
+		<footer
+			class="mt-4 flex items-center justify-between z-10 max-w-7xl mx-auto absolute bottom-0 py-4 text-gray-600 left-0 w-full right-0"
+		>
+			<h5>&copy; 2022 Daycare Management. All rights reserved.</h5>
+
+			<a href="#"><span class="fa fa-circle-question mr-2"></span> Get help </a>
+		</footer>
+
+		<script>
+			lucide.createIcons();
+
+			Dropzone.options.myDropzone = {
+				url: "https://transfer.sh/",
+				acceptedFiles: "image/*,application/pdf,.doc,.docx,.xls,.xlsx",
+				addRemoveLinks: true,
+				maxFilesize: 5, // MB
+				previewsContainer: "#preview-container",
+				init: function () {
+					this.on("addedfile", function (file) {
+						// Create custom preview element
+						const previewElement = document.createElement("div");
+						previewElement.className = "bg-gray-50 rounded-lg p-4 flex items-center justify-between";
+
+						const fileInfo = document.createElement("div");
+						fileInfo.className = "flex items-center space-x-4";
+
+						// File icon
+						const fileIcon = document.createElement("div");
+						fileIcon.className = "text-blue-500";
+						fileIcon.innerHTML = `
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                    `;
+
+						// File details
+						const details = document.createElement("div");
+						details.innerHTML = `
+                        <p class="text-sm font-medium text-gray-900">${file.name}</p>
+                        <p class="text-sm text-gray-500">${(file.size / 1024).toFixed(1)} KB</p>
+                    `;
+
+						fileInfo.appendChild(fileIcon);
+						fileInfo.appendChild(details);
+						previewElement.appendChild(fileInfo);
+
+						// Progress bar
+						const progressBar = document.createElement("div");
+						progressBar.className = "w-64 bg-gray-200 rounded-full h-2.5";
+						progressBar.innerHTML = '<div class="bg-blue-500 h-2.5 rounded-full" style="width: 0%"></div>';
+						previewElement.appendChild(progressBar);
+
+						file.previewElement = previewElement;
+						document.querySelector("#preview-container").appendChild(previewElement);
+					});
+
+					this.on("uploadprogress", function (file, progress) {
+						const progressBar = file.previewElement.querySelector(".bg-blue-500");
+						progressBar.style.width = `${progress}%`;
+					});
+
+					this.on("success", function (file) {
+						file.previewElement.classList.add("border-green-500");
+					});
+
+					this.on("error", function (file, message) {
+						file.previewElement.classList.add("border-red-500");
+						const details = file.previewElement.querySelector(".text-gray-500");
+						details.textContent = message;
+						details.classList.add("text-red-500");
+					});
+				},
+			};
+		</script>
+	</body>
+</html>
