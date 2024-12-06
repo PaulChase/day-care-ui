@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Attendance Modal</title>
+		<link rel="stylesheet" href="/dist/app.css" />
+		<!-- fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+
+		<!-- font awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+			integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<style>
+			body {
+				font-family: "SF Pro Display", sans-serif;
+			}
+
+			[x-cloak] {
+				display: none;
+			}
+		</style>
+
+		<!-- swiper js -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+
+		<!-- lucide icons -->
+		<script src="https://unpkg.com/lucide@latest"></script>
+
+		<!-- chart js -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	</head>
+
+	<body class="min-h-screen flex items-center justify-center">
+		<div x-data="{showModal: false}">
+			<button class="primary-btn flex items-center gap-1" @click="showModal = !showModal">
+				<i data-lucide="plus" class="size-4"></i>
+				Indicate Absence
+			</button>
+
+			<!-- pay fees modal -->
+			<div
+				x-show="showModal"
+				x-transition
+				x-cloak
+				class="fixed bg-black/60 left-0 top-0 z-50 w-full h-full flex justify-center items-center p-4"
+			>
+				<div class="bg-white w-full max-w-xl rounded-2xl p-4 lg:p-6 font-normal max-h-[90%] overflow-y-auto">
+					<div class="flex items-center justify-between gap-4">
+						<div>
+							<h3 class="font-semibold text-lg lg:text-xl">Indicate Absence</h3>
+							<p class="mt-1 text-gray-600">Is [Child's Name] going to be absent today? Please select the reason.</p>
+						</div>
+
+						<button @click="showModal = !showModal">
+							<i data-lucide="x" class="size-6"></i>
+						</button>
+					</div>
+
+					<div class="mt-4">
+						<label for="countries" class="input-label">Reason</label>
+						<select id="countries" class="input-field">
+							<option value="Sickness">Sickess</option>
+							<option value="Appointment">Appointment</option>
+							<option value="Family Emergency">Family Emergency</option>
+						</select>
+					</div>
+
+					<div class="mt-4">
+						<label for="address" class="input-label"> Other </label>
+						<textarea
+							name="address"
+							id="address"
+							rows="2"
+							placeholder="please specify..."
+							class="input-field"
+						></textarea>
+					</div>
+
+					<div class="mt-6 flex justify-end items-center">
+						<button class="primary-btn">Done</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			lucide.createIcons();
+		</script>
+
+		<script>
+			const swiper = new Swiper(".children", {
+				// Optional parameters
+				loop: true,
+				autoplay: {
+					delay: 3000,
+				},
+
+				// If we need pagination
+				pagination: {
+					el: ".swiper-pagination",
+				},
+
+				// Navigation arrows
+				navigation: {
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+			});
+		</script>
+	</body>
+</html>
