@@ -6,6 +6,8 @@ module.exports = {
 		extend: {
 			colors: {
 				primary: "#7047EB",
+				btn_focused: "#32158B",
+				btn_inactive: "#DDD3FA",
 			},
 			fontFamily: {
 				courgette: ["Courgette", "cursive"],

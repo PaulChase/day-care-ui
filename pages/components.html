@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Components Page</title>
+		<link rel="stylesheet" href="/dist/app.css" />
+		<!-- fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+
+		<!-- font awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+			integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<!-- lucide icons -->
+		<script src="https://unpkg.com/lucide@latest"></script>
+
+		<!-- swiper js -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+		<style>
+			body {
+				font-family: "SF Pro Display", sans-serif;
+			}
+		</style>
+
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+	</head>
+
+	<body class="p-4">
+		<!-- buttons -->
+		<div>
+			<h3 class="text-lg font-medium">Buttons</h3>
+
+			<div class="flex gap-2 mt-4">
+				<!-- primary btn -->
+				<button
+					class="primary-btn flex items-center gap-2 justify-between focus:bg-btn_focused focus:border-btn_focused"
+				>
+					<i data-lucide="chevron-left" class="size-4"></i>
+					Button
+
+					<i data-lucide="chevron-right" class="size-4"></i>
+				</button>
+
+				<!-- disabled primary btn -->
+				<button
+					class="primary-btn flex items-center gap-2 justify-between focus:bg-btn_focused focus:border-btn_focused disabled:opacity-30"
+					disabled
+				>
+					<i data-lucide="chevron-left" class="size-4"></i>
+					Button
+
+					<i data-lucide="chevron-right" class="size-4"></i>
+				</button>
+			</div>
+
+			<div class="flex gap-2 mt-4">
+				<!-- secondary btn -->
+				<button class="sec-btn flex items-center gap-2 justify-between bg-white focus:bg-gray-100">
+					<i data-lucide="chevron-left" class="size-4"></i>
+					Button
+
+					<i data-lucide="chevron-right" class="size-4"></i>
+				</button>
+
+				<!-- disabled sec btn -->
+				<button class="sec-btn flex items-center gap-2 justify-between disabled:opacity-50" disabled>
+					<i data-lucide="chevron-left" class="size-4"></i>
+					Button
+
+					<i data-lucide="chevron-right" class="size-4"></i>
+				</button>
+			</div>
+
+			<div class="flex gap-2 mt-4">
+				<!-- danger btn -->
+				<button class="danger-btn flex items-center gap-2 justify-between focus:bg-red-900">
+					<i data-lucide="chevron-left" class="size-4"></i>
+					Button
+
+					<i data-lucide="chevron-right" class="size-4"></i>
+				</button>
+
+				<!-- disabled danger btn -->
+				<button class="danger-btn flex items-center gap-2 justify-between disabled:opacity-30" disabled>
+					<i data-lucide="chevron-left" class="size-4"></i>
+					Button
+
+					<i data-lucide="chevron-right" class="size-4"></i>
+				</button>
+			</div>
+		</div>
+		<!-- end buttons -->
+
+		<!-- form inputs -->
+		<div class="mt-8">
+			<h3 class="text-lg font-medium">Inputs</h3>
+
+			<div class="mt-4 grid gap-4">
+				<!-- input with icon -->
+				<div>
+					<label for="website-admin" class="block mb-2 text-sm font-medium text-gray-600 dark:text-white">Email</label>
+					<div class="flex">
+						<span
+							class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+						>
+							<i data-lucide="mail" class="size-5 text-gray-700"> </i>
+						</span>
+						<input
+							type="text"
+							id="website-admin"
+							class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+							placeholder="johndoe@test.com"
+						/>
+					</div>
+				</div>
+
+				<!-- password input field -->
+				<div class="relative" x-data="{show:false}">
+					<label for="website-admin" class="block text-sm font-medium text-gray-600 dark:text-white"
+						>Current Password</label
+					>
+					<div class="flex mt-1">
+						<span
+							class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+						>
+							<i data-lucide="key" class="size-5 text-gray-700"></i>
+						</span>
+						<div class="relative flex-1">
+							<input
+								:type="show ? 'text' : 'password'"
+								id="website-admin"
+								class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+							/>
+							<button
+								type="button"
+								@click="show = !show"
+								class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-700"
+							>
+								<i data-lucide="eye" x-show="!show"></i>
+								<i data-lucide="eye-closed" x-show="show"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- search input field -->
+				<div class="relative" x-data="{query:''}">
+					<label for="website-admin" class="block text-sm font-medium text-gray-600 dark:text-white"
+						>Search Users</label
+					>
+					<div class="flex mt-1">
+						<span
+							class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-50 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+						>
+							<i data-lucide="search" class="size-5 text-gray-700"></i>
+						</span>
+						<div class="relative flex-1">
+							<input
+								:type="text"
+								id="website-admin"
+								x-model="query"
+								class="rounded-none rounded-e-lg bg-white border border-gray-300 text-gray-900 focus:ring-1 focus:ring-primary outline-none focus:border-primary block flex-1 min-w-0 w-full text-sm p-2.5 dark:focus:ring-primary"
+							/>
+							<button
+								type="button"
+								@click="query = ''"
+								class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-700"
+							>
+								<i data-lucide="x" x-show="query.length > 0" class="size-4"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- normal input field -->
+				<div class="">
+					<label for="postal-code" class="input-label">Postal Code</label>
+					<input type="email" id="postal-code" class="input-field" />
+				</div>
+
+				<!-- textarea field -->
+				<div>
+					<label for="message" class="input-label">Message</label>
+					<textarea
+						name="message"
+						id="message"
+						rows="4"
+						placeholder="Type your message here..."
+						class="input-field"
+					></textarea>
+				</div>
+
+				<!-- select input field -->
+				<div class="">
+					<label for="gender" class="input-label">Gender</label>
+					<select id="gender" class="input-field">
+						<option value="Male">Male</option>
+						<option value="FeMale">Female</option>
+					</select>
+				</div>
+
+				<!-- switch toggle -->
+				<div class="flex items-center justify-between gap-2 mt-4">
+					<div>
+						<h3 class="font-medium">Switch Toggle</h3>
+					</div>
+
+					<div class="flex items-center">
+						<label class="inline-flex relative items-center cursor-pointer">
+							<input type="checkbox" value="" class="sr-only peer" id="toggle" />
+							<div
+								class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+							></div>
+						</label>
+					</div>
+				</div>
+
+				<!-- labels -->
+				<div class="flex items-center justify-between">
+					<div
+						class="text-xs font-medium border border-gray-300 rounded-full w-fit px-2 py-1 flex items-center justify-center"
+					>
+						<p>Label</p>
+					</div>
+					<div
+						class="text-xs font-medium border rounded-full w-fit px-2 py-1 flex items-center justify-center bg-amber-50 text-amber-700 border-amber-700"
+					>
+						<i data-lucide="dot" class="size-4 mr-1"></i>
+						<p>Label</p>
+					</div>
+					<div
+						class="text-xs font-medium border rounded-full w-fit px-2 py-1 flex items-center justify-center bg-purple-50 text-purple-700 border-purple-700"
+					>
+						<i data-lucide="zap" class="size-4 mr-1"></i>
+						<p>Label</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			lucide.createIcons();
+		</script>
+	</body>
+</html>
